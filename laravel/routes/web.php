@@ -13,5 +13,6 @@
 
 // Route to authentificate
 Route::auth();
+Route::get('logout', 'auth\LoginController@logout');
 
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
