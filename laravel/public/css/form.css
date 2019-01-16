@@ -1,0 +1,36 @@
+
+form{
+	display: flex;
+	flex-direction: column;
+}
+
+
+div{
+	text-align: center;
+	font-size: 150%;
+	margin-bottom: 1%;
+
+}
+
+.connexion{
+
+	margin: auto;
+	text-align: center;
+	font-size: 130%;
+	border-radius: 10%;
+	background-color: white;
+	color: black;
+	transition-duration: 0.4s;
+	margin-bottom: 2%;
+}
+
+.connexion:hover{
+	background-color: black;
+	color: white;
+}
+
+#link {
+	margin: auto;
+	text-align: center;
+	font-size: 130%;
+}

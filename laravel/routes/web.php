@@ -12,9 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('home');
 });
 
-Route::get('/shop', function () {
-    return view('shop')->with('title','shop')->with('logged', true);
-});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
