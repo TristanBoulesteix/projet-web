@@ -6,7 +6,7 @@
 
 	<div>
 		{!! Form::label('email', 'email:')!!}
-		{!! Form::mail('email', null, ['required'=>'required'])!!}
+		{!! Form::email('email', null, ['required'=>'required'])!!}
 	</div>
 
 	<div>

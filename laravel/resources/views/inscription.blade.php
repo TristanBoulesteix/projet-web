@@ -11,12 +11,12 @@
 
 	<div>
 		{!! Form::label('prenom', 'prenom:')!!}
-		{!! Form::mail('prenom', null, ['required'=>'required'])!!}
+		{!! Form::text('prenom', null, ['required'=>'required'])!!}
 	</div>
 
 	<div>
 		{!! Form::label('email', 'email:')!!}
-		{!! Form::mail('email', null, ['required'=>'required'])!!}
+		{!! Form::email('email', null, ['required'=>'required'])!!}
 	</div>
 
 	<div>
