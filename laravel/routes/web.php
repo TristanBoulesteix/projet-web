@@ -12,5 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home')->withTitle('home');
+});
+
+
+Route::get('/login', function () {
+    return view('login')->withTitle('login');
+});
+
+Route::get('/inscription', function () {
+    return view('inscription')->withTitle('inscription');
 });
