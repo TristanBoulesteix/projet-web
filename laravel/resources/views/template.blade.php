@@ -5,12 +5,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>{{$title}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="./css/template.css">
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+  @yield('css')
 </head>
 
 <body>
   <header>
     <div id="banner"></div>
+    @if ($logged)
+    <button>Connexion</button>
+    @else
+    <p>Bonjour!</p>
+    @endif
   </header>
     <aside class="sidebar">
       <div id="logo"></div>
@@ -23,3 +29,4 @@
     </main>
 </body>
 </html>
+
