@@ -2,7 +2,9 @@
 
 @section('content')
 
-{!! Form::open(['url'=>'/Inscription'])!!}
+<h2> Inscrivez vous! </h2>
+
+{!! Form::open(['url'=>'/Register'])!!}
 
 	<div>
 		{!! Form::label('nom', 'nom:')!!}
@@ -24,11 +26,13 @@
 		{!! Form::password('mdp', ['required'=>'required'])!!}
 	</div>
 
-	echo Form::select('centres', array(
-    'Lyon' => array('ville' => 'Ville'),
-    'Paris' => array('ville' => 'Ville'),
-    'Strasbourg' => array('ville' => Ville'),
-	));
+	<div>
+	{!! Form::label('centre', 'votre centre:') !!}
+	{!! Form::select('centres', array(
+    'Lyon' => 'Lyon',
+    'Paris' => 'Paris',
+    'Strasbourg' => 'Strasbourg'), ['required'=>'required'])!!}
+	</div>
 
 	{!! Form::submit('Créer un compte')!!}
 

@@ -2,6 +2,8 @@
 
 @section('content')
 
+<h2> Connection au site du BDE: </h2>
+
 {!! Form::open(['url'=>'/Login'])!!}
 
 	<div>
@@ -14,16 +16,18 @@
 		{!! Form::password('mdp', ['required'=>'required'])!!}
 	</div>
 
-	echo Form::select('centres', array(
-    'Lyon' => array('ville' => 'Ville'),
-    'Paris' => array('ville' => 'Ville'),
-    'Strasbourg' => array('ville' => Ville'),
-	));
+	<div>
+	{!! Form::label('centre', 'votre centre:') !!}
+	{!! Form::select('centres', array(
+    'Lyon' => 'Lyon',
+    'Paris' => 'Paris',
+    'Strasbourg' => 'Strasbourg'), ['required'=>'required'])!!}
+	</div>
 
 	{!! Form::submit('connexion')!!}
 
-	{!! Form::submit('Créer un compte')!!}
-
 {!! Form::close()!!}
+
+<a href="register"> Créer votre compte </a>
 
 @endsection
