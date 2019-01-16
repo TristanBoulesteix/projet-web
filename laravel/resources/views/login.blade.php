@@ -7,19 +7,23 @@
 
 <h3> Connection au site du BDE: </h3>
 
-{!! Form::open(['url'=>'/Login'])!!}
+{!! Form::open(['route'=>'login'])!!}
 
 <div>
-	{!! Form::label('email', 'email:')!!} {!! Form::email('email', null, ['required'=>'required'])!!}
+	{!! Form::label('mail', 'email:')!!}
+	{!! Form::email('mail', null, ['required'=>'required'])!!}
+	{!! $errors->first('mail','<small class="help-block">:message</small>') !!}
 </div>
 
 <div>
-	{!! Form::label('mdp', 'mot de passe :')!!} {!! Form::password('mdp', ['required'=>'required'])!!}
+	{!! Form::label('password', 'mot de passe :')!!} {!! Form::password('password', ['required'=>'required'])!!}
+	{!! $errors->first('password','<small class="help-block">:message</small>') !!}
 </div>
 
 <div>
-	{!! Form::label('centre', 'votre centre:') !!} {!! Form::select('centres', array( 'Lyon' => 'Lyon', 'Paris' => 'Paris', 'Strasbourg'
-	=> 'Strasbourg'), ['required'=>'required'])!!}
+	{!! Form::label('campus', 'votre centre:') !!}
+	{!! Form::select('campus', array( 'Lyon' => 'Lyon', 'Paris' => 'Paris', 'Strasbourg' => 'Strasbourg'), ['required'=>'required'])!!}
+	{!! $errors->first('campus','<small class="help-block">:message</small>') !!}
 </div>
 
 {!! Form::submit('connexion', ['class'=>'connexion'])!!}

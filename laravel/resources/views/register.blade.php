@@ -7,34 +7,44 @@
 
 <h3> Inscrivez vous! </h3>
 
-{!! Form::open(['url'=>'/Register'])!!}
+{!! Form::open(['route'=>'register'])!!}
 
 	<div>
-		{!! Form::label('nom', 'nom:')!!}
-		{!! Form::text('nom', null, ['required'=>'required'])!!}
+		{!! Form::label('first_name', 'nom:')!!}
+		{!! Form::text('first_name', null, ['required'=>'required'])!!}
+		{!! $errors->first('first_name','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div>
-		{!! Form::label('prenom', 'prenom:')!!}
-		{!! Form::text('prenom', null, ['required'=>'required'])!!}
+		{!! Form::label('last_name', 'prenom:')!!}
+		{!! Form::text('last_name', null, ['required'=>'required'])!!}
+		{!! $errors->first('last_name','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div>
 		{!! Form::label('email', 'email:')!!}
 		{!! Form::email('email', null, ['required'=>'required'])!!}
+		{!! $errors->first('email','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div>
-		{!! Form::label('mdp', 'mot de passe :')!!}
-		{!! Form::password('mdp', ['required'=>'required'])!!}
+		{!! Form::label('password', 'mot de passe :')!!}
+		{!! Form::password('password', ['required'=>'required'])!!}
 	</div>
 
 	<div>
-	{!! Form::label('centre', 'votre centre:') !!}
-	{!! Form::select('centres', array(
-    'Lyon' => 'Lyon',
-    'Paris' => 'Paris',
-    'Strasbourg' => 'Strasbourg'), ['required'=>'required'])!!}
+		{!! Form::label('password_confirmation', 'mot de passe :')!!}
+		{!! Form::password('password_confirmation', ['required'=>'required'])!!}
+		{!! $errors->first('password','<small class="help-block">:message</small>') !!}
+	</div>
+
+	<div>
+	{!! Form::label('campus', 'votre centre:') !!}
+	{!! Form::select('campus', array(
+	'Lyon' => 'Lyon',
+	'Paris' => 'Paris',
+	'Strasbourg' => 'Strasbourg'), ['required'=>'required'])!!}
+	{!! $errors->first('campus','<small class="help-block">:message</small>') !!}
 	</div>
 
 	{!! Form::submit('créer votre compte', ['class'=>'connexion'])!!}
