@@ -39,9 +39,4 @@ class LoginController extends Controller {
 	public function showLoginForm() {
 		return view('login')->with('title', 'connexion');
 	}
-
-	public function logout() {
-		Auth::logout();
-		return redirect()->route('home');
-	}
 }
