@@ -2,7 +2,17 @@
 
 @section('content')
 
-{!! Form::open(['url'=>'/Login'])!!}
+{!! Form::open(['url'=>'/Inscription'])!!}
+
+	<div>
+		{!! Form::label('nom', 'nom:')!!}
+		{!! Form::text('nom', null, ['required'=>'required'])!!}
+	</div>
+
+	<div>
+		{!! Form::label('prenom', 'prenom:')!!}
+		{!! Form::mail('prenom', null, ['required'=>'required'])!!}
+	</div>
 
 	<div>
 		{!! Form::label('email', 'email:')!!}
@@ -19,8 +29,6 @@
     'Paris' => array('ville' => 'Ville'),
     'Strasbourg' => array('ville' => Ville'),
 	));
-
-	{!! Form::submit('connexion')!!}
 
 	{!! Form::submit('Créer un compte')!!}
 
