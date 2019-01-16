@@ -14,6 +14,4 @@
 // Route to authentificate
 Route::auth();
 
-Route::get('/', 'HomeController@index');
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
