@@ -11,11 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-	return view('home');
-});
+// Route to authentificate
+Route::auth();
+Route::get('logout', 'auth\LoginController@logout');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
