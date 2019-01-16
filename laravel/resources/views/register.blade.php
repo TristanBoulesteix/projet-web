@@ -1,8 +1,11 @@
 @extends ("template")
 
+@section('css')
+<link rel="stylesheet" type="text/css" href="form.css">
+@endsection
 @section('content')
 
-<h2> Inscrivez vous! </h2>
+<h3> Inscrivez vous! </h3>
 
 {!! Form::open(['url'=>'/Register'])!!}
 

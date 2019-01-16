@@ -1,5 +1,8 @@
 @extends ("template")
 
+@section('css')
+<link rel="stylesheet" type="text/css" href="form.css">
+@endsection
 @section('content')
 
 <h2> Connection au site du BDE: </h2>
