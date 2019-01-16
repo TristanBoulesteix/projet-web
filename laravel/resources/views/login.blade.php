@@ -10,8 +10,8 @@
 {!! Form::open(['route'=>'login'])!!}
 
 <div>
-	{!! Form::label('mail', 'email:')!!}
-	{!! Form::email('mail', null, ['required'=>'required'])!!}
+	{!! Form::label('email', 'email:')!!}
+	{!! Form::email('email', null, ['required'=>'required'])!!}
 	{!! $errors->first('mail','<small class="help-block">:message</small>') !!}
 </div>
 
