@@ -11,12 +11,13 @@
 
 <body>
   <header>
-    <div id="banner"></div>
-    @if ($logged)
+    <div id="banner"> @if ($logged)
     <button>Connexion</button>
     @else
     <p>Bonjour!</p>
     @endif
+    </div>
+   
   </header>
     <aside class="sidebar">
       <div id="logo"></div>
@@ -27,6 +28,9 @@
     <main>
       @yield('content')
     </main>
+    <footer>
+      <p> Mentions Légales: <br> Voici les mestions légales.<br>À completer.<p>
+    </footer>
 </body>
 </html>
 
