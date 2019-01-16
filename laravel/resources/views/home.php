@@ -2,7 +2,7 @@
 
 @section('content')
 
-{!! Form::open(['url'=>'/Connexion'])!!}
+{!! Form::open(['url'=>'/'])!!}
 
 	<h3> Qu'est ce qu'un BDE </h3>
 
