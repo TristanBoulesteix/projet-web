@@ -1,0 +1,104 @@
+  html{
+    height: 100%;
+    width: 100%;
+  }
+  
+  body{
+    font-family: Roboto, sans-serif;
+    background-color: white;
+    color: rgb(255, 250, 250);
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  }
+
+  header{
+    margin-left: auto;
+    height: 20%;
+    width: 100%;
+  }
+
+  main{
+    width: 85%;
+    float: right;
+    color: rgb(0,0,0);
+  }
+
+/* The side navigation menu */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  background-color: #000000;
+font-size: 120%;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  top: 0;
+  float: left;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color : white;
+  padding: 20px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  color: rgb(235, 196, 26);
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  color: rgb(235, 196, 26);
+}
+
+/* On screens that are less than 785px wide, make the sidebar into a topbar */
+@media screen and (max-width: 785px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+#logo{
+  /*Height and with pof the div*/
+  width: 100%;
+  height: 15%;
+  display: block;
+  /* The image used */
+  background-image: url("../img/logo.png");
+  background-color: white;
+  /* Scale and center the image nicely */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+#banner{
+  /*Height and with pof the div*/
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* The image used */
+  background-image: url("../img/bannerIT.jpg");
+  /* Scale and center the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
