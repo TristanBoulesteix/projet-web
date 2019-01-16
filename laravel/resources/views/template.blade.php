@@ -6,14 +6,18 @@
   <title>{{$title}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="./css/main.css">
-
 @yield('css')
-
 </head>
 
 <body>
   <header>
-    <div id="banner"></div>
+    <div id="banner"> @if ($logged)
+    <button>Connexion</button>
+    @else
+    <p>Bonjour!</p>
+    @endif
+    </div>
+   
   </header>
     <aside class="sidebar">
       <div id="logo"></div>
@@ -24,5 +28,9 @@
     <main>
       @yield('content')
     </main>
+    <footer>
+      <p> Mentions Légales: <br> Voici les mestions légales.<br>À completer.<p>
+    </footer>
 </body>
 </html>
+
