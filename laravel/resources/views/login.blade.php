@@ -1,11 +1,11 @@
 @extends ("template")
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="form.css">
+<link rel="stylesheet" type="text/css" href="../css/form.css">
 @endsection
 @section('content')
 
-<h2> Connection au site du BDE: </h2>
+<h3> Connection au site du BDE: </h3>
 
 {!! Form::open(['url'=>'/Login'])!!}
 
@@ -27,10 +27,13 @@
     'Strasbourg' => 'Strasbourg'), ['required'=>'required'])!!}
 	</div>
 
-	{!! Form::submit('connexion')!!}
+	{!! Form::submit('connexion', ['class'=>'connexion'])!!}
+
+
+<a id="link" href="register"> Créer votre compte </a>
 
 {!! Form::close()!!}
 
-<a href="register"> Créer votre compte </a>
+
 
 @endsection

@@ -1,7 +1,7 @@
 @extends ("template")
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="form.css">
+<link rel="stylesheet" type="text/css" href="../css/form.css">
 @endsection
 @section('content')
 
@@ -37,7 +37,7 @@
     'Strasbourg' => 'Strasbourg'), ['required'=>'required'])!!}
 	</div>
 
-	{!! Form::submit('Créer un compte')!!}
+	{!! Form::submit('créer votre compte', ['class'=>'connexion'])!!}
 
 {!! Form::close()!!}
 
