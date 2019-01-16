@@ -12,14 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('home')->withTitle('home');
+	return view('home');
 });
 
+Auth::routes();
 
-Route::get('/Login', function () {
-    return view('login')->withTitle('login');
-});
-
-Route::get('/Inscription', function () {
-    return view('inscription')->withTitle('inscription');
-});
+Route::get('/home', 'HomeController@index')->name('home');
