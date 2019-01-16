@@ -16,10 +16,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login', function () {
+Route::get('/Login', function () {
     return view('login')->withTitle('login');
 });
 
-Route::get('/inscription', function () {
+Route::get('/Inscription', function () {
     return view('inscription')->withTitle('inscription');
 });
