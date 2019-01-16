@@ -12,10 +12,9 @@
 */
 
 Route::get('/', function () {
-	return view('home');
+	return view('home')->with('title','home')->with('logged', false);
 });
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+//Route::get('/home', 'HomeController@index')->name('home');
