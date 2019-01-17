@@ -80,6 +80,6 @@ class RegisterController extends Controller {
 	 *
 	 */
 	public function showRegistrationForm() {
-		return view('register')->with('title', 'Créer un compte');
+		return view('register')->with('title', 'Créer un compte')->withLogged(false);
 	}
 }
