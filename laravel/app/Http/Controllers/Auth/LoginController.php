@@ -37,6 +37,6 @@ class LoginController extends Controller {
 	}
 
 	public function showLoginForm() {
-		return view('login')->with('title', 'connexion')->with('logged', false);
+		return view('auth.login')->with('title', 'connexion')->with('logged', false);
 	}
 }
