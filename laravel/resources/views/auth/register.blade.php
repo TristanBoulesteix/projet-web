@@ -41,9 +41,9 @@
 	<div>
 	{!! Form::label('campus', 'votre centre:') !!}
 	{!! Form::select('campus', array(
-	'Lyon' => 'Lyon',
-	'Paris' => 'Paris',
-	'Strasbourg' => 'Strasbourg'), ['required'=>'required'])!!}
+	'Lyon',
+	'Paris',
+	'Strasbourg'), ['required'=>'required'])!!}
 	{!! $errors->first('campus','<small class="help-block">:message</small>') !!}
 	</div>
 
