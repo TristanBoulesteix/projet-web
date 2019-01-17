@@ -56,11 +56,11 @@ return [
 			'engine' => null,
 		],
 
-		'msql_user' => [
+		'mysql_user' => [
 			'driver' => 'mysql',
 			'host' => env('DB_HOST', '127.0.0.1'),
 			'port' => env('DB_PORT', '3306'),
-			'database' => 'projet-web',
+			'database' => 'projet-web-user',
 			'username' => 'root',
 			'password' => '',
 			'unix_socket' => env('DB_SOCKET', ''),
