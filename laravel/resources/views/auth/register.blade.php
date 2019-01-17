@@ -7,7 +7,7 @@
 
 <h3> Inscrivez vous! </h3>
 
-{!! Form::open(['route'=>'register'])!!}
+{!! Form::open(['route'=>'register']) !!}
 
 	<div>
 		{!! Form::label('first_name', 'nom:')!!}
@@ -16,14 +16,14 @@
 	</div>
 
 	<div>
-		{!! Form::label('last_name', 'prenom:')!!}
+		{!! Form::label('last_name', 'prénom:')!!}
 		{!! Form::text('last_name', null, ['required'=>'required'])!!}
 		{!! $errors->first('last_name','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div>
 		{!! Form::label('email', 'email:')!!}
-		{!! Form::email('email', null, ['required'=>'required'])!!}
+		{!! Form::email('email', null, ['required'=>'required', 'value' => old('email')])!!}
 		{!! $errors->first('email','<small class="help-block">:message</small>') !!}
 	</div>
 
