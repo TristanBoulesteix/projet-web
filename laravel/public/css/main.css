@@ -125,7 +125,23 @@ p{
 
 }
 
-#hello, #connexion{
+#hello{
+  text-align: center;
+  background-color: #fff8f8;
+  color:  rgb(0, 0, 0);
+  z-index: 9999;
+  display: block;
+  width: auto;
+  float: right;
+  margin-top: 2%;
+  margin-right: 2%;
+  padding: 0.2%;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#connexion{
   text-align: center;
   background-color: #fff8f8;
   color:  rgb(0, 0, 0);
