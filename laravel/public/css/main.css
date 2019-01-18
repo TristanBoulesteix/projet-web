@@ -43,6 +43,7 @@
   footer{
     overflow: auto;
     margin-left: 15%;
+    width: 85%;
     height: 15%;
     text-align: center;
     background-color: black;
@@ -131,7 +132,7 @@ h3{
   text-align: center;
   font-size: 200%;
 }
- 
+
 /* CSS for the p markup */
 p{
   text-align: center;
