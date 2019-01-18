@@ -159,7 +159,21 @@ main{
 }
 
 #backshop{
+
   text-align: center;
+  margin-top: 5%;
+  background-color: white;
+  color: black;
+  font-size: 120%;
+  margin-left: 45%;
+}
+
+#backshop:hover{
   background-color: black;
   color: white;
+  text-decoration: none;
+}
+
+#thx{
+  padding-bottom: 10%; 
 }

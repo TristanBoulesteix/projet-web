@@ -12,7 +12,7 @@
 @section ('content')
 
 <div>
-	<p>
+	<p id="thx">
 		Merci de votre achat!
 	</p>
 	<a href="/shop" id="backshop"> Retour à la Boutique </a>
