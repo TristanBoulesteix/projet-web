@@ -20,7 +20,7 @@
     @if (!$logged)
     <a id="connexion" href="/login">Connexion</a>
     @else
-    <p id="hello" href="/logout">Bonjour Utilisateur!</p>
+    <a id="hello" href="/logout">Bonjour Utilisateur!</a>
     @endif
     </div>
 
