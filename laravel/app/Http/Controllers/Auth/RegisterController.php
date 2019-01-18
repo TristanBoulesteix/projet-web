@@ -62,15 +62,21 @@ class RegisterController extends Controller {
 	 * @return \App\User
 	 */
 	protected function create(array $data) {
+		// Get the campus id
 		$campusName = $data['campus'];
-		$campus = DB::connection('mysql_user')->select('CALL campusID(?)', ['Nice']);
+		$campus = DB::connection('mysql_user')->select('CALL campusID(?)', [$campusName]);
 
+		// Get the status id
+		$statusName = $data['status'];
+		$role = DB::connection('mysql_user')->select('CALL campusID(?)', [$statusName]);
+
+		// Creat
 		return User::create([
 			'last_name' => $data['last_name'],
 			'first_name' => $data['first_name'],
 			'email' => $data['email'],
 			'campus' => $campus[0]->id,
-			'status' => 'student',
+			'role' => 'student',
 			'password' => Hash::make($data['password']),
 		]);
 	}
