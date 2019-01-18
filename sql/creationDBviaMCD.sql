@@ -19,13 +19,12 @@ CREATE TABLE Pojet_web_users.CAMPUS(
 #------------------------------------------------------------
 
 CREATE TABLE Pojet_web_users.USER(
-        id_user         Int  Auto_increment  NOT NULL ,
-        first_name_user Varchar (255) NOT NULL ,
-        last_name_user  Varchar (255) NOT NULL ,
-        password_user   Varchar (255) NOT NULL ,
-        email_user      Varchar (255) NOT NULL ,
-        status_user     Varchar (255) NOT NULL ,
-        id_campus       Int NOT NULL
+        id_user       Int  Auto_increment  NOT NULL ,
+        name_user     Varchar (255) NOT NULL ,
+        password_user Varchar (255) NOT NULL ,
+        email_user    Varchar (255) NOT NULL ,
+        status_user   Varchar (255) NOT NULL ,
+        id_campus     Int NOT NULL
 	,CONSTRAINT Pojet_web_users.USER_PK PRIMARY KEY (id_user)
 
 	,CONSTRAINT Pojet_web_users.USER_Pojet_web_users.CAMPUS_FK FOREIGN KEY (id_campus) REFERENCES Pojet_web_users.CAMPUS(id_campus)
