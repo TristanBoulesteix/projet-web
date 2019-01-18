@@ -1,0 +1,58 @@
+.row {
+  margin: 8px -16px;
+  margin: auto;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+
+}
+#wrapper{
+  width: 75%;
+  margin: auto;
+}
+.column {
+  width: 30%;
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  text-align : center;
+  color: white;
+  padding: 10px 0px 10px 0px;
+  width: 100%;
+}
+
+
+.fa-thumbs-up{
+font-size: 250%;
+  margin-right:3%;
+  padding: 0.5%;
+  border: 2px solid black;
+}
+
+h3{
+	text-align: left;
+	margin-left: 5%;
+}
+h4{
+	text-align: left;
+	margin-left: 5%;
+	font-size: 130%;
+}

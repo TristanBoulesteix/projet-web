@@ -13,7 +13,9 @@
           <input type="text" placeholder="Rechercher.." name="search">
           <button type="submit"><i class="fa fa-search"></i></button>
         </form>
+      <a href="card">  
         <i class="fa fa-shopping-cart " href=""></i>
+      </a>
     </div>
   <div id="wrapper">
     <div class="row">
