@@ -13,7 +13,9 @@
           <input type="text" placeholder="Rechercher.." name="search">
           <button type="submit"><i class="fa fa-search"></i></button>
         </form>
+      <a href="card">  
         <i class="fa fa-shopping-cart " href=""></i>
+      </a>
     </div>
   <div id="wrapper">
     <div class="row">
@@ -42,6 +44,13 @@
   </div>
 
   <h3 id="top3"> Tout les articles : </h3>
+
+<div id="categorie">
+  {!! Form::label('categorie', 'All:') !!}
+  {!! Form::select('categorie', array( 'catégorie 1' => 'catégorie 1', 'catégorie 2' => 'catégorie 2', 'catégorie 3' => 'catégorie 3'), ['required'=>'required'])!!}
+  {!! $errors->first('categorie','<small class="help-block">:message</small>') !!}
+</div>
+
 
   <div id="wrapper">
     <div class="row">

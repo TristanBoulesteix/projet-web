@@ -1,3 +1,13 @@
+  h1{
+    text-align: left;
+    margin-left: 20%;
+    margin-top: 0;
+    padding-top: 4%;
+    margin-right: 50%;
+    margin-bottom: auto;
+    position: absolute;
+  }
+
   html{
     height: 100%;
     width: 100%;
@@ -23,8 +33,19 @@
 /* CSS for the main */
   main{
     width: 85%;
+    height: auto;
     float: right;
     color: rgb(0,0,0);
+    margin-left: 20%;
+  }
+
+/* CSS for the footer */
+  footer{
+    overflow: auto;
+    margin-left: 15%;
+    height: 15%;
+    text-align: center;
+    background-color: black;
   }
 
 /* The side navigation menu */
@@ -132,13 +153,14 @@ p{
   z-index: 9999;
   display: block;
   width: auto;
-  float: right;
-  margin-top: 2%;
+  right: 3%;
+  margin-top: 4%;
   margin-right: 2%;
   padding: 0.2%;
   border-radius: 10px;
   cursor: pointer;
   text-decoration: none;
+  position: absolute;
 }
 
 #connexion{
@@ -155,4 +177,10 @@ p{
   border-radius: 10px;
   cursor: pointer;
   text-decoration: none;
+}
+
+#legal{
+  color: white;
+  text-align: center;
+  display: inline-block;
 }
