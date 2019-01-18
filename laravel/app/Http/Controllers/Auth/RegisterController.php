@@ -63,13 +63,13 @@ class RegisterController extends Controller {
 	 */
 	protected function create(array $data) {
 		$campusName = $data['campus'];
-		//$campus = DB::connexion()->select('CALL getCampus(?)', ['lyon']);
+		$campus = DB::connection('mysql_user')->select('CALL campusID(?)', ['Nice']);
 
 		return User::create([
 			'last_name' => $data['last_name'],
 			'first_name' => $data['first_name'],
 			'email' => $data['email'],
-			'campus' => '1',
+			'campus' => $campus[0]->id,
 			'status' => 'student',
 			'password' => Hash::make($data['password']),
 		]);
