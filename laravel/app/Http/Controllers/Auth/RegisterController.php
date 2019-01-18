@@ -68,7 +68,7 @@ class RegisterController extends Controller {
 
 		// Get the status id
 		$statusName = $data['status'];
-		$role = DB::connection('mysql_user')->select('CALL campusID(?)', [$statusName]);
+		$role = DB::connection('mysql_user')->select('CALL rolePerID(?)', [$statusName]);
 
 		// Creat
 		return User::create([
@@ -76,7 +76,7 @@ class RegisterController extends Controller {
 			'first_name' => $data['first_name'],
 			'email' => $data['email'],
 			'campus' => $campus[0]->id,
-			'role' => 'student',
+			'role' => $role[0]->id,
 			'password' => Hash::make($data['password']),
 		]);
 	}
