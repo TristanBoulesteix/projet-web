@@ -11,7 +11,7 @@ class CreateCampusTable extends Migration {
 	 * @return void
 	 */
 	public function up() {
-		Schema::create('campus', function (Blueprint $table) {
+		Schema::connection('mysql_user')->create('campus', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name');
 		});
@@ -23,6 +23,6 @@ class CreateCampusTable extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Schema::dropIfExists('campus');
+		Schema::connection('mysql_user')->dropIfExists('campus');
 	}
 }
