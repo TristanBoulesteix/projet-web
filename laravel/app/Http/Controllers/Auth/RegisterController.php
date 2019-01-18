@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller {
@@ -27,7 +28,7 @@ class RegisterController extends Controller {
 	 *
 	 * @var string
 	 */
-	protected $redirectTo = '/home';
+	protected $redirectTo = '/';
 
 	/**
 	 * Create a new controller instance.
@@ -47,10 +48,10 @@ class RegisterController extends Controller {
 	protected function validator(array $data) {
 		return Validator::make($data, [
 			'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['string', 'max:255'],
-            'center' => ['string', 'max:255'],
-			'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-			'password' => ['required', 'string', 'min:6', 'confirmed'],
+			'last_name' => ['required', 'string', 'max:255'],
+			'campus' => ['string', 'max:255'],
+			'email' => ['required', 'string', 'email', 'max:255', 'unique:mysql_user.users'],
+			'password' => ['required', 'string', 'min:6', 'confirmed', 'max:255', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/'],
 		]);
 	}
 
@@ -61,12 +62,24 @@ class RegisterController extends Controller {
 	 * @return \App\User
 	 */
 	protected function create(array $data) {
+		$campusName = $data['campus'];
+		//$campus = DB::connexion()->select('CALL getCampus(?)', ['lyon']);
+
 		return User::create([
 			'last_name' => $data['last_name'],
-            'first_name' => $data['first_name'],
-            'center' => $data['center'],
+			'first_name' => $data['first_name'],
 			'email' => $data['email'],
+			'campus' => '1',
+			'status' => 'student',
 			'password' => Hash::make($data['password']),
 		]);
+	}
+
+	/**
+	 * Show the form to create an account
+	 *
+	 */
+	public function showRegistrationForm() {
+		return view('auth.register')->with('title', 'Créer un compte')->withLogged(false);
 	}
 }
