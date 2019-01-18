@@ -14,6 +14,7 @@ class CreateImagesTable extends Migration {
 		Schema::create('images', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('image');
+			$table->integer('votes');
 			$table->integer('id_event');
 			$table->foreign('id_event')->references('id')->on('events');
 		});
