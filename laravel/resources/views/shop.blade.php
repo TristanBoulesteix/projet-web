@@ -43,6 +43,13 @@
 
   <h3 id="top3"> Tout les articles : </h3>
 
+<div id="categorie">
+  {!! Form::label('categorie', 'All:') !!}
+  {!! Form::select('categorie', array( 'catégorie 1' => 'catégorie 1', 'catégorie 2' => 'catégorie 2', 'catégorie 3' => 'catégorie 3'), ['required'=>'required'])!!}
+  {!! $errors->first('categorie','<small class="help-block">:message</small>') !!}
+</div>
+
+
   <div id="wrapper">
     <div class="row">
       <div class="column">
