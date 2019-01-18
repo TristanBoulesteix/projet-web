@@ -1,6 +1,11 @@
 @extends ("template")
 @section('css')
 <link rel="stylesheet" type="text/css" href="../css/form.css">
+<style>
+	main {
+		height: 65%;
+	}
+</style>
 @endsection
 
 @section('content')

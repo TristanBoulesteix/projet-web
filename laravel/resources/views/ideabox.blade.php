@@ -5,3 +5,6 @@
 @endsection
 
 @section ('content')
+
+<h3 id="top3"> Venez proposer vos idées d'évènements! </h3>
+

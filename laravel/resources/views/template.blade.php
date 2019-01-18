@@ -15,25 +15,27 @@
 
 <body>
   <header>
-    <div id="banner"> @if (!$logged)
-    <a id="connexion" href="">Connexion</a>
+    <div id="banner">
+    <h1> Bienvenue sur le site du BDE! </h1>
+    @if (!$logged)
+    <a id="connexion" href="/login">Connexion</a>
     @else
-    <p id="hello" href="">Bonjour Utilisateur!</p>
+    <p id="hello" href="/logout">Bonjour Utilisateur!</p>
     @endif
     </div>
 
   </header>
     <aside class="sidebar">
       <div id="logo"></div>
-        <a href="#Shop">Boutique</a>
-        <a href="#Ideas">Boîte à Idées</a>
-        <a href="#event">Évènement</a>
+        <a href="/shop">Boutique</a>
+        <a href="/idea">Boîte à Idées</a>
+        <a href="#/event">Évènement</a>
     </aside>
     <main>
       @yield('content')
     </main>
     <footer>
-      <p> Mentions Légales: <br> Voici les mestions légales.<br>À completer.<p>
+      <p id="legal"> Mentions Légales: <br> Voici les mentions légales.<br>À completer.</p>
     </footer>
     <script type="text/javascript" src="./js/boutonHello.js"></script>
 </body>

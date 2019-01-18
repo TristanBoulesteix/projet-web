@@ -22,15 +22,18 @@ main{
 }
 
 #top3{
-  text-align: left;
-  margin-left: 30%;
+  text-align: center;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 #categorie{
   text-align: right;
-  margin-right: 18%;
-  font-size: 130%;
-  margin-top: -3.6%;
+  width: auto;
+  display: inline-block;
+  margin-right: 10%;
+
 }
 
 
@@ -153,4 +156,10 @@ main{
   .column {
     width: 100%;
   }
+}
+
+#backshop{
+  text-align: center;
+  background-color: black;
+  color: white;
 }
