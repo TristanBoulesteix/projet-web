@@ -11,15 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home')->withTitle('home');
-});
+//Auth::routes();
 
+//Route::get('/home', 'HomeController@index')->name('home');
+// Route to authentificate
+Route::auth();
+Route::get('logout', 'auth\LoginController@logout');
 
-Route::get('/Login', function () {
-    return view('login')->withTitle('login');
-});
+Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
-Route::get('/Inscription', function () {
-    return view('inscription')->withTitle('inscription');
-});
