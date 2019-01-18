@@ -156,3 +156,27 @@ Type : VARCHAR
 Taille : 255,
 Commentaire : 
 
+Nom : image_product
+Code : IMAGE_PRODUCT
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : id_role
+Code : ID_ROLE
+Type : AUTO_INCREMENT
+Taille : ,
+Commentaire : 
+
+Nom : role_name
+Code : ROLE_NAME
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : id_images
+Code : ID_ROLE
+Type : AUTO_INCREMENT
+Taille : ,
+Commentaire : 
+
