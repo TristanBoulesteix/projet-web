@@ -17,8 +17,10 @@
 
 <div id="wrapper">
     <div class="row">
-    	<img src="./img/logo.png"  style="width:50%"> 
-        <div class="content"style="background-color: black;">
+    	<div>
+    	<img src="./img/logo.png"> 
+    	</div>
+        <div class="content">
 	  	<p> description de l'idée </p>
 	    </div>
 	</div>

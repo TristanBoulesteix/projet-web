@@ -14,7 +14,6 @@ main{
   padding: 20px;
   display: flex;
   justify-content: center;
-
 }
 #wrapper{
   width: 75%;
@@ -34,9 +33,12 @@ main{
 /* Content */
 .content {
   text-align : center;
-  color: white;
-  padding: 10px 0px 10px 0px;
+  color: black;
+  padding: 1% 1% 1% 1%;
   width: 100%;
+  border-style: groove;
+  margin-left: 3%;
+  background-color: whit
 }
 
 
@@ -56,3 +58,4 @@ h4{
 	margin-left: 5%;
 	font-size: 130%;
 }
+
