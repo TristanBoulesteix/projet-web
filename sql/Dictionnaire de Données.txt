@@ -1,182 +1,25 @@
-Dictionnaire de données 
-
-Nom : id_user
-Code : ID_USER
-Type : AUTO_INCREMENT
-Taille : ,
-Commentaire : 
-
-Nom : name_user
-Code : NAME_USER
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : password_user
-Code : PASSWORD_USER
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : email_user
-Code : EMAIL_USER
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : status_user
-Code : STATUS_USER
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : id_campus
-Code : ID_CAMPUS
-Type : AUTO_INCREMENT
-Taille : ,
-Commentaire : 
-
-Nom : name_campus
-Code : NAME_CAMPUS
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : id_product
-Code : ID_PRODUCT
-Type : AUTO_INCREMENT
-Taille : ,
-Commentaire : 
-
-Nom : name_product
-Code : NAME_PRODUCT
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : description_product
-Code : DESCRIPTION_PRODUCT
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : price_product
-Code : PRICE_PRODUCT
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : id_event
-Code : ID_EVENT
-Type : AUTO_INCREMENT
-Taille : ,
-Commentaire : 
-
-Nom : description_event
-Code : DESCRIPTION_EVENT
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : image_event
-Code : IMAGE_EVENT
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : date_event
-Code : DATE_EVENT
-Type : DATE
-Taille : ,
-Commentaire : 
-
-Nom : type_event
-Code : TYPE_EVENT
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : cost_event
-Code : COST_EVENT
-Type : INT
-Taille : ,
-Commentaire : 
-
-Nom : id_categoriy
-Code : ID_CATEGORIY
-Type : AUTO_INCREMENT
-Taille : ,
-Commentaire : 
-
-Nom : name_categorie
-Code : NAME_CATEGORIE
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : id_idea
-Code : ID_IDEA
-Type : AUTO_INCREMENT
-Taille : ,
-Commentaire : 
-
-Nom : name_idea
-Code : NAME_IDEA
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : description_idea
-Code : DESCRIPTION_IDEA
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : image_idea
-Code : IMAGE_IDEA
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : votes_idea
-Code : VOTES_IDEA
-Type : INT
-Taille : 255,
-Commentaire : 
-
-Nom : first_name_user
-Code : NAME_USER
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : last_name_user
-Code : LAST_NAME_USER
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : image_product
-Code : IMAGE_PRODUCT
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : id_role
-Code : ID_ROLE
-Type : AUTO_INCREMENT
-Taille : ,
-Commentaire : 
-
-Nom : role_name
-Code : ROLE_NAME
-Type : VARCHAR
-Taille : 255,
-Commentaire : 
-
-Nom : id_images
-Code : ID_ROLE
-Type : AUTO_INCREMENT
-Taille : ,
-Commentaire : 
-
+Dictionnaire de données 																
+																
+Nom : id_user			Nom : last_name_user			Nom : id_product			Nom : id_event			Nom : id_idea			Nom : id_campus	
+Type : AUTO_INCREMENT			Type : VARCHAR			Type : AUTO_INCREMENT			Type : AUTO_INCREMENT			Type : AUTO_INCREMENT			Type : AUTO_INCREMENT	
+Taille : ,			Taille : 255,			Taille : ,			Taille : ,			Taille : ,			Taille : ,	
+																
+Nom : name_user			Nom : first_name_user			Nom : image_product			Nom : cost_event			Nom : description_idea			Nom : name_campus	
+Type : VARCHAR			Type : VARCHAR			Type : VARCHAR			Type : INT			Type : VARCHAR			Type : VARCHAR	
+Taille : 255,			Taille : 255,			Taille : 255,			Taille : ,			Taille : 255,			Taille : 255,	
+																
+Nom : password_user			Nom : id_role			Nom : price_product			Nom : type_event			Nom : image_idea			Nom : id_categoriy	
+Type : VARCHAR			Type : AUTO_INCREMENT			Type : VARCHAR			Type : VARCHAR			Type : VARCHAR			Type : AUTO_INCREMENT	
+Taille : 255,			Taille : ,			Taille : 255,			Taille : 255,			Taille : 255,			Taille : ,	
+																
+Nom : email_user			Nom : role_name			Nom : name_product			Nom : description_event			Nom : votes_idea			Nom : name_categorie	
+Type : VARCHAR			Type : VARCHAR			Type : VARCHAR			Type : VARCHAR			Type : INT			Type : VARCHAR	
+Taille : 255,			Taille : 255,			Taille : 255,			Taille : 255,			Taille : 255,			Taille : 255,	
+																
+Nom : status_user			Nom : id_images			Nom : description_product			Nom : image_event			Nom : name_idea				
+Type : VARCHAR			Type : AUTO_INCREMENT			Type : VARCHAR			Type : VARCHAR			Type : VARCHAR				
+Taille : 255,			Taille : ,			Taille : 255,			Taille : 255,			Taille : 255,				
+																
+									Nom : date_event							
+									Type : DATE							
+									Taille : ,							
