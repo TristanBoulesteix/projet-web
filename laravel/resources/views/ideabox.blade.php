@@ -18,10 +18,13 @@
 <div id="wrapper">
     <div class="row">
     	<div id="imgcase">
-    	<img src="./img/logo.png"> 
    		</div>
         <div class="content">
 	  	<p> description de l'idée </p>
+	    </div>
+	    <div id="buttonCase">
+	    <div></div>
+	    <div></div>
 	    </div>
 	</div>
 	<div id="likeButton"><i class="fa fa-thumbs-up"></i></div>
