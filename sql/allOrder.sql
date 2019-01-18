@@ -1,0 +1,7 @@
+DELIMITER |
+CREATE PROCEDURE allOrder()
+
+BEGIN
+	SELECT *;
+	FROM `order`;
+END
