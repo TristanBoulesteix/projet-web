@@ -23,7 +23,20 @@ main{
 
 #top3{
   text-align: center;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
+
+#categorie{
+  text-align: right;
+  width: auto;
+  display: inline-block;
+  margin-right: 10%;
+
+}
+
+
 /* Create four equal columns that floats next to each other */
 .column {
   width: 30%;
@@ -143,4 +156,24 @@ main{
   .column {
     width: 100%;
   }
+}
+
+#backshop{
+
+  text-align: center;
+  margin-top: 5%;
+  background-color: white;
+  color: black;
+  font-size: 120%;
+  margin-left: 45%;
+}
+
+#backshop:hover{
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}
+
+#thx{
+  padding-bottom: 10%; 
 }
