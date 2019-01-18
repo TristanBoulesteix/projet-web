@@ -67,8 +67,7 @@ class RegisterController extends Controller {
 		$campus = DB::connection('mysql_user')->select('CALL campusID(?)', [$campusName]);
 
 		// Get the status id
-		$statusName = $data['status'];
-		$role = DB::connection('mysql_user')->select('CALL rolePerID(?)', [$statusName]);
+		$role = DB::connection('mysql_user')->select('CALL rolePerID(?)', ['student']);
 
 		// Creat
 		return User::create([
