@@ -17,9 +17,9 @@
 
 <div id="wrapper">
     <div class="row">
-    	<div>
+    	<div id="imgcase">
     	<img src="./img/logo.png"> 
-    	</div>
+   		</div>
         <div class="content">
 	  	<p> description de l'idée </p>
 	    </div>
