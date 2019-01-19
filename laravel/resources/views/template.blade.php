@@ -16,17 +16,17 @@
 <body>
 	<header>
 		<div id="banner">
-		<h1> Bienvenue sur le site du BDE! </h1>
-		@if (!$logged)
-		<a id="connexion" href="/login">Connexion</a>
-		@else
-		<a id="hello" href="/logout">Bonjour {{ $firstName }} {{ $lastName }} !</a>
-		@endif
+			<h1> Bienvenue sur le site du BDE! </h1>
+			@if (!$logged)
+			<a id="connexion" href="/login">Connexion</a>
+			@else
+			<a id="hello" href="/logout">Bonjour {{ $firstName }} {{ $lastName }} !</a>
+			@endif
 		</div>
 
 	</header>
 	<aside class="sidebar">
-	<div id="logo"></div>
+		<a href='{!! route('home') !!}' id='logo'></div></a>
 		<a href="/shop">Boutique</a>
 		<a href="/idea">Boîte à Idées</a>
 		<a href="#/event">Évènement</a>
