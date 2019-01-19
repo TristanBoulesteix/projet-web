@@ -12,6 +12,6 @@ class HomeController extends Controller {
 	 * @return \Illuminate\Contracts\Support\Renderable
 	 */
 	public function index() {
-		return view('home')->with('title', 'Bienvenue !')->withLogged(Auth::check() ? true : false)->withUserName(Auth::user());
+		return view('home')->with('title', 'Bienvenue !')->withLogged(Auth::check() ? true : false)->withFirstName(Auth::user()->first_name)->withLastName(Auth::user()->last_name);
 	}
 }

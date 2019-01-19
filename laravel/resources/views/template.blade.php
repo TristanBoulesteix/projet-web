@@ -20,7 +20,7 @@
 		@if (!$logged)
 		<a id="connexion" href="/login">Connexion</a>
 		@else
-		<a id="hello" href="/logout">Bonjour {{ print_r($userName) }}!</a>
+		<a id="hello" href="/logout">Bonjour {{ $firstName }} {{ $lastName }} !</a>
 		@endif
 		</div>
 
@@ -37,6 +37,6 @@
 	<footer>
 		<p id="legal"> Mentions Légales: <br> Voici les mentions légales.<br>À completer.</p>
 	</footer>
-	<script src="./js/boutonHello.js"></script>
+	<!--<script src="./js/boutonHello.js"></script>-->
 </body>
 </html>
