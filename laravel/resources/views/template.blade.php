@@ -20,7 +20,7 @@
 		@if (!$logged)
 		<a id="connexion" href="/login">Connexion</a>
 		@else
-		<a id="hello" href="/logout">Bonjour Utilisateur!</a>
+		<a id="hello" href="/logout">Bonjour {{ print_r($userName) }}!</a>
 		@endif
 		</div>
 
