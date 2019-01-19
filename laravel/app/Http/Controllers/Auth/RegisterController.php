@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Campus;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -85,6 +86,13 @@ class RegisterController extends Controller {
 	 *
 	 */
 	public function showRegistrationForm() {
-		return view('auth.register')->with('title', 'Créer un compte')->withLogged(false);
+		$campus = Campus::select('name')->get()->all();
+		$allCampus = array();
+
+		foreach($campus as $name) {
+			$allCampus[$name->name] = $name->name;
+		}
+
+		return view('auth.register')->with('title', 'Créer un compte')->withLogged(false)->withCampusList($allCampus);
 	}
 }
