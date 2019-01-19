@@ -6,17 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Managers\ViewManager as Generator;
 
-class ShopController extends Controller {
+class IdeaController extends Controller {
 	public function __construct() {
 		$this->middleware('auth');
 	}
 
-	/**
-	 * Show the main view for the shop
-	 *
-	 */
-	public function showShop() {
-		$generator = new Generator(view('shop'), 'boutique');
+	public function showIdeas() {
+		$generator = new Generator(view('ideabox'), 'boîte à idées');
 
 		return $generator->getView();
 	}
