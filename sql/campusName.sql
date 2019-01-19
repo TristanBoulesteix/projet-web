@@ -1,0 +1,7 @@
+DELIMITER |
+CREATE PROCEDURE campusName()
+
+BEGIN
+	SELECT `name` 
+	FROM `campus`;
+END|

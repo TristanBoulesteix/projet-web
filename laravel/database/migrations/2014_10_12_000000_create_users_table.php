@@ -13,13 +13,13 @@ class CreateUsersTable extends Migration {
 	public function up() {
 		Schema::connection('mysql_user')->create('users', function (Blueprint $table) {
 			$table->increments('id');
-			$table->string('first_name')->unique();
-			$table->string('last_name')->unique();
+			$table->string('first_name');
+			$table->string('last_name');
 			$table->string('email')->unique();
-			$table->string('status');
+			$table->integer('role');
+			$table->foreign('role')->references('id')->on('roles');
 			$table->integer('campus');
 			$table->foreign('campus')->references('id')->on('campus');
-			$table->timestamp('email_verified_at')->nullable();
 			$table->string('password');
 			$table->rememberToken();
 			$table->timestamps();
