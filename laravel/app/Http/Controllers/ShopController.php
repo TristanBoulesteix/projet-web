@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Categories;
 use App\Managers\ViewManager as Generator;
 
 class ShopController extends Controller {
@@ -18,6 +19,13 @@ class ShopController extends Controller {
 	public function showShop() {
 		$generator = new Generator(view('shop'), 'boutique');
 
-		return $generator->getView();
+		$categories = Categories::select('category')->get()->all();
+		$allCategories = array();
+
+		foreach($categories as $category) {
+			$allCategories[$category->category] = $category->category;
+		}
+
+		return $generator->getView()->withCategories($allCategories);
 	}
 }
