@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Categories;
+use App\Model\Categories;
 use App\Managers\ViewManager as Generator;
 
 class ShopController extends Controller {
