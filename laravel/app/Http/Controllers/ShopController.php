@@ -11,7 +11,17 @@ class ShopController extends Controller {
 		$this->middleware('auth');
 	}
 
+	/**
+	 * Show the main view for the shop
+	 *
+	 */
 	public function showShop() {
-		return view('shop')->withTitle('boutique')->withLogged(true);
+		$shop = view('shop');
+		$shop->withTitle('boutique');
+		$shop->withLogged(true);
+		$shop->withFirstName(Auth::user()->first_name);
+		$shop->withLastName(Auth::user()->last_name);
+
+		return $shop;
 	}
 }
