@@ -38,17 +38,14 @@
 	</div>
 
 	<div>
-		{!! Form::label('password_confirmation', 'mot de passe :')!!}
+		{!! Form::label('password_confirmation', 'confirmation du mot de passe :')!!}
 		{!! Form::password('password_confirmation', ['required'=>'required'])!!}
 		{!! $errors->first('password','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div>
 	{!! Form::label('campus', 'votre centre:') !!}
-	{!! Form::select('campus', array(
-	'lyon' => 'Lyon',
-	'paris' => 'Paris',
-	'strasbourg' => 'Strasbourg'), ['required'=>'required'])!!}
+	{!! Form::select('campus', $campusList, ['required'=>'required'])!!}
 	{!! $errors->first('campus','<small class="help-block">:message</small>') !!}
 	</div>
 
