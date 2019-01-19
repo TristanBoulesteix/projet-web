@@ -37,6 +37,6 @@
 	<footer>
 		<p id="legal"> Mentions Légales: <br> Voici les mentions légales.<br>À completer.</p>
 	</footer>
-	<!--<script src="./js/boutonHello.js"></script>-->
+	<script src="./js/boutonHello.js"></script>
 </body>
 </html>
