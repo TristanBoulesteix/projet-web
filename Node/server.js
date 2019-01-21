@@ -1,44 +1,62 @@
 //the API require the Express Module
 var express = require('express');
-
-//Variables to set the Express Server
-var express = require('express');
-var hostname = 'localhost';
-var port = 3000;
-
+var hostname = 'localhost'; 
+var port = 3000; 
 //the express application
 var app = express();
-// Express router
-var myRouter = express.Router();
-
-//Init of the body-Parser
-var bodyParser = require("body-parser"); 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 //MySql connection
 var mysql = require('mysql');
+
 //connexion to the database
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "projet-web"
-  });
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-  });
+const con = mysql.createConnection({
+          host     : 'localhost',
+          user     : 'root',
+          password: "",
+          database : 'projet-web'
+      });
+      con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+      });
 
-myRouter.route('/')
-.all(function(req,res){
-      res.json({message : "Vous êtes sur le server Web Services Express du site internet du BDE ", methode : req.method});
+
+
+//Routing
+var router = express.Router();
+
+router.route('/api/v1/users')
+.get(function(req, res){
+  res.json({
+    message : "Page d'acceuil de l'API",
+    result: value,
+    methode: req.method});
 });
 
-myRouter.route('/articles')
-// GET
-.all(function(req,res){
-    var sql = "CALL productPerCategory()";
+router.route('/articles')
+.get(function(req, res) {
+	const sql = "CALL productPerCategory()";
+	con.query(sql, function (error, results, fields) {
+		if(error){//If there is error, we send the error in the error section with 500 status
+				res.json({"status": 500,
+				"error": error,
+				"response": null
+			});
+		} else {
+			res.json({//If there is no error, all is good and response is 200OK.
+					"status": 200,
+					"error": null,
+					"response": results
+				});
+		}
+	});
+});
+
+router.route('/category')
+.get(function(req,res){
+    var valueSQL = req.query.category_name;
+    console.log(valueSQL);
+    var sql = 'CALL categoryPerProducts("'+valueSQL+'")';
     //Promise to give enought to the SQL requets befor sending datas
     const promise1 = new Promise((resolve, reject) => {
             con.query(sql, function (err, result, fields) {
@@ -57,33 +75,9 @@ myRouter.route('/articles')
       });
 });
 
-myRouter.route('/category')
-// GET
-.all(function(req,res){
-    var sql = "";
-    //Promise to give enought to the SQL requets befor sending datas
-    const promise1 = new Promise((resolve, reject) => {
-            con.query(sql, function (err, result, fields) {
-              if (err) return reject(err);
-              resolve(result);
-            });
-      });
-
-      //Send the JSON when the promise is resolved
-      promise1.then((value) =>{
-          res.json({
-          message : "Voici les produits de la boutique :",
-          result: value,
-          methode: req.method});
-
-      });
-});
-
-// Nous demandons à l'application d'utiliser notre routeur
-app.use(myRouter);
-
-
+app.use(router);
 // Starts the server
 app.listen(port, hostname, function(){
-	console.log("Server on http://"+ hostname +":"+port+"\n");
+	console.log("server on http://"+ hostname +":"+port+"\n"); 
 });
+ 
