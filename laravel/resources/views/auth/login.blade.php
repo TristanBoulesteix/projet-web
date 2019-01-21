@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="../css/form.css">
 <style>
 	main {
-		height: 73.2vh;
+		height: 70.4vh;
 	}
 
 	@-moz-document url-prefix() {
@@ -20,13 +20,13 @@
 
 {!! Form::open(['route'=>'login'])!!}
 
-<div>
+<div class="formDiv">
 	{!! Form::label('email', 'email:')!!}
 	{!! Form::email('email', null, ['required'=>'required'])!!}
 	{!! $errors->first('mail','<small class="help-block">:message</small>') !!}
 </div>
 
-<div>
+<div class="formDiv">
 	{!! Form::label('password', 'mot de passe :')!!} {!! Form::password('password', ['required'=>'required'])!!}
 	{!! $errors->first('password','<small class="help-block">:message</small>') !!}
 </div>

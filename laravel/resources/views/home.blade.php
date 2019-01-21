@@ -3,7 +3,7 @@
 @section('css')
 <style>
 	main {
-		height: 73.2vh;
+		height: 70.4vh;
 	}
 
 	@-moz-document url-prefix() {
