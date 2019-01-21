@@ -11,12 +11,16 @@
 |
 */
 
-// Route to authentificate
+// Routes to authentificate
 Route::auth();
 Route::get('logout', 'auth\LoginController@logout');
 
 // Main route
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
-// Route for the shop
+// Routes for the shop
 Route::get('shop', 'ShopController@showShop');
+
+
+// Routes for the ideas
+Route::get('idea', 'IdeaController@showIdeas');
