@@ -26,7 +26,7 @@
 
 	</header>
 	<aside class="sidebar">
-		<a href='{!! route('home') !!}' id='logo'></div></a>
+		<a href='{!! route('home') !!}' id='logo'></a>
 		<a href="/shop">Boutique</a>
 		<a href="/idea">Boîte à Idées</a>
 		<a href="#/event">Évènement</a>

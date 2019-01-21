@@ -23,7 +23,7 @@ main{
   width: 30%;
 }
 
-/* Clear floats after rows */ 
+/* Clear floats after rows */
 .row:after {
   content: "";
   display: table;
@@ -38,10 +38,10 @@ main{
   width: 100%;
   border-style: groove;
   margin-left: 3%;
-  background-color: whit
+  background-color: white
 }
 
-#likeButton{
+.likeButton{
 	margin-bottom: 2%;
 }
 
@@ -64,7 +64,7 @@ h4{
 	font-size: 130%;
 }
 
-#imgcase{
+.imgcase{
 	height: 100%;
 	width: 50%;
 	background-image: url("../img/logo.png");
@@ -73,7 +73,7 @@ h4{
 
 }
 
-#buttonCase{
+.buttonCase{
 	width: 20%;
 	margin-left: 2%;
 	text-align: center;
@@ -81,7 +81,7 @@ h4{
 	margin-bottom: auto;
 }
 
-#but {
+.but {
 	text-align: center;
 	text-decoration: none;
 	color: black;
@@ -90,9 +90,8 @@ h4{
 	border-radius: 10px;
 }
 
-#but:hover{
+.but:hover{
 	background-color: black;
 	color: white;
 	border-color: black;
 }
-
