@@ -1,6 +1,6 @@
 .row {
   margin: auto;
-  height: 70%;
+  height: 30%;
 }
 
 main{
@@ -15,7 +15,7 @@ main{
   justify-content: center;
 }
 #wrapper{
-  width: 75%;
+  width: 95%;
   margin: auto;
   height: 50%;
 }
@@ -41,6 +41,9 @@ main{
   background-color: whit
 }
 
+#likeButton{
+	margin-bottom: 2%;
+}
 
 .fa-thumbs-up{
 	margin-top: 2%;
@@ -69,3 +72,27 @@ h4{
 	background-position: center center;
 
 }
+
+#buttonCase{
+	width: 20%;
+	margin-left: 2%;
+	text-align: center;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+#but {
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	background-color: white;
+	border-style: groove;
+	border-radius: 10px;
+}
+
+#but:hover{
+	background-color: black;
+	color: white;
+	border-color: black;
+}
+
