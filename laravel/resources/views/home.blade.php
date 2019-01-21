@@ -8,7 +8,7 @@
 
 	@-moz-document url-prefix() {
 		main {
-			height: 71.5vh;
+			height: 71.2vh;
 		}
 	}
 </style>

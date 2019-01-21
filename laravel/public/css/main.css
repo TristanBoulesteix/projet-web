@@ -124,6 +124,12 @@ font-size: 120%;
 	background-size: cover;
 }
 
+@-moz-document url-prefix() {
+    #banner {
+      padding: 1.8% 0 2.2% 0;
+    }
+  }
+
 /* CSS for the h3 markup */
 h3{
   text-align: center;
