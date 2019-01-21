@@ -5,6 +5,12 @@
 	main {
 		height: 73.2vh;
 	}
+
+	@-moz-document url-prefix() {
+		main {
+			height: 71.5vh;
+		}
+	}
 </style>
 @endsection
 
