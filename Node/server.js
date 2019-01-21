@@ -20,8 +20,12 @@ const con = mysql.createConnection({
         console.log("Connected!");
       });
 
-
-
+//Avoid "No 'Access-Control-Allow-Origin' header is present on the requested resource." issues
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+     next();
+  });
 //Routing
 var router = express.Router();
 
