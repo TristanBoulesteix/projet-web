@@ -25,87 +25,58 @@ var con = mysql.createConnection({
     password: "",
     database: "projet-web"
   });
-  
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+  });
 
 myRouter.route('/')
 .all(function(req,res){
       res.json({message : "Vous êtes sur le server Web Services Express du site internet du BDE ", methode : req.method});
 });
 
-myRouter.route('/events')
+myRouter.route('/articles')
 // GET
-.get(function(req,res){
-    var participate = 22;
-    var reslt;
-    var sql = "SELECT name FROM `campus` WHERE id = 1";
+.all(function(req,res){
+    var sql = "CALL productPerCategory()";
+    //Promise to give enought to the SQL requets befor sending datas
+    const promise1 = new Promise((resolve, reject) => {
+            con.query(sql, function (err, result, fields) {
+              if (err) return reject(err);
+              resolve(result);
+            });
+      });
 
-  /*  var promise = new Promise(function(res, rej){
-        con.connect(function(err) {
-            if (err) throw err;
-            con.query(sql, function (err, result, fields) {
-              if (err) throw err;
-              reslt = result[0].name;
-              console.log(reslt);
-            });
-          });
-        res(reslt);
-    });*/
-    var promise1 = new Promise(function(resolve, reject) {
-        setTimeout(function() { 
-        con.connect(function(err) {
-            if (err) throw err;
-            con.query(sql, function (err, result, fields) {
-              if (err) throw err;
-              reslt = result[0].name;
-              console.log(reslt);
-            });
-          });
-          resolve(reslt);
-        }, 1000);
+      //Send the JSON when the promise is resolved
+      promise1.then((value) =>{
+          res.json({
+          message : "Voici les produits de la boutique :",
+          result: value,
+          methode: req.method});
 
       });
-      
-      promise1.then(function(value) {
-        res.json({
-        message : "route get :",
-        name: req.query.name,
-        date: req.query.date,
-        campus : value,
-        participants: participate,
-        methode: req.method});
+});
+
+myRouter.route('/category')
+// GET
+.all(function(req,res){
+    var sql = "";
+    //Promise to give enought to the SQL requets befor sending datas
+    const promise1 = new Promise((resolve, reject) => {
+            con.query(sql, function (err, result, fields) {
+              if (err) return reject(err);
+              resolve(result);
+            });
       });
-    
-    /*promise.then(function(){
-      res.json({
-      message : "route get :",
-      name: req.query.name,
-      date: req.query.date,
-      campus : reslt,
-      participants: participate,
-      methode: req.method});
-    });*/
-})
-//POST
-.post(function(req,res){
-      res.json({message : "route post",
-      name: req.query.name,
-      date: req.query.date,
-      participants: '12',
-      methode : req.method});
-})
-//PUT
-.put(function(req,res){
-      res.json({message : "route put",
-      name: req.query.name,
-      date: req.query.date,
-      methode : req.method});
-})
-//DELETE
-.delete(function(req,res){
-res.json({message : "route delete",
-      name: req.query.name,
-      date: req.query.date,
-      methode : req.method});
+
+      //Send the JSON when the promise is resolved
+      promise1.then((value) =>{
+          res.json({
+          message : "Voici les produits de la boutique :",
+          result: value,
+          methode: req.method});
+
+      });
 });
 
 // Nous demandons à l'application d'utiliser notre routeur
