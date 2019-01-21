@@ -15,7 +15,7 @@
         <div  class='imgcase'>
         </div>
         <div class="content">
-            <p> description de lidée </p>
+            <p> description de l'idée </p>
         </div>
         <div class="buttonCase">
             <a class="but" href=""> si bde: administrer </a>
@@ -26,7 +26,7 @@
         <div  class='imgcase'>
         </div>
         <div class="content">
-            <p> description de lidée </p>
+            <p> description de l'idée </p>
         </div>
         <div class="buttonCase">
             <a class="but" href=""> si bde: administrer </a>
@@ -37,7 +37,7 @@
         <div  class='imgcase'>
         </div>
         <div class="content">
-            <p> description de l dée </p>
+            <p> description de l'idée </p>
         </div>
         <div class="buttonCase">
             <a class="but" href=""> si bde: administrer </a>
@@ -48,7 +48,7 @@
         <div  class='imgcase'>
         </div>
         <div class="content">
-            <p> description de l idée </p>
+            <p> description de l'idée </p>
         </div>
         <div class="buttonCase">
             <a class="but" href=""> si bde: administrer </a>
@@ -59,7 +59,7 @@
         <div  class='imgcase'>
         </div>
         <div class="content">
-            <p> description de l idée </p>
+            <p> description de l'idée </p>
         </div>
         <div class="buttonCase">
             <a class="but" href=""> si bde: administrer </a>
@@ -70,7 +70,7 @@
         <div  class='imgcase'>
         </div>
         <div class="content">
-            <p> description de l idée </p>
+            <p> description de l'idée </p>
         </div>
         <div class="buttonCase">
             <a class="but" href=""> si bde: administrer </a>

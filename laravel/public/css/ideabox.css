@@ -1,12 +1,8 @@
 .row {
   margin: auto;
-  height: 30%;
+  height: 15%;
 }
 
-main{
-  display: flex;
-  flex-direction: column;
-}
 
 /* Add padding BETWEEN each column */
 .row,
@@ -65,7 +61,7 @@ h4{
 }
 
 .imgcase{
-	height: 100%;
+
 	width: 50%;
 	background-image: url("../img/logo.png");
 	background-repeat: no-repeat;
