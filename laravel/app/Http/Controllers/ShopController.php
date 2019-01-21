@@ -17,15 +17,18 @@ class ShopController extends Controller {
 	 *
 	 */
 	public function showShop() {
+		// Creation of the view with generic parameters
 		$generator = new Generator(view('shop'), 'boutique');
 
 		$categories = Categories::select('category')->get()->all();
 		$allCategories = array();
 
+		// Add categories into array
 		foreach($categories as $category) {
 			$allCategories[$category->category] = $category->category;
 		}
 
+		// Return the view
 		return $generator->getView()->withCategories($allCategories);
 	}
 }

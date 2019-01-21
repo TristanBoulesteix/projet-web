@@ -3,7 +3,7 @@
 @section('css')
 <style>
 	main {
-		height: 65%;
+		height: 73.2vh;
 	}
 </style>
 @endsection
