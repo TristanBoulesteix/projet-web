@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="../css/form.css">
 <style>
 	main {
-		height: 65%;
+		height: 73.2vh;
 	}
 </style>
 @endsection
