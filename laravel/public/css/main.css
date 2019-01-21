@@ -136,10 +136,24 @@ h3{
   font-size: 200%;
 }
 
+h4{
+  text-align: center;
+  font-size: 150%;
+}
+
 /* CSS for the p markup */
 p{
   text-align: center;
   font-size: 150%;
+  padding: 2% 5% 2% 5%;
+}
+
+#bde{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+    
 }
 
 
