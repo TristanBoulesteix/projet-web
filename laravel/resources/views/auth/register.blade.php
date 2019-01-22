@@ -43,7 +43,7 @@
 		{!! Form::password('password', ['required'=>'required'])!!}
 	</div>
 
-	<div class="formDiv">
+	<div id="mdp" class="formDiv">
 		{!! Form::label('password_confirmation', 'confirmation du mot de passe :')!!}
 		{!! Form::password('password_confirmation', ['required'=>'required'])!!}
 		{!! $errors->first('password','<small class="help-block">:message</small>') !!}
