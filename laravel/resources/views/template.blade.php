@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 
 <meta charset="utf-8" />
@@ -20,7 +20,7 @@
 			@if (!$logged)
 			<a id="connexion" href="/login">Connexion</a>
 			@else
-			<a id="hello" href="/logout">Bonjour {{ $firstName }} {{ $lastName }} !</a>
+			<a id="hello" href="/logout">Bonjour&nbsp;{{ $firstName }}&nbsp;{{ $lastName }}&nbsp;!</a>
 			@endif
 		</div>
 

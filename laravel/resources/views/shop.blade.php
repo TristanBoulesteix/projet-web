@@ -21,9 +21,9 @@
 	<div class="row">
 	  <div class="column">
 		<div class="content"style="background-color: black;">
-		  <!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-		  <h3>Article : prix</h3>
-		  <p>Description du produit!</p>
+			<!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
+			<h3>Article : prix</h3>
+			<p>Description du produit!</p>
 		</div>
 	  </div>
 	  <div class="column">
@@ -52,8 +52,7 @@
 </div>
 
 
-  <div class="wrapper" id="allarticles">
-  </div>
+<div class="wrapper" id="allarticles"></div>
 
-	<script type="text/javascript" src="./js/shop.js"></script>
+	<script src="./js/shop.js"></script>
 @endsection
