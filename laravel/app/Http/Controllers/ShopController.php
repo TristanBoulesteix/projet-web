@@ -23,6 +23,8 @@ class ShopController extends Controller {
 		$categories = Categories::select('category')->get()->all();
 		$allCategories = array();
 
+		$allCategories['all'] = 'Toutes les catégories';
+
 		// Add categories into array
 		foreach($categories as $category) {
 			$allCategories[$category->category] = $category->category;
