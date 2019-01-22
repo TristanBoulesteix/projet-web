@@ -14,4 +14,7 @@
 					<input type="hidden" value="{{ csrf_token() }}" name="_token">
 				</form>
 
+
+<img id="bde" src="../img/lyon.png">
+
 @endsection
