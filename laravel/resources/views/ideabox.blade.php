@@ -30,4 +30,6 @@
 	<div id="likeButton"><i class="fa fa-thumbs-up"></i></div>
 </div>
 
+<script type="text/javascript" src="./js/ideas.js"></script>
+
 @endsection

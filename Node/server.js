@@ -49,8 +49,6 @@ const con = mysql.createConnection({
           }
         else{
           if(token != false){
-            console.log('Token: ');
-            console.log(token);
             resolve(token);
           }
             else{
@@ -148,7 +146,7 @@ router.route('/ideas')
 .get(function(req, res) {
   var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
   if (req.query.token == validateToken) {
-      const sql = "CALL";
+      const sql = "CALL ideas";
       con.query(sql, function (error, results, fields) {
         if(error){//If there is error, we send the error in the error section with 500 status
             res.json({"status": 500,
