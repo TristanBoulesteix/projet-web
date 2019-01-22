@@ -1,12 +1,14 @@
 //the API require the Express Module
-var express = require('express');
-var hostname = 'localhost'; 
-var port = 3000; 
+const express = require('express');
+const hostname = 'localhost'; 
+const port = 3000; 
 //the express application
-var app = express();
+const app = express();
+
+const jwt = require('jsonwebtoken');
 
 //MySql connection
-var mysql = require('mysql');
+const mysql = require('mysql');
 
 //connexion to the database
 const con = mysql.createConnection({
@@ -26,38 +28,94 @@ const con = mysql.createConnection({
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
      next();
   });
+
+  const payload ={
+    "sub": "CesiBdeLyon",
+    "name": "BDECesi",
+    "iat": 5516239022// expire on 20 oct 2144.
+  };
+  const secret = "S3cr3t@1sK33p_doesitneedtobelong?";
+  var token = "";
+
+  function makeTheToken(bde, cesi, res, resolve) {
+    // signature algorithm
+    if(bde == "bde" && cesi == "lyon"){
+      jwt.sign(payload, secret, { algorithm: 'HS256'}, function(err, token) {
+        if(err){
+          console.log('Error occurred while generating token');
+          console.log(err);
+          resolve(token);
+          return false;
+          }
+        else{
+          if(token != false){
+            console.log('Token: ');
+            console.log(token);
+            resolve(token);
+          }
+            else{
+              res.send("Could not create token");
+              res.end();
+            }
+        }
+      });
+    }
+    else{
+      res.send("not a user");
+    }
+  };
+   //token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4
+
 //Routing
-var router = express.Router();
+const router = express.Router();
 
 router.route('/api/v1/users')
 .get(function(req, res){
-  res.json({
-    message : "Page d'acceuil de l'API",
-    result: value,
-    methode: req.method});
+    const promise = new Promise((resolve, reject) => {
+      makeTheToken(req.query.bde, req.query.cesi, res, resolve)
+    });
+  //Send the JSON when the promise is resolved
+    promise.then((value) =>{
+      res.json({
+        message : "Token",
+        result: value,
+        methode: req.method
+      });
+    });
 });
 
 router.route('/articles')
 .get(function(req, res) {
-	const sql = "CALL productPerCategory()";
-	con.query(sql, function (error, results, fields) {
-		if(error){//If there is error, we send the error in the error section with 500 status
-				res.json({"status": 500,
-				"error": error,
-				"response": null
-			});
-		} else {
-			res.json({//If there is no error, all is good and response is 200OK.
-					"status": 200,
-					"error": null,
-					"response": results
-				});
-		}
-	});
+  var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
+  if (req.query.token == validateToken) {
+      const sql = "CALL productPerCategory()";
+      con.query(sql, function (error, results, fields) {
+        if(error){//If there is error, we send the error in the error section with 500 status
+            res.json({"status": 500,
+            "error": error,
+            "response": null
+          });
+        } else {
+          res.json({//If there is no error, all is good and response is 200OK.
+              "status": 200,
+              "error": null,
+              "response": results
+            });
+        }
+      });
+    }
+    else{
+      res.json({
+        "response": "you are not allowed to have datas.",
+      });
+    }
 });
 
 router.route('/category')
 .get(function(req,res){
+
+  var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
+  if (req.query.token == validateToken) {
     var valueSQL = req.query.category_name;
     console.log(valueSQL);
     var sql = 'CALL categoryPerProducts("'+valueSQL+'")';
@@ -77,6 +135,12 @@ router.route('/category')
           methode: req.method});
 
       });
+    }
+    else{
+      res.json({
+        "response": "you are not allowed to have datas.",
+      });
+    }
 });
 
 app.use(router);
@@ -84,4 +148,3 @@ app.use(router);
 app.listen(port, hostname, function(){
 	console.log("server on http://"+ hostname +":"+port+"\n"); 
 });
- 
