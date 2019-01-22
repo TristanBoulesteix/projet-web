@@ -26,7 +26,7 @@
 
 	</header>
 	<aside class="sidebar">
-		<a href='{!! route('home') !!}' id='logo'></div></a>
+		<a href='{!! route('home') !!}' id='logo'></a>
 		<a href="/shop">Boutique</a>
 		<a href="/idea">Boîte à Idées</a>
 		<a href="#/event">Évènement</a>
@@ -35,7 +35,11 @@
 		@yield('content')
 	</main>
 	<footer>
-		<p id="legal"> Mentions Légales: <br> Voici les mentions légales.<br>À completer.</p>
+		
+		<a class="footlink" href=""> Mentions légales </a>
+		<a class="footlink" href=""> Conditions générales de ventes </a>
+		<a class="footlink" href=""> Politique de protections des données </a>
+
 	</footer>
 	<script src="./js/boutonHello.js"></script>
 </body>

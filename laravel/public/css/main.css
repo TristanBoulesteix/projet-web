@@ -41,7 +41,20 @@ main{
 	height: 15%;
 	text-align: center;
 	background-color: black;
+	padding: 2% 0 2% 0;
   }
+
+.footlink{
+
+	text-decoration: none;
+	color: white;
+	font-size: 150%;
+	margin: 3% 6% 3% 6%;
+}
+
+.footlink:hover:not(.active) {
+  color: rgb(235, 196, 26);
+}  
 
 /* The side navigation menu */
 .sidebar {
@@ -124,16 +137,36 @@ font-size: 120%;
 	background-size: cover;
 }
 
+@-moz-document url-prefix() {
+    #banner {
+      padding: 1.8% 0 2.2% 0;
+    }
+  }
+
 /* CSS for the h3 markup */
 h3{
   text-align: center;
   font-size: 200%;
 }
 
+h4{
+  text-align: center;
+  font-size: 150%;
+}
+
 /* CSS for the p markup */
 p{
   text-align: center;
   font-size: 150%;
+  padding: 2% 5% 2% 5%;
+}
+
+#bde{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+    
 }
 
 

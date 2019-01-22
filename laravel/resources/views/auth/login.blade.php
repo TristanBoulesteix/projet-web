@@ -1,22 +1,12 @@
 @extends ("template")
 @section('css')
 <link rel="stylesheet" type="text/css" href="../css/form.css">
-<style>
-	main {
-		height: 70.4vh;
-	}
 
-	@-moz-document url-prefix() {
-		main {
-			height: 71.5vh;
-		}
-	}
-</style>
 @endsection
 
 @section('content')
 
-<h3> Connection au site du BDE: </h3>
+<h3> Connexion au site du BDE: </h3>
 
 {!! Form::open(['route'=>'login'])!!}
 
@@ -32,6 +22,9 @@
 </div>
 
 {!! Form::submit('connexion', ['class'=>'connexion'])!!}
+
+	
+	<p id="info">  Vous connecter vous permettra de visiter la boutique, de publier et liker des photos, de partager des idées d'évènements et bien évidemment de vous inscrire à ceux qui vous plaisent!  </p>
 
 
 <a id="link" href="register"> Créer votre compte </a> {!! Form::close()!!}

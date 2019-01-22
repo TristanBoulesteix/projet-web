@@ -14,14 +14,17 @@ form{
 
 .connexion{
 
-	margin: auto;
+	margin: 2% auto;
 	text-align: center;
 	font-size: 130%;
-	border-radius: 10%;
+	border-style: groove;
+	border-radius: 10px;
+	padding: 0.3%;
 	background-color: white;
 	color: black;
 	transition-duration: 0.4s;
 	margin-bottom: 2%;
+	margin-top: 5%;
 }
 
 .connexion:hover{
@@ -30,7 +33,29 @@ form{
 }
 
 #link {
-	margin: auto;
-	text-align: center;
+
 	font-size: 130%;
+	text-align: center;
+	background-color: #fff8f8;
+	color: rgb(0, 0, 0);
+	z-index: 9999;
+	height: auto;
+	border-radius: 10px;
+	cursor: pointer;
+	text-decoration: none;
+	width: auto;
+	margin: 5% auto 5% auto;
+	padding: 0.3%;
+	border-style: groove;
+	border-radius: 10px;
 }
+
+#link:hover{
+		background-color: black;
+	color: white;
+}
+
+#info{
+	text-align: center;
+	font-style: italic;
+	padding: 2% 10% 2% 10%;

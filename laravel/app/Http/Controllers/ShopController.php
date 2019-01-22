@@ -34,7 +34,10 @@ class ShopController extends Controller {
 		return $generator->getView()->withCategories($allCategories);
 	}
 
-	public function showCard() {
-		$generator = new Generator(view('card'), 'Panier');
+	public function showCart() {
+		$generator = new Generator(view('cart'), 'panier');
+
+		return $generator->getView();
 	}
+
 }
