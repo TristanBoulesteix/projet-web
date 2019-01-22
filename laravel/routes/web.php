@@ -20,7 +20,7 @@ Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
 // Routes for the shop
 Route::get('shop', 'ShopController@showShop');
-
+Route::get('card', 'ShopController@showCard');
 
 // Routes for the ideas
 Route::get('idea', 'IdeaController@showIdeas');
