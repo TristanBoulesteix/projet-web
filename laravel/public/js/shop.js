@@ -1,15 +1,3 @@
-$(function () {
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			var myJSON = JSON.parse(this.responseText);
-			displayOn(myJSON);
-		}
-	};
-	xmlhttp.open("GET", "http://localhost:3000/articles", true);
-	xmlhttp.send();
-});
-
 function createArticle(json, wrapper, i) {
 	var columnElement = $(document.createElement("div")).addClass("column").attr("id", "column"+i);
 	wrapper.append(columnElement);
