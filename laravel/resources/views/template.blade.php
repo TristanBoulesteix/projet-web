@@ -35,7 +35,11 @@
 		@yield('content')
 	</main>
 	<footer>
-		<p id="legal"> Mentions Légales: <br> Voici les mentions légales.<br>À completer.</p>
+		
+		<a class="footlink" href=""> Mentions légales </a>
+		<a class="footlink" href=""> Conditions générales de ventes </a>
+		<a class="footlink" href=""> Nous contacter </a>
+
 	</footer>
 	<script src="./js/boutonHello.js"></script>
 </body>
