@@ -24,3 +24,6 @@ Route::get('shop', 'ShopController@showShop');
 
 // Routes for the ideas
 Route::get('idea', 'IdeaController@showIdeas');
+
+
+Route::get('cart', 'ShopController@showCart');

@@ -31,4 +31,13 @@ class ShopController extends Controller {
 		// Return the view
 		return $generator->getView()->withCategories($allCategories);
 	}
+
+
+
+	public function showCart() {
+		$generator = new Generator(view('cart'), 'panier');
+
+		return $generator->getView();
+	}
+
 }
