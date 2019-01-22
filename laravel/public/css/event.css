@@ -77,3 +77,12 @@ h3{
 	color: white;
 	border-color: black;	
 }
+
+.imgArticle {
+	height: 200px;
+	width: 100%;
+	margin: auto;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}

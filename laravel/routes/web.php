@@ -29,6 +29,10 @@ Route::get('event', function(){
   return view('event')->withTitle('event')->with('logged', false);
 });
 
+Route::get('oldevents', function(){
+  return view('oldevents')->withTitle('event')->with('logged', false);
+});
+
 Route::get('cart', 'ShopController@showCart');
 
 Route::get('/ML', function() {return view('mentionsLégales')->withTitle('mentionsLégales')->with('logged', false);});

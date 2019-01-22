@@ -6,15 +6,16 @@
 
 @section ( 'content' )
 
-<h3 id="page"> Evènements à venir! </h3>
+<h3 id="page"> Evènements Passé au BDE Lyon! </h3>
 
 <div id="rowButton">
-<a href="/oldevents" class="buttons">Ancien évènements</a>
+<a href="/event" class="buttons">Evènements</a>
 <a href="" class="buttons">Si BDE, ajouter des évènements</a>
 </div>
 
 <div id="wrapper">
+
 </div>
 
-<script src="./js/event.js"></script>
+<script src="./js/oldevent.js"></script>
 @endsection
