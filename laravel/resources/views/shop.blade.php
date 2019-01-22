@@ -54,5 +54,5 @@
 
 <div class="wrapper" id="allarticles"></div>
 
-	<script type="text/javascript" src="./js/shop.js"></script>
+	<script src="./js/shop.js"></script>
 @endsection
