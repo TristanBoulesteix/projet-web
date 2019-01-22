@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>{{$title}}</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="icon" href="https://ecole-ingenieurs.cesi.fr/wp-content/uploads/sites/5/2018/10/cropped-icone-cesi-ecole-ingenieurs-32x32.png">
 <link rel="stylesheet" type="text/css" href="./css/main.css">
@@ -20,13 +20,13 @@
 			@if (!$logged)
 			<a id="connexion" href="/login">Connexion</a>
 			@else
-			<a id="hello" href="/logout">Bonjour {{ $firstName }} {{ $lastName }} !</a>
+			<a id="hello" href="/logout">Bonjour&nbsp;{{ $firstName }}&nbsp;{{ $lastName }}&nbsp;!</a>
 			@endif
 		</div>
 
 	</header>
 	<aside class="sidebar">
-		<a href='{!! route('home') !!}' id='logo'></div></a>
+		<a href='{!! route('home') !!}' id='logo'></a>
 		<a href="/shop">Boutique</a>
 		<a href="/idea">Boîte à Idées</a>
 		<a href="#/event">Évènement</a>
@@ -35,7 +35,11 @@
 		@yield('content')
 	</main>
 	<footer>
-		<p id="legal"> Mentions Légales: <br> Voici les mentions légales.<br>À completer.</p>
+		
+		<a class="footlink" href=""> Mentions légales </a>
+		<a class="footlink" href=""> Conditions générales de ventes </a>
+		<a class="footlink" href=""> Politique de protections des données </a>
+
 	</footer>
 	<script src="./js/boutonHello.js"></script>
 </body>

@@ -3,15 +3,17 @@
  *
  */
 
-
-// Previous text
-var savedText;
-
 // Save the previous text
-savedText = $('#hello').html();
+var savedText = $('#hello').html();
 
-$('#hello').hover(function(){
+// Save the previous size
+var savedSize = $('#hello').css('width');
+
+$('#hello').hover(function() {
+	$(this).css('width', savedSize);
 	$(this).html("Deconnexion");
-}, function(){
+}, function() {
 	$(this).html(savedText);
+	$(this).css('width', 'auto');
+	savedSize = $(this).css('width');
 });

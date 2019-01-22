@@ -4,7 +4,13 @@
 <link rel="stylesheet" href="./css/shop.css">
 <style>
 	main {
-		height: 65%;
+		height: 70.4vh;
+	}
+
+	@-moz-document url-prefix() {
+		main {
+			height: 71.2vh;
+		}
 	}
 </style>
 @endsection
