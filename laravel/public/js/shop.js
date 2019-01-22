@@ -20,7 +20,7 @@ function createArticle(json, wrapper, i) {
 	var columnElement = $(document.createElement("div")).addClass("column").attr("id", i);
 	wrapper.append(columnElement);
 	var img = $(document.createElement("div")).attr("style", "background-image : url(../img/produit/" + json[i].image + ");").addClass('imgArticle');
-	img.append("<div class='buttonShop'>Ajouter au panier</div>");
+	img.append("<div class='buttonShop addToCart'>Ajouter au panier</div>");
 	columnElement.append(img);
 	var content = $(document.createElement("div")).addClass("content");
 	columnElement.append(content);
@@ -54,7 +54,7 @@ function displayOn(myJSON) {
 		createArticle(json, wrapper, i);
 	}
 
-	$('.buttonShop').on('click', function() {
+	$('.addToCart').on('click', function() {
 		buy($(this).parent().parent().attr('id'));
 	});
 }
