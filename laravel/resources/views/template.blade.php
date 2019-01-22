@@ -39,6 +39,8 @@
 		<a class="footlink" href=""> Mentions légales </a>
 		<a class="footlink" href=""> Conditions générales de ventes </a>
 		<a class="footlink" href=""> Politique de protections des données </a>
+		<a class="footlink" href=""> Nous contacter </a>
+
 
 	</footer>
 	<script src="./js/boutonHello.js"></script>
