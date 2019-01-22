@@ -1,6 +1,20 @@
 
+var token = "";
 
 $(function () {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var myJSON = JSON.parse(this.responseText);
+      getToken(myJSON);
+    }
+  };
+  xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
+  xmlhttp.send();
+});
+
+
+function getDatas (token) {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -8,9 +22,16 @@ $(function () {
       displayOn(myJSON);
     }
   };
-  xmlhttp.open("GET", "http://localhost:3000/articles", true);
+  xmlhttp.open("GET", "http://localhost:3000/articles?token="+token, true);
   xmlhttp.send();
-});
+}
+
+function getToken (myJSON){
+var json = myJSON.result;
+getDatas(json);
+}
+
+
 
 function displayOn(myJSON) {
   var json = myJSON.response[0];
