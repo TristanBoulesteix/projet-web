@@ -17,3 +17,17 @@ a{
 a:hover{
 	color: black;
 }
+
+p{
+	font-size: 100%;
+	margin: 1% 1% 1% 1%;
+	padding: 1% 5% 1% 5%;
+	text-align: justify;
+}
+
+ul{
+	font-size: 100%;
+	margin: 1% 1% 1% 1%;
+	padding: 1% 5% 1% 5%;
+	text-align: justify;
+}

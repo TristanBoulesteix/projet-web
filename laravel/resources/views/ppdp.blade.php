@@ -45,7 +45,7 @@ Les cookies nous permettent aussi de voir comment notre plateforme est utilisée
 <p>Nous veillons à ce que les sociétés partenaires acceptent de traiter les informations collectées sur notre plateforme exclusivement pour nos besoins et conformément à nos instructions, dans le respect de la réglementation européenne et s’engagent à mettre en œuvre des mesures appropriées de sécurisation et de protection de la confidentialité des données.</p>
 <p><strong>Désactivation des cookies.</strong> Vous pouvez à tout moment désactiver les cookies en sélectionnant ` les paramètres appropriés de votre navigateur pour désactiver les cookies (la rubrique d’aide du navigateur utilisé précise la marche à suivre).</p>
 <p>Nous attirons votre attention sur le fait que la désactivation des cookies peut réduire ou empêcher l’accessibilité à tout ou partie de certaines fonctions.</p>
-<p>En ce qui concerne les emails promotionnels : Vous pouvez à tout moment retirer votre consentement en (i)décochant la case afférente dans votre compte, (ii) cliquant sur le lien de désinscription fourni dans chacune de nos communications ou (iii) en prenant contact avec nous.</p>
+<p>En ce qui concerne les emails promotionnels : Vous pouvez à tout moment retirer votre consentement en (1)décochant la case afférente dans votre compte, (2) cliquant sur le lien de désinscription fourni dans chacune de nos communications ou (3) en prenant contact avec nous.</p>
 <p>En ce qui concerne la publicité ciblée sur des sites tiers: vous pouvez vous reporter à notre Politique relative aux Cookies pour comprendre comment retirer votre consentement.</p>
 <ul>
 <li>Nous collectons les informations que vous nous fournissez notamment quand :<br>
