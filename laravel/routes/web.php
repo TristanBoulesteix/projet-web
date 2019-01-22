@@ -27,3 +27,7 @@ Route::get('idea', 'IdeaController@showIdeas');
 
 
 Route::get('cart', 'ShopController@showCart');
+
+Route::get('/ML', function() {return view('mentionsLégales')->withTitle('mentionsLégales')->with('logged', false);});
+
+Route::get('/ppdp', function() {return view('ppdp')->withTitle('Politique de protection des données')->with('logged', false);});
