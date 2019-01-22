@@ -11,9 +11,12 @@
   justify-content: center;
 }
 #wrapper{
-  width: 95%;
-  margin: auto;
-  height: 50%;
+ 	width: 60%;
+	margin: auto;
+	height: 50%;
+	float: left;
+	margin-left: 3%;
+	margin-top: 5%;
 }
 .column {
   width: 30%;
@@ -37,27 +40,10 @@
   background-color: white
 }
 
-.likeButton{
-	margin-bottom: 2%;
-}
-
-.fa-thumbs-up{
-	margin-top: 2%;
-font-size: 175%;
-  margin-right:3%;
-  margin-left: 40%;
-  padding: 0.5%;
-  border: 2px solid black;
-}
-
 h3{
 	text-align: left;
 	margin-left: 5%;
-}
-h4{
-	text-align: left;
-	margin-left: 5%;
-	font-size: 130%;
+	margin-top: 4%;
 }
 
 .imgcase{
@@ -69,25 +55,34 @@ h4{
 
 }
 
-.buttonCase{
-	width: 20%;
-	margin-left: 2%;
-	text-align: center;
-	margin-top: auto;
-	margin-bottom: auto;
+.nameprice{
+	text-align: left;
+	margin-left: 5%;
+	font-size: 130%;
 }
 
-.but {
+#basket{
+	float: right;
+	display: flex;
+	flex-direction: column;
+	margin: 10% 13% 5% 13%;
+}
+
+
+.buyclean{
 	text-align: center;
 	text-decoration: none;
 	color: black;
 	background-color: white;
 	border-style: groove;
 	border-radius: 10px;
+	margin: 50% 0 50% 0;
+	padding: 2% 2% 2% 2%;
+	font-size: 150%;
 }
 
-.but:hover{
+.buyclean:hover{
 	background-color: black;
 	color: white;
-	border-color: black;
+	border-color: black;	
 }
