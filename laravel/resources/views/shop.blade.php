@@ -17,13 +17,13 @@
 		<i class="fa fa-shopping-cart " href=""></i>
 	  </a>
 	</div>
-  <div id="wrapper">
+  <div class="wrapper">
 	<div class="row">
 	  <div class="column">
 		<div class="content"style="background-color: black;">
-		  <!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-		  <h3>Article : prix</h3>
-		  <p>Description du produit!</p>
+			<!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
+			<h3>Article : prix</h3>
+			<p>Description du produit!</p>
 		</div>
 	  </div>
 	  <div class="column">
@@ -52,76 +52,7 @@
 </div>
 
 
-  <div id="wrapper">
-	<div class="row">
-	  <div class="column">
-		<div class="content"style="background-color: black;">
-		  <!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-		  <h3>Article : prix</h3>
-		  <p>Description du produit!</p>
-		</div>
-	  </div>
-	  <div class="column">
-		<div class="content"style="background-color: black;">
-		  <!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-		  <h3>Article : prix</h3>
-		  <p>Description du produit!</p>
-		</div>
-	  </div>
-	  <div class="column">
-		<div class="content" style="background-color: black;">
-		  <!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-		  <h3>Article : prix</h3>
-		  <p>Description du produit!</p>
-		</div>
-	  </div>
-	</div>
-	<div class="row">
-	  <div class="column">
-		<div class="content"style="background-color: black;">
-		  <!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-		  <h3>Article : prix</h3>
-		  <p>Description du produit!</p>
-		</div>
-	  </div>
-	  <div class="column">
-		<div class="content"style="background-color: black;">
-		  <!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-		  <h3>Article : prix</h3>
-		  <p>Description du produit!</p>
-		</div>
-	  </div>
-	  <div class="column">
-		<div class="content" style="background-color: black;">
-		  <!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-		  <h3>Article : prix</h3>
-		  <p>Description du produit!</p>
-		</div>
-	  </div>
-	</div>
-	<div class="row">
-	  <div class="column">
-		<div class="content"style="background-color: black;">
-		  <!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-		  <h3>Article : prix</h3>
-		  <p>Description du produit!</p>
-		</div>
-	  </div>
-	  <div class="column">
-		<div class="content"style="background-color: black;">
-		  <!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-		  <h3>Article : prix</h3>
-		  <p>Description du produit!</p>
-		</div>
-	  </div>
-	  <div class="column">
-		<div class="content" style="background-color: black;">
-		  <!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-		  <h3>Article : prix</h3>
-		  <p>Description du produit!</p>
-		</div>
-	  </div>
-	</div>
-  </div>
+<div class="wrapper" id="allarticles"></div>
 
+	<script src="./js/shop.js"></script>
 @endsection
