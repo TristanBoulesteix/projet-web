@@ -66,11 +66,12 @@ main{
 
 /* Content */
 .content {
-  text-align : center;
-  color: rgb(255, 255, 255);
-  background-color: black;
-  padding: 10px 0px 10px 0px;
-  width: 100%;
+	text-align : center;
+	color: rgb(255, 255, 255);
+	background-color: black;
+	padding: 2%;
+	width: 96%;
+	word-wrap: break-word;
 }
  /* search */
 .topnav {
