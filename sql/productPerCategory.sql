@@ -17,5 +17,5 @@ SET FOREIGN_KEY_CHECKS = ON;
     SELECT `products`.`id`,`products`.`name`,`description`,`price`
 	FROM `products`
 	INNER JOIN `categories` ON products.`id_category`= categories.id
-	WHERE `name` = category;
+	WHERE `category` = category;
 END|
