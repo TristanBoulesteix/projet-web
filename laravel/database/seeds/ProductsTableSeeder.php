@@ -14,6 +14,7 @@ class ProductsTableSeeder extends Seeder {
 				'name' => str_random(10),
 				'description' => str_random(40),
 				'price' => rand(0, 40),
+				'image' => 'image1.png',
 				'id_category' => rand(1, 3)
 			]);
 		}

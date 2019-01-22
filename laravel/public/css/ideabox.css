@@ -1,6 +1,6 @@
 .row {
-  margin: 8px -16px;
   margin: auto;
+  height: 70%;
 }
 
 main{
@@ -11,14 +11,13 @@ main{
 /* Add padding BETWEEN each column */
 .row,
 .row > .column {
-  padding: 20px;
   display: flex;
   justify-content: center;
-
 }
 #wrapper{
   width: 75%;
   margin: auto;
+  height: 50%;
 }
 .column {
   width: 30%;
@@ -34,15 +33,20 @@ main{
 /* Content */
 .content {
   text-align : center;
-  color: white;
-  padding: 10px 0px 10px 0px;
+  color: black;
+  padding: 1% 1% 1% 1%;
   width: 100%;
+  border-style: groove;
+  margin-left: 3%;
+  background-color: whit
 }
 
 
 .fa-thumbs-up{
-font-size: 250%;
+	margin-top: 2%;
+font-size: 175%;
   margin-right:3%;
+  margin-left: 40%;
   padding: 0.5%;
   border: 2px solid black;
 }
@@ -55,4 +59,13 @@ h4{
 	text-align: left;
 	margin-left: 5%;
 	font-size: 130%;
+}
+
+#imgcase{
+	height: 100%;
+	width: 50%;
+	background-image: url("../img/logo.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+
 }
