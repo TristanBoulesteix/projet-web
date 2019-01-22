@@ -1,3 +1,16 @@
+var token = "";
+
+$(function () {
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var myJSON = JSON.parse(this.responseText);
+			getToken(myJSON);
+		}
+	};
+	xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
+	xmlhttp.send();
+});
 
 var buy = function buyArticle(id) {
 	alert(id);
@@ -14,20 +27,6 @@ function createArticle(json, wrapper, i) {
 	content.append("<h3>"+json[i].name +": "+ json[i].price+"€</h3>");
 	content.append("<p>"+json[i].description+"</p>");
 }
-
-var token = "";
-
-$(function () {
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			var myJSON = JSON.parse(this.responseText);
-			getToken(myJSON);
-		}
-	};
-	xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
-	xmlhttp.send();
-});
 
 
 function getDatas (token) {
