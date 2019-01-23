@@ -8,11 +8,10 @@
 
 <h3 id="page"> Gallerie </h3>
 
-<div id="rowButton">
-<a href="/event" class="buttons">Evènements</a>
-<a href="" class="buttons">Si BDE, ajouter des évènements</a>
-</div>
 
+<div id="comSection">
+
+</div>
 <div id="wrapper">
 
 </div>
