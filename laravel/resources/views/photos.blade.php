@@ -7,12 +7,11 @@
 @section ( 'content' )
 
 		<h2>Uploder des photos: </h2>
-				<form action="{{ URL::to('upload') }}" method="post" enctype="multipart/form-data">
-					<label>Sélectionner l'image a uploder:</label>
-				    <input type="file" name="file" id="file">
-				    <input type="submit" value="Upload" name="submit" id="uploadBut">
-					<input type="hidden" value="{{ csrf_token() }}" name="_token">
-				</form>
+				{!! Form::open(['url'=>'upload']) !!}
+					{!! Form::label('img', "Sélectionner l'image à uploader:")!!}
+				    {!! Form::file('file', ['id'=>'file',"required"=>"required"])!!}
+				    {!! Form::submit('Upload', ['id'=>'uploadBut'])!!}
+				{!! Form::close()!!}
 
 
 <img id="bde" src="../img/lyon.png">
