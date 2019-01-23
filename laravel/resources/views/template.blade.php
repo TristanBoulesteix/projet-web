@@ -29,7 +29,7 @@
 		<a href='{!! route('home') !!}' id='logo'></a>
 		<a href="/shop">Boutique</a>
 		<a href="/idea">Boîte à Idées</a>
-		<a href="#/event">Évènement</a>
+		<a href="/event">Évènement</a>
 	</aside>
 	<main>
 		@yield('content')

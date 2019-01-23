@@ -1,6 +1,7 @@
 .row {
   margin: auto;
   height: 15%;
+  margin-bottom: 2%;
 }
 
 
@@ -12,12 +13,12 @@
 }
 
 #wrapper{
-  width: 95%;
-  margin: auto;
-  height: 50%;
-}
-.column {
-  width: 30%;
+ 	width: 95%;
+	margin: auto;
+	float: left;
+	margin-left: 3%;
+  margin-top: 5%;
+  margin-bottom: 3%;
 }
 
 /* Clear floats after rows */
@@ -38,57 +39,50 @@
   background-color: white
 }
 
-.likeButton{
-	margin-bottom: 2%;
-}
-
-.fa-thumbs-up{
-	margin-top: 2%;
-font-size: 175%;
-  margin-right:3%;
-  margin-left: 40%;
-  padding: 0.5%;
-  border: 2px solid black;
-}
-
 h3{
 	text-align: left;
 	margin-left: 5%;
-}
-h4{
-	text-align: left;
-	margin-left: 5%;
-	font-size: 130%;
+	margin-top: 4%;
 }
 
 .imgcase{
-
-	width: 50%;
-	background-image: url("../img/logo.png");
-	background-repeat: no-repeat;
-	background-position: center center;
-
+  width: 30%;
+  background-image: url("../img/ideas/horde.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.buttonCase{
-	width: 20%;
-	margin-left: 2%;
-	text-align: center;
-	margin-top: auto;
-	margin-bottom: auto;
+
+#rowButton{
+  margin: auto;
+  text-align: right;
+  padding: 1% 1% 1% 1%;
 }
 
-.but {
+.buttons{
+  margin: auto;
 	text-align: center;
 	text-decoration: none;
 	color: black;
 	background-color: white;
 	border-style: groove;
 	border-radius: 10px;
-	padding: 2px;
+	margin: 50% 0 50% 0;
+	padding: 1% 1% 1% 1%;
+	font-size: 120%;
 }
 
-.but:hover{
+.buttons:hover{
 	background-color: black;
-	color: rgb(235, 196, 26);
+	color: white;
+	border-color: black;	
+}
+
+.imgArticle {
+	height: 200px;
+	width: 100%;
+	margin: auto;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
 }

@@ -25,6 +25,17 @@ Route::get('card', 'ShopController@showCard');
 // Routes for the ideas
 Route::get('idea', 'IdeaController@showIdeas');
 
+Route::get('event', function(){
+  return view('event')->withTitle('event')->with('logged', false);
+});
+
+Route::get('oldevents', function(){
+  return view('oldevents')->withTitle('event')->with('logged', false);
+});
+
+Route::get('gallery', function(){
+  return view('gallery')->withTitle('event')->with('logged', false);
+});
 
 Route::get('cart', 'ShopController@showCart');
 
