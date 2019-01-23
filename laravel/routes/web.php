@@ -30,12 +30,22 @@ Route::get('event', function(){
 });
 
 Route::get('oldevents', function(){
-  return view('oldevents')->withTitle('event')->with('logged', false);
+  return view('oldevents')->withTitle('oldevent')->with('logged', false);
 });
 
 Route::get('gallery', function(){
-  return view('gallery')->withTitle('event')->with('logged', false);
+  return view('gallery')->withTitle('gallery')->with('logged', false);
 });
+Route::get('legals', function(){
+  return view('mentionsLégales')->withTitle('mention legales')->with('logged', false);
+});
+Route::get('condition', function(){
+  return view('mentionsLégales')->withTitle('mention legales')->with('logged', false);
+});
+Route::get('portec', function(){
+  return view('phpd')->withTitle('mention legales')->with('logged', false);
+});
+
 
 Route::get('cart', 'ShopController@showCart');
 

@@ -43,18 +43,16 @@
 							<div id="cookieButtons" >
 								<div id="cookieAccept" onclick="accepter()">J'accepte <!-- disparition la section cookieInjeted et creation d'un cookie-->
 								</div>
-								<div id="cookieReject" href="">Je n'accepte pas <!--  mettre le lien vers la page d'acceuil.-->
-								</div>
-								<div id="cookieReadmore" href="">En savoir plus <!--  mettre le lien vers la page qui parle des coookies.-->
-								</div>
+								<a id="cookieReject" href="{!! route('home') !!}">Je n'accepte pas <!--  mettre le lien vers la page d'acceuil.--></a>
+								<a id="cookieReadmore" href="/legals">En savoir plus <!--  mettre le lien vers la page qui parle des coookies.--></a>
 							</div>
 					</div>
 				</div>
 		</div>
 		
-		<a class="footlink" href=""> Mentions légales </a>
-		<a class="footlink" href=""> Conditions générales de ventes </a>
-		<a class="footlink" href=""> Politique de protections des données </a>
+		<a class="footlink" href="/legals"> Mentions légales </a>
+		<a class="footlink" href="/condition"> Conditions générales de ventes </a>
+		<a class="footlink" href="/protec"> Politique de protections des données </a>
 
 	</footer>
 	<script src="./js/boutonHello.js"></script>
