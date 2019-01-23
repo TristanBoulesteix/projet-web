@@ -35,14 +35,29 @@
 		@yield('content')
 	</main>
 	<footer>
-		
-		<a class="footlink" href=""> Mentions légales </a>
-		<a class="footlink" href=""> Conditions générales de ventes </a>
-		<a class="footlink" href=""> Politique de protections des données </a>
+		<div id="cookie">
+				<div id="cookieInjected">
+					<div id="cookieWrapper">
+						<h4 id="cookieHeader" >Ce site utilsie des cookies</h4>
+						<p>Ce site utilise des cookies pour améliorer votre expérience utilisateur.En utilisant ce site internet, vous  acceptez notre politique concernant la consevation et l'utilisation des Cookies.<br>  </p>
+							<div id="cookieButtons" >
+								<div id="cookieAccept" onclick="accepter()">J'accepte <!-- disparition la section cookieInjeted et creation d'un cookie-->
+								</div>
+								<a id="cookieReject" href="{!! route('home') !!}">Je n'accepte pas <!--  mettre le lien vers la page d'acceuil.--></a>
+								<a id="cookieReadmore" href="/legals">En savoir plus <!--  mettre le lien vers la page qui parle des coookies.--></a>
+							</div>
+					</div>
+				</div>
+		</div>
+
+		<a class="footlink" href="/legals"> Mentions légales </a>
+		<a class="footlink" href="/condition"> Conditions générales de ventes </a>
+		<a class="footlink" href="/protec"> Politique de protections des données </a>
 		<a class="footlink" href=""> Nous contacter </a>
 
 
 	</footer>
 	<script src="./js/boutonHello.js"></script>
+	<script src="./js/cookies.js"></script>
 </body>
 </html>
