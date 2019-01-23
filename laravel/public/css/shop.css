@@ -11,15 +11,16 @@ main{
 /* Add padding BETWEEN each column */
 .row,
 .row > .column {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
 
 }
 .wrapper {
 	width: 75%;
 	margin: auto;
 	display: flex;
+	flex: auto;
 	justify-content: space-around;
 	flex-wrap: wrap;
 }
@@ -31,6 +32,26 @@ main{
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+}
+
+.buttonShop {
+	display: inline-block;
+	background-color: white;
+	color: black;
+	border: 1px solid black;
+	margin: auto;
+	padding: 2%;
+	border-radius: 10px;
+	width: auto;
+}
+
+.buttonShop:hover {
+	background-color: black;
+	color: white;
+	border-color: white;
 }
 
 #top3{
@@ -40,7 +61,7 @@ main{
   margin-bottom: 1%;
 }
 
-#categorie{
+#categories{
   text-align: right;
   width: auto;
   display: inline-block;

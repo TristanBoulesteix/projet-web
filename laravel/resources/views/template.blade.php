@@ -49,10 +49,12 @@
 					</div>
 				</div>
 		</div>
-		
+
 		<a class="footlink" href="/legals"> Mentions légales </a>
 		<a class="footlink" href="/condition"> Conditions générales de ventes </a>
 		<a class="footlink" href="/protec"> Politique de protections des données </a>
+		<a class="footlink" href=""> Nous contacter </a>
+
 
 	</footer>
 	<script src="./js/boutonHello.js"></script>
