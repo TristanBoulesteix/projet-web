@@ -223,6 +223,61 @@ router.route('/events/past')
     }
 });
 
+router.route('/gallery')
+.get(function(req, res) {
+  var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
+  if (req.query.token == validateToken) {
+      const sql = "CALL imagePerEvent("+req.query.event+")";
+      con.query(sql, function (error, results, fields) {
+        if(error){//If there is error, we send the error in the error section with 500 status
+            res.json({"status": 500,
+            "error": error,
+            "response": null
+          });
+        } else {
+          res.json({//If there is no error, all is good and response is 200OK.
+              "status": 200,
+              "error": null,
+              "response": results
+            });
+        }
+      });
+    }
+    else{
+      res.json({
+        "response": "you are not allowed to have datas.",
+      });
+    }
+});
+
+router.route('/comment')
+.get(function(req, res) {
+  var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
+  if (req.query.token == validateToken) {
+      const sql = "CALL commentPerImage("+req.query.image+")";
+      con.query(sql, function (error, results, fields) {
+        if(error){//If there is error, we send the error in the error section with 500 status
+            res.json({"status": 500,
+            "error": error,
+            "response": null
+          });
+        } else {
+          res.json({//If there is no error, all is good and response is 200OK.
+              "status": 200,
+              "error": null,
+              "response": results
+            });
+        }
+      });
+    }
+    else{
+      res.json({
+        "response": "you are not allowed to have datas.",
+      });
+    }
+});
+
+
 app.use(router);
 // Starts the server
 app.listen(port, hostname, function(){

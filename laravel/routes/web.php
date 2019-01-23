@@ -25,6 +25,27 @@ Route::get('card', 'ShopController@showCard');
 // Routes for the ideas
 Route::get('idea', 'IdeaController@showIdeas');
 
+Route::get('event', function(){
+  return view('event')->withTitle('event')->with('logged', false);
+});
+
+Route::get('oldevents', function(){
+  return view('oldevents')->withTitle('oldevent')->with('logged', false);
+});
+
+Route::get('gallery', function(){
+  return view('gallery')->withTitle('gallery')->with('logged', false);
+});
+Route::get('legals', function(){
+  return view('mentionsLégales')->withTitle('mention legales')->with('logged', false);
+});
+Route::get('condition', function(){
+  return view('mentionsLégales')->withTitle('mention legales')->with('logged', false);
+});
+Route::get('portec', function(){
+  return view('phpd')->withTitle('mention legales')->with('logged', false);
+});
+
 
 Route::get('cart', 'ShopController@showCart');
 
