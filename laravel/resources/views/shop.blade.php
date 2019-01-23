@@ -14,38 +14,26 @@
 		  <button type="submit"><i class="fa fa-search"></i></button>
 		</form>
 	  <a href="card">
-		<i class="fa fa-shopping-cart " href=""></i>
+		<i class="fa fa-shopping-cart "></i>
 	  </a>
 	</div>
   <div class="wrapper">
-	<div class="row">
-	  <div class="column">
-		<div class="content"style="background-color: black;">
-			<!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-			<h3>Article : prix</h3>
-			<p>Description du produit!</p>
+	@foreach ($bestProducts as $product)
+		<div class='column {{ $product->id }}'>
+			<div style='background-image: url(../img/produit/{{ $product->image }});' class="imgArticle">
+				<div class='buttonShop addToCars'> Ajouter au panier </div>
+			</div>
+			<div class="content">
+				<h3>{{ $product->name }} : {{ $product->price }} €</h3>
+				<p>{{ $product->description }}</p>
+			</div>
 		</div>
-	  </div>
-	  <div class="column">
-		<div class="content"style="background-color: black;">
-		  <!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-		  <h3>Article : prix</h3>
-		  <p>Description du produit!</p>
-		</div>
-	  </div>
-	  <div class="column">
-		<div class="content" style="background-color: black;">
-			<!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-			<h3>Article : prix</h3>
-			<p>Description du produit!</p>
-		</div>
-	  </div>
-	</div>
+
+	@endforeach
   </div>
+  <h3 id="all"> Tout les articles : </h3>
 
-  <h3 id="top3"> Tout les articles : </h3>
-
-<div id="categorie">
+<div id="categories">
 	{!! Form::label('categorie', 'All:') !!}
 	{!! Form::select('categorie', $categories, ['required'=>'required'])!!}
 	{!! $errors->first('categorie','<small class="help-block">:message</small>') !!}
