@@ -31,7 +31,12 @@ class ShopController extends Controller {
 			$allCategories[$category->category] = $category->category;
 		}
 
-		$top = Orders::select('id_products')->groupBy('id_products')->orderByRaw('COUNT(*) DESC')->limit(3)->get();
+		$top = Orders::select('id_products')/*->groupBy('id_products')->orderByRaw('COUNT(*) DESC')->limit(3)*/->get()->all();
+		$a = array();
+
+		foreach($top as $test) {
+			$a[$test] = $test;
+		}
 
 		print_r($top);
 
