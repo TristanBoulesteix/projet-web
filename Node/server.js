@@ -114,25 +114,46 @@ router.route('/category')
 
   var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
   if (req.query.token == validateToken) {
-    var valueSQL = req.query.category_name;
-    console.log(valueSQL);
-    var sql = 'CALL categoryPerProducts("'+valueSQL+'")';
-    //Promise to give enought to the SQL requets befor sending datas
-    const promise1 = new Promise((resolve, reject) => {
-            con.query(sql, function (err, result, fields) {
-              if (err) return reject(err);
-              resolve(result);
-            });
-      });
+    if(req.query.category_name == "all"){
+      var valueSQL = req.query.category_name;
+      var sql = 'CALL productPerCategory()';
+      //Promise to give enought to the SQL requets befor sending datas
+      const promise1 = new Promise((resolve, reject) => {
+              con.query(sql, function (err, result, fields) {
+                if (err) return reject(err);
+                resolve(result);
+              });
+        });
 
-      //Send the JSON when the promise is resolved
-      promise1.then((value) =>{
-          res.json({
-          message : "Voici les produits de la boutique :",
-          result: value,
-          methode: req.method});
+        //Send the JSON when the promise is resolved
+        promise1.then((value) =>{
+            res.json({
+            message : "Voici les produits de la boutique :",
+            response: value,
+            methode: req.method});
 
-      });
+        });
+    }
+    else{
+      var valueSQL = req.query.category_name;
+      var sql = 'CALL categoryPerProducts("'+valueSQL+'")';
+      //Promise to give enought to the SQL requets befor sending datas
+      const promise1 = new Promise((resolve, reject) => {
+              con.query(sql, function (err, result, fields) {
+                if (err) return reject(err);
+                resolve(result);
+              });
+        });
+
+        //Send the JSON when the promise is resolved
+        promise1.then((value) =>{
+            res.json({
+            message : "Voici les produits de la boutique :",
+            reponse: value,
+            methode: req.method});
+
+        });
+      }
     }
     else{
       res.json({
