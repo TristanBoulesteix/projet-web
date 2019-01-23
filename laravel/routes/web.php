@@ -20,11 +20,13 @@ Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
 // Routes for the shop
 Route::get('shop', 'ShopController@showShop');
-Route::get('card', 'ShopController@showCard');
+Route::get('cart', 'ShopController@showCart');
 
 // Routes for the ideas
 Route::get('idea', 'IdeaController@showIdeas');
 
+
+// Other routes
 Route::get('event', function(){
   return view('event')->withTitle('event')->with('logged', false);
 });
@@ -47,7 +49,7 @@ Route::get('portec', function(){
 });
 
 
-Route::get('cart', 'ShopController@showCart');
+
 
 Route::get('/ML', function() {return view('mentionsLégales')->withTitle('mentionsLégales')->with('logged', false);});
 

@@ -13,8 +13,8 @@
 		  <input type="text" placeholder="Rechercher.." name="search">
 		  <button type="submit"><i class="fa fa-search"></i></button>
 		</form>
-	  <a href="card">
-		<i class="fa fa-shopping-cart "></i>
+	  <a href="cart">
+		<i class="fa fa-shopping-cart"></i>
 	  </a>
 	</div>
   <div class="wrapper">
