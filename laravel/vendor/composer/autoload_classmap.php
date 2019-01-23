@@ -28,6 +28,7 @@ return array(
     'App\\Managers\\ViewManager' => $baseDir . '/app/Managers/ViewManager.php',
     'App\\Model\\Campus' => $baseDir . '/app/Model/Campus.php',
     'App\\Model\\Categories' => $baseDir . '/app/Model/Categories.php',
+    'App\\Model\\Keep' => $baseDir . '/app/Model/Keep.php',
     'App\\Model\\Orders' => $baseDir . '/app/Model/Orders.php',
     'App\\Model\\Products' => $baseDir . '/app/Model/Products.php',
     'App\\Model\\User' => $baseDir . '/app/Model/User.php',

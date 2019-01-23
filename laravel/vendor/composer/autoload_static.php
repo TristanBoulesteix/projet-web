@@ -448,6 +448,7 @@ class ComposerStaticInit2f3065bd0e2f0f2e496b1c73db101ecf
         'App\\Managers\\ViewManager' => __DIR__ . '/../..' . '/app/Managers/ViewManager.php',
         'App\\Model\\Campus' => __DIR__ . '/../..' . '/app/Model/Campus.php',
         'App\\Model\\Categories' => __DIR__ . '/../..' . '/app/Model/Categories.php',
+        'App\\Model\\Keep' => __DIR__ . '/../..' . '/app/Model/Keep.php',
         'App\\Model\\Orders' => __DIR__ . '/../..' . '/app/Model/Orders.php',
         'App\\Model\\Products' => __DIR__ . '/../..' . '/app/Model/Products.php',
         'App\\Model\\User' => __DIR__ . '/../..' . '/app/Model/User.php',
