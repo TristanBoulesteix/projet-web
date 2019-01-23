@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Categories;
 use App\Model\Orders;
 use App\Model\Products;
+use App\Model\Keep;
 use App\Managers\ViewManager as Generator;
 
 class ShopController extends Controller {
@@ -34,7 +36,7 @@ class ShopController extends Controller {
 
 		// Get the three best products
 		$top = Orders::select('id_products')->groupBy('id_products')->orderByRaw('COUNT(*) DESC')->limit(3)->get()->all();
-		$bestProducts = array();
+
 
 		foreach($top as $productId) {
 			$id = $productId->id_products;
@@ -52,7 +54,14 @@ class ShopController extends Controller {
 	public function showCart() {
 		$generator = new Generator(view('cart'), 'Panier');
 
-		return $generator->getView();
+		$keeped = Keep::select('id_products')->groupBy('id_products')->where('id_user', Auth::user()->id)->get()->all();
+
+		foreach($keeped as $keep) {
+			$id = $keep->id_products;
+
+			$card[] = Products::where('id', $id)->get()[0];
+		}
+		return $generator->getView()->withKeeped($card);
 	}
 
 }
