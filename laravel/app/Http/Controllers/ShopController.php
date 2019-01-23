@@ -50,7 +50,7 @@ class ShopController extends Controller {
 	 *
 	 */
 	public function showCart() {
-		$generator = new Generator(view('cart'), 'panier');
+		$generator = new Generator(view('cart'), 'Panier');
 
 		return $generator->getView();
 	}
