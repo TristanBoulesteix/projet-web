@@ -8,7 +8,12 @@
 
 <h3 id="page"> Boite à idées </h3>
 
+<div id="addEventCase">
+            <a id="addEventBut" href=""> Proposer&nbsp;un&nbsp;évènement </a>
+        </div>
+
 <h4 id="pub"> Venez proposer vos idées dévènements! </h4>
+
 
 <div id="wrapper">
     <div class="row">
@@ -18,7 +23,7 @@
             <p> description de l'idée </p>
         </div>
         <div class="buttonCase">
-            <a class="but" href=""> si bde: administrer </a>
+            <a class="but" href=""> si&nbsp;bde:&nbsp;administrer </a>
         </div>
     </div>
     <div class="likeButton"><i class="fa fa-thumbs-up"></i></div>
@@ -29,7 +34,7 @@
             <p> description de l'idée </p>
         </div>
         <div class="buttonCase">
-            <a class="but" href=""> si bde: administrer </a>
+            <a class="but" href=""> si&nbsp;bde:&nbsp;administrer </a>
         </div>
     </div>
     <div class="likeButton"><i class="fa fa-thumbs-up"></i></div>
@@ -40,7 +45,7 @@
             <p> description de l'idée </p>
         </div>
         <div class="buttonCase">
-            <a class="but" href=""> si bde: administrer </a>
+            <a class="but" href=""> si&nbsp;bde:&nbsp;administrer </a>
         </div>
     </div>
     <div class="likeButton"><i class="fa fa-thumbs-up"></i></div>
@@ -51,7 +56,7 @@
             <p> description de l'idée </p>
         </div>
         <div class="buttonCase">
-            <a class="but" href=""> si bde: administrer </a>
+            <a class="but" href=""> si&nbsp;bde:&nbsp;administrer </a>
         </div>
     </div>
     <div class="likeButton"><i class="fa fa-thumbs-up"></i></div>
@@ -62,7 +67,7 @@
             <p> description de l'idée </p>
         </div>
         <div class="buttonCase">
-            <a class="but" href=""> si bde: administrer </a>
+            <a class="but" href=""> si&nbsp;bde:&nbsp;administrer </a>
         </div>
     </div>
     <div class="likeButton"><i class="fa fa-thumbs-up"></i></div>
@@ -73,7 +78,7 @@
             <p> description de l'idée </p>
         </div>
         <div class="buttonCase">
-            <a class="but" href=""> si bde: administrer </a>
+            <a class="but" href=""> si&nbsp;bde:&nbsp;administrer </a>
         </div>
     </div>
     <div class="likeButton"><i class="fa fa-thumbs-up"></i></div>
