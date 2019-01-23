@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Categories;
+use App\Model\Orders;
+use App\Model\Products;
 use App\Managers\ViewManager as Generator;
 
 class ShopController extends Controller {
@@ -30,10 +32,23 @@ class ShopController extends Controller {
 			$allCategories[$category->category] = $category->category;
 		}
 
+		// Get the three best products
+		$top = Orders::select('id_products')->groupBy('id_products')->orderByRaw('COUNT(*) DESC')->limit(3)->get()->all();
+		$bestProducts = array();
+
+		foreach($top as $productId) {
+			$id = $productId->id_products;
+			$bestProducts[] = Products::where('id', $id)->get()[0];
+		}
+
 		// Return the view
-		return $generator->getView()->withCategories($allCategories);
+		return $generator->getView()->withCategories($allCategories)->withBestProducts($bestProducts);
 	}
 
+	/**
+	 * Show all articles selected buy the user
+	 *
+	 */
 	public function showCart() {
 		$generator = new Generator(view('cart'), 'panier');
 
