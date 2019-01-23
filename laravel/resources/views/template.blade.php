@@ -35,6 +35,22 @@
 		@yield('content')
 	</main>
 	<footer>
+		<div id="cookie">
+				<div id="cookieInjected">
+					<div id="cookieWrapper">
+						<h4 id="cookieHeader" >Ce site utilsie des cookies</h4>
+						<p>Ce site utilise des cookies pour améliorer votre expérience utilisateur.En utilisant ce site internet, vous  acceptez notre politique concernant la consevation et l'utilisation des Cookies.<br>  </p>
+							<div id="cookieButtons" >
+								<div id="cookieAccept" onclick="accepter()">J'accepte <!-- disparition la section cookieInjeted et creation d'un cookie-->
+								</div>
+								<div id="cookieReject" href="">Je n'accepte pas <!--  mettre le lien vers la page d'acceuil.-->
+								</div>
+								<div id="cookieReadmore" href="">En savoir plus <!--  mettre le lien vers la page qui parle des coookies.-->
+								</div>
+							</div>
+					</div>
+				</div>
+		</div>
 		
 		<a class="footlink" href=""> Mentions légales </a>
 		<a class="footlink" href=""> Conditions générales de ventes </a>
@@ -42,5 +58,6 @@
 
 	</footer>
 	<script src="./js/boutonHello.js"></script>
+	<script src="./js/cookies.js"></script>
 </body>
 </html>
