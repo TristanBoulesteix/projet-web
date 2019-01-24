@@ -3,22 +3,13 @@ var selection = "";
 
 $("#categorie").change(function(){
 selection = $("#categorie").find(":selected").text();
-switch(selection){
-  case "sucré": selection = "sucré";
-  gotoAPI();
-  break;
-  case "salé": selection = "salé";
-  gotoAPI();
-  break;
-  case "neutre": selection = "neutre";
-  gotoAPI();
-  break;
-  default: selection = "all";
-  gotoAPI();
-  break;
+if(selection == "Toutes les catégories"){
+  selection ="all";
+  gotoAPI(selection);
+} else{
+gotoAPI(selection);
 }
 });
-
 
 function gotoAPI() {
 	var xmlhttp = new XMLHttpRequest();
@@ -50,7 +41,7 @@ function getTokenCat (myJSON){
 }
 
 function displayOnCategory(myJSON) {
-	var json = myJSON.reponse[0];
+	var json = myJSON.response[0];
   var wrapper = $("#allarticles");
   wrapper.empty();
 

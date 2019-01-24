@@ -1,7 +1,7 @@
 //the API require the Express Module
 const express = require('express');
-const hostname = 'localhost'; 
-const port = 3000; 
+const hostname = 'localhost';
+const port = 3000;
 //the express application
 const app = express();
 
@@ -149,7 +149,7 @@ router.route('/category')
         promise1.then((value) =>{
             res.json({
             message : "Voici les produits de la boutique :",
-            reponse: value,
+            response: value,
             methode: req.method});
 
         });
