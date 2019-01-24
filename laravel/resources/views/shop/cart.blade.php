@@ -9,7 +9,7 @@
 <h3 id="page"> Votre panier </h3>
 
 <div id="wrapper">
-	@forelse ( $keeped as $article)
+	@forelse ( $kept as $article)
 		<div class="row">
 			<div class="imgcase"></div>
 			<div class="content">
@@ -28,7 +28,7 @@
 <div id="basket">
 
 	{!! Form::open(['route' => 'buy']) !!}
-	{!! Form::submit("Valider l'achat", ['class' => 'buyclean', 'disabled' => (empty($keeped) ? true : false), 'onclick' => 'return confirm("Êtes-vous sûr de vouloir acheter tous ces articles");']) !!}
+	{!! Form::submit("Valider l'achat", ['class' => 'buyclean', 'disabled' => (empty($kept) ? true : false), 'onclick' => 'return confirm("Êtes-vous sûr de vouloir acheter tous ces articles");']) !!}
 	{!! Form::close() !!}
 
 	{!! Form::open(['method' => 'delete','route' => 'buyClean']) !!}

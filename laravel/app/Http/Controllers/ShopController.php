@@ -10,6 +10,8 @@ use App\Model;
 use App\Managers\ViewManager as Generator;
 
 class ShopController extends Controller {
+	private static $kept;
+
 	public function __construct() {
 		$this->middleware('auth');
 	}
@@ -52,16 +54,9 @@ class ShopController extends Controller {
 	public function showCart() {
 		$generator = new Generator(view('shop.cart'), 'panier');
 
-		$keeped = Model\Keep::select('id_products')->groupBy('id_products')->where('id_user', Auth::user()->id)->get()->all();
-		$card = array();
+		$this->fetchCart();
 
-		foreach($keeped as $keep) {
-			$id = $keep->id_products;
-
-			$card[] = Model\Products::where('id', $id)->get()[0];
-		}
-
-		return $generator->getView()->withKeeped($card);
+		return $generator->getView()->withKept(self::$kept);
 	}
 
 	public function buy() {
@@ -72,7 +67,12 @@ class ShopController extends Controller {
 			$emails[] = $member->email;
 		}
 
-		Mail::send('mail.cart', array(), function ($message) use ($emails){
+		$datas = array(
+			'buyer' => Auth::user(),
+			'kept' => self::$kept
+		);
+
+		Mail::send('mail.cart', $datas, function ($message) use ($emails){
 			$message->to($emails, 'BDE admin')->subject('market');
 		});
 	}
@@ -81,5 +81,16 @@ class ShopController extends Controller {
 		Model\Keep::where('id_user', Auth::user()->id)->delete();
 
 		return redirect()->route('cart');
+	}
+
+	private function fetchCart() {
+		$cart = Model\Keep::select('id_products')->groupBy('id_products')->where('id_user', Auth::user()->id)->get()->all();
+		self::$kept = array();
+
+		foreach($cart as $keep) {
+			$id = $keep->id_products;
+
+			self::$kept[] = Model\Products::where('id', $id)->get()[0];
+		}
 	}
 }
