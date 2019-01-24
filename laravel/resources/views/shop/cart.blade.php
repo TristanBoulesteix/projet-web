@@ -9,7 +9,7 @@
 <h3 id="page"> Votre panier </h3>
 
 <div id="wrapper">
-	@foreach ( $keeped as $article)
+	@forelse ( $keeped as $article)
 		<div class="row">
 			<div class="imgcase"></div>
 			<div class="content">
@@ -17,17 +17,22 @@
 			</div>
 		</div>
 		<p class="nameprice">{{ $article->name }} : {{ $article->price }} € </p>
-	@endforeach
+
+		@empty
+
+		<p>Vous n'avez aucun</p>
+
+	@forelse
 </div>
 
 <div id="basket">
 
-	{!! Form::open(['route' => 'buy']) !!}
-	{!! Form::submit("Valider l'achat", ['onclick' => 'return confirm("Êtes-vous sûr de supprimer votre panier ?");', 'class' => 'buyclean']) !!}
+	{!! Form::open(['route' => 'buyclean']) !!}
+	{!! Form::submit("Valider l'achat", ['class' => 'buyclean', 'onclick' => 'return confirm("Êtes-vous sûr de vouloir acheter tous ces articles");']) !!}
 	{!! Form::close() !!}
 
-	{!! Form::open(['route' => 'buy']) !!}
-	{!! Form::submit("Vider le panier", ['class' => 'buyclean']) !!}
+	{!! Form::open(['method' => 'delete','route' => 'buyclean']) !!}
+	{!! Form::submit("Vider le panier", ['class' => 'buyclean', 'onclick' => 'return confirm("Êtes-vous sûr de supprimer votre panier ?");']) !!}
 	{!! Form::close() !!}
 
 </div>

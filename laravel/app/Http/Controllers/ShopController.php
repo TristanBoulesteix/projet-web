@@ -69,6 +69,6 @@ class ShopController extends Controller {
 	public function buyclean() {
 		Keep::where('id_user', Auth::user()->id)->delete();
 
-		return redirect()->back();
+		return 'test';
 	}
 }
