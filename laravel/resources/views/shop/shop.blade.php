@@ -9,13 +9,16 @@
 <h3 id="top3"> TOP 3 DES VENTES </h3>
 
 	<div class="search-container">
-		<form id="searching" action="">
-		  <input type="text" placeholder="Rechercher.." name="search">
-		  <button type="submit"><i class="fa fa-search"></i></button>
-		</form>
-	  <a href="cart">
-		<i class="fa fa-shopping-cart"></i>
-	  </a>
+			<a href="card">
+				<i class="fa fa-shopping-cart "></i>
+			</a>
+			<form autocomplete="off" action="">
+					<div class="autocomplete" style="width:300px;">
+						<input id="myInput" type="text" name="articles" placeholder="Vous recherchez?">
+					</div>
+					<input type="submit">
+			</form>
+
 	</div>
   <div class="wrapper">
 	@foreach ($bestProducts as $product)
@@ -43,4 +46,9 @@
 <div class="wrapper" id="allarticles"></div>
 
 	<script src="./js/shop.js"></script>
+	<script src="./js/autocomplet.js"></script>*
+	<script src="./js/categories.js"></script>
+	<script>
+		autocomplete(document.getElementById("myInput"), articles);
+	</script>
 @endsection

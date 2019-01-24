@@ -22,7 +22,7 @@ class ShopController extends Controller {
 	 */
 	public function showShop() {
 		// Creation of the view with generic parameters
-		$generator = new Generator(view('shop'), 'Boutique');
+		$generator = new Generator(view('shop.shop'), 'Boutique');
 
 		$categories = Categories::select('category')->get()->all();
 		$allCategories = array();
@@ -52,7 +52,7 @@ class ShopController extends Controller {
 	 *
 	 */
 	public function showCart() {
-		$generator = new Generator(view('cart'), 'Panier');
+		$generator = new Generator(view('shop.cart'), 'panier');
 
 		$keeped = Keep::select('id_products')->groupBy('id_products')->where('id_user', Auth::user()->id)->get()->all();
 

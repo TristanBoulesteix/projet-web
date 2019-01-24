@@ -92,3 +92,25 @@ h4{
 	background-color: black;
 	color: rgb(235, 196, 26);
 }
+
+#addEventCase{
+	width: 20%;
+	text-align: center;
+	margin: 3% 0% 4% 48%;
+}
+
+#addEventBut{
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	background-color: white;
+	border-style: groove;
+	border-radius: 10px;
+	padding: 2px;
+	font-size: 150%;
+}
+
+#addEventBut:hover{
+	background-color: black;
+	color: rgb(235, 196, 26);
+}
