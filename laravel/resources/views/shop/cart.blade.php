@@ -20,9 +20,9 @@
 
 		@empty
 
-		<p>Vous n'avez aucun</p>
+		<p>Vous n'avez aucun article dans votre panier. </p>
 
-	@forelse
+	@endforelse
 </div>
 
 <div id="basket">
