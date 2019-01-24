@@ -10,8 +10,6 @@ use App\Model;
 use App\Managers\ViewManager as Generator;
 
 class ShopController extends Controller {
-	private static $kept;
-
 	public function __construct() {
 		$this->middleware('auth');
 	}
@@ -54,9 +52,9 @@ class ShopController extends Controller {
 	public function showCart() {
 		$generator = new Generator(view('shop.cart'), 'panier');
 
-		$this->fetchCart();
+		$kept = $this->fetchCart();
 
-		return $generator->getView()->withKept(self::$kept);
+		return $generator->getView()->withKept($kept);
 	}
 
 	public function buy() {
@@ -67,9 +65,11 @@ class ShopController extends Controller {
 			$emails[] = $member->email;
 		}
 
+		$kept = $this->fetchCart();
+
 		$datas = array(
 			'buyer' => Auth::user(),
-			'kept' => self::$kept
+			'kept' => $kept,
 		);
 
 		Mail::send('mail.cart', $datas, function ($message) use ($emails){
@@ -85,12 +85,14 @@ class ShopController extends Controller {
 
 	private function fetchCart() {
 		$cart = Model\Keep::select('id_products')->groupBy('id_products')->where('id_user', Auth::user()->id)->get()->all();
-		self::$kept = array();
+		$kept = array();
 
 		foreach($cart as $keep) {
 			$id = $keep->id_products;
 
-			self::$kept[] = Model\Products::where('id', $id)->get()[0];
+			$kept[] = Model\Products::where('id', $id)->get()[0];
 		}
+
+		return $kept;
 	}
 }

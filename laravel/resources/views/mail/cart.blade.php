@@ -23,6 +23,6 @@
 	?>
 	<p>Le prix total est de {{ $total }} €</p>
 	<br>
-	<p>Vous devez le recontacter au <a href={!! HTML::mailto($buyer->email) !!}></a></p>
+	<p>Vous devez le recontacter au {!! Html::mailto($buyer->email) !!}</p>
 </body>
 </html>
