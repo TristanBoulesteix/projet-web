@@ -21,7 +21,7 @@
 			$total += $article->price;
 		}
 	?>
-	<p>Le prix total est de {{ $total }}</p>
+	<p>Le prix total est de {{ $total }} €</p>
 	<br>
 	<p>Vous devez le recontacter au <a href={!! HTML::mailto($buyer->email) !!}></a></p>
 </body>
