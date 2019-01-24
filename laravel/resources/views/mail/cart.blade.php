@@ -18,11 +18,11 @@
 	<?php
 		$total = 0;
 		foreach($kept as $article) {
-			total += $article->price;
+			$total += $article->price;
 		}
 	?>
 	<p>Le prix total est de {{ $total }}</p>
 	<br>
-	<p>Vous devez le recontacter au <a href={!! HTML::mailto($buyer->email)></a>) !!}></a></p>
+	<p>Vous devez le recontacter au <a href={!! HTML::mailto($buyer->email) !!}></a></p>
 </body>
 </html>
