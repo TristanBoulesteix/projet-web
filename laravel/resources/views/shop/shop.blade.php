@@ -9,7 +9,7 @@
 <h3 id="top3"> TOP 3 DES VENTES </h3>
 
 	<div class="search-container">
-			<a href="card">
+			<a href="cart">
 				<i class="fa fa-shopping-cart "></i>
 			</a>
 			<form autocomplete="off" action="">
