@@ -64,4 +64,7 @@ class ShopController extends Controller {
 		return $generator->getView()->withKeeped($card);
 	}
 
+	public function buyclean() {
+		//return redirect()->back();
+	}
 }

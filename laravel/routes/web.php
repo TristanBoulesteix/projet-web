@@ -21,6 +21,7 @@ Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 // Routes for the shop
 Route::get('shop', 'ShopController@showShop');
 Route::get('cart', 'ShopController@showCart');
+Route::post('cart', ['uses' => 'ShopController@buyclean', 'as' => 'buy']);
 
 // Routes for the ideas
 Route::get('idea', 'IdeaController@showIdeas');

@@ -22,9 +22,13 @@
 
 <div id="basket">
 
-	<a class="buyclean" href=""> Valider l'achat </a>
+	{!! Form::open(['route' => 'buy']) !!}
+	{!! Form::submit("Valider l'achat", ['onclick' => 'return confirm("Êtes-vous sûr de supprimer votre panier ?");', 'class' => 'buyclean']) !!}
+	{!! Form::close() !!}
 
-	<a class="buyclean" href=""> Vider le panier </a>
+	{!! Form::open(['route' => 'buy']) !!}
+	{!! Form::submit("Vider le panier", ['class' => 'buyclean']) !!}
+	{!! Form::close() !!}
 
 </div>
 
