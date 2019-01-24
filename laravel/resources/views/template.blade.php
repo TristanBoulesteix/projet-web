@@ -13,7 +13,7 @@
 	@yield('css')
 </head>
 
-<body>
+<body onload="verify()">
 	<header>
 		<div id="banner">
 			<h1> Bienvenue sur le site du BDE! </h1>
@@ -36,20 +36,8 @@
 	</main>
 	<footer>
 		<div id="cookie">
-				<div id="cookieInjected">
-					<div id="cookieWrapper">
-						<h4 id="cookieHeader" >Ce site utilsie des cookies</h4>
-						<p>Ce site utilise des cookies pour améliorer votre expérience utilisateur.En utilisant ce site internet, vous  acceptez notre politique concernant la consevation et l'utilisation des Cookies.<br>  </p>
-							<div id="cookieButtons" >
-								<div id="cookieAccept" onclick="accepter()">J'accepte <!-- disparition la section cookieInjeted et creation d'un cookie-->
-								</div>
-								<a id="cookieReject" href="{!! route('home') !!}">Je n'accepte pas <!--  mettre le lien vers la page d'acceuil.--></a>
-								<a id="cookieReadmore" href="/legals">En savoir plus <!--  mettre le lien vers la page qui parle des coookies.--></a>
-							</div>
-					</div>
-				</div>
-		</div>
 
+		</div>
 		<a class="footlink" href="/legals"> Mentions légales </a>
 		<a class="footlink" href="/condition"> Conditions générales de ventes </a>
 		<a class="footlink" href="/protec"> Politique de protections des données </a>
@@ -61,3 +49,18 @@
 	<script src="./js/cookies.js"></script>
 </body>
 </html>
+
+<!-- 
+					<div id="cookieInjected">
+					<div id="cookieWrapper">
+						<h4 id="cookieHeader" >Ce site utilise des cookies</h4>
+						<p>Ce site utilise des cookies pour améliorer votre expérience utilisateur. En utilisant ce site internet, vous  acceptez notre politique concernant la consevation et l'utilisation des Cookies.<br>  </p>
+							<div id="cookieButtons" >
+								<div id="cookieAccept" onclick="accepter()">J'accepte  
+								</div>
+								<a id="cookieReject" href="{!! route('home') !!}">Je n'accepte pas </a>
+								<a id="cookieReadmore" href="/legals">En savoir plus </a>
+							</div>
+					</div>
+				</div>
+-->

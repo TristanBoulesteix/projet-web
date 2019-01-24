@@ -5,6 +5,7 @@ const port = 3000;
 //the express application
 const app = express();
 
+
 const jwt = require('jsonwebtoken');
 
 //MySql connection
