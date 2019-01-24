@@ -65,12 +65,16 @@ class ShopController extends Controller {
 	}
 
 	public function buy() {
-		$bde = Model\User::where('role', Model\Role::select('id')->where('role', 'BDE')->get()[0])->get();
+		$bde = Model\User::where('role', Model\Role::select('id')->where('role', 'BDE')->get()[0]->id)->get();
+		$emails = array();
 
-		print_r($bde);
 		foreach($bde as $member) {
-			echo($member->email);
+			$emails[] = $member->email;
 		}
+
+		Mail::send('mail.cart', array(), function ($message) use ($emails){
+			$message->to($emails, 'BDE admin')->subject('market');
+		});
 	}
 
 	public function buyclean() {
