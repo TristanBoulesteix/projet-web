@@ -1,0 +1,59 @@
+@media all and (max-width: 580px) and (orientation: portrait){
+
+	#banner{
+		flex-direction: column;
+
+	}
+	#hello{
+		padding: 1%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#connexion{
+		margin-left: auto;
+		margin-right: auto;
+		padding: 1%;
+	}
+
+	.side{
+		display: none !important;
+	}
+
+	.sidebar{
+		height: 75px;
+	}
+
+	#logo{
+		height: 100%;
+		width: 70%;
+	}
+
+	 #burger{
+	 	display: block;
+	 	height: 100%;
+	 	width: 30%;
+	 	display: flex;
+	 	flex-direction: column;
+	 	justify-content: space-around;
+	 }
+
+
+	 #burger div{
+	 	height: 10%;
+	 	background-color: white;
+	 	margin-left: 15%;
+		margin-right: 15%;
+	 }
+
+	 #menuBurger{
+		display: none;
+		height: 25%;
+
+	}
+
+	.footlink{
+		margin: 2% 0% 2% 0%;
+		font-size: 130%;
+	}
+}

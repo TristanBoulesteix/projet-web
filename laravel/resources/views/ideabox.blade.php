@@ -1,7 +1,9 @@
 @extends ( 'template' )
 @section ( 'css' )
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="./css/ideabox.css">
+<link rel="stylesheet" href="./css/ideabox/ideabox.css">
+<link rel="stylesheet" href="./css/ideabox/ideabox_ipad.css">
+<link rel="stylesheet" href="./css/ideabox/ideabox_phone.css">
 @endsection
 
 @section ( 'content' )
@@ -12,7 +14,7 @@
             <a id="addEventBut" href=""> Proposer&nbsp;un&nbsp;évènement </a>
         </div>
 
-<h4 id="pub"> Venez proposer vos idées dévènements! </h4>
+<h4 id="pub"> Venez proposer vos idées d'évènements! </h4>
 
 
 <div id="wrapper">
