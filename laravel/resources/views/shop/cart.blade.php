@@ -15,8 +15,8 @@
 			<div class="content">
 				<p> {{ $article->description }} </p>
 			</div>
-			<p class="nameprice">{{ $article->name }} : {{ $article->price }} € </p>
 		</div>
+		<p class="nameprice">{{ $article->name }} : {{ $article->price }} € </p>
 	@endforeach
 </div>
 

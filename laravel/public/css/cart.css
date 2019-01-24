@@ -24,20 +24,24 @@
 
 /* Clear floats after rows */
 .row:after {
-  content: "";
-  display: table;
-  clear: both;
+	content: "";
+	display: table;
+	clear: both;
 }
 
 /* Content */
 .content {
-  text-align : center;
-  color: black;
-  padding: 1% 1% 1% 1%;
-  width: 100%;
-  border-style: groove;
-  margin-left: 3%;
-  background-color: white
+	text-align : center;
+	color: black;
+	padding: 1% 1% 1% 1%;
+	width: 100%;
+	border-style: groove;
+	margin-left: 3%;
+	background-color: white
+}
+
+.content p {
+	word-wrap : break-word;
 }
 
 h3{
@@ -46,7 +50,7 @@ h3{
 	margin-top: 4%;
 }
 
-.imgcase{
+.imgcase {
 
 	width: 50%;
 	background-image: url("../img/logo.png");
@@ -84,5 +88,5 @@ h3{
 .buyclean:hover{
 	background-color: black;
 	color: white;
-	border-color: black;	
+	border-color: black;
 }
