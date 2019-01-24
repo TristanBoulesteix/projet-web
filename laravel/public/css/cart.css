@@ -19,7 +19,7 @@
 	margin-top: 5%;
 }
 .column {
-  width: 30%;
+	width: 30%;
 }
 
 /* Clear floats after rows */
@@ -72,7 +72,6 @@ h3{
 	margin: 10% 13% 5% 13%;
 }
 
-
 .buyclean{
 	text-align: center;
 	cursor: pointer;
@@ -86,8 +85,13 @@ h3{
 	font-size: 150%;
 }
 
-.buyclean:hover{
+.buyclean:enabled:hover{
 	background-color: black;
 	color: white;
 	border-color: black;
+}
+
+.buyclean:disabled {
+	color:grey;
+	cursor: default;
 }

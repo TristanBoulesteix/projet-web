@@ -20,7 +20,7 @@
 
 		@empty
 
-		<p>Vous n'avez aucun article dans votre panier. </p>
+		<p>Vous n&rsquo;avez aucun article dans votre panier. </p>
 
 	@endforelse
 </div>
@@ -28,7 +28,7 @@
 <div id="basket">
 
 	{!! Form::open(['route' => 'buyclean']) !!}
-	{!! Form::submit("Valider l'achat", ['class' => 'buyclean', 'onclick' => 'return confirm("Êtes-vous sûr de vouloir acheter tous ces articles");']) !!}
+	{!! Form::submit("Valider l'achat", ['class' => 'buyclean', 'disabled' => (empty($keeped) ? true : false), 'onclick' => 'return confirm("Êtes-vous sûr de vouloir acheter tous ces articles");']) !!}
 	{!! Form::close() !!}
 
 	{!! Form::open(['method' => 'delete','route' => 'buyclean']) !!}
