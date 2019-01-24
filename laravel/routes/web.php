@@ -20,8 +20,8 @@ Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
 // Routes for the shop
 Route::get('shop', 'ShopController@showShop');
-Route::get('cart', 'ShopController@showCart');
-Route::delete('cart', ['uses' => 'ShopController@buyclean', 'as' => 'buyclean']);
+Route::get('cart', ['uses' => 'ShopController@showCart', 'as' => 'cart']);
+Route::delete('cart', ['uses' => 'ShopController@buyclean', 'as' => 'buyClean']);
 Route::post('cart', ['uses' => 'ShopController@buy','as' => 'buy']);
 
 // Routes for the ideas

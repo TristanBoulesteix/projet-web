@@ -27,11 +27,11 @@
 
 <div id="basket">
 
-	{!! Form::open(['route' => 'buyclean']) !!}
+	{!! Form::open(['route' => 'buy']) !!}
 	{!! Form::submit("Valider l'achat", ['class' => 'buyclean', 'disabled' => (empty($keeped) ? true : false), 'onclick' => 'return confirm("Êtes-vous sûr de vouloir acheter tous ces articles");']) !!}
 	{!! Form::close() !!}
 
-	{!! Form::open(['method' => 'delete','route' => 'buyclean']) !!}
+	{!! Form::open(['method' => 'delete','route' => 'buyClean']) !!}
 	{!! Form::submit("Vider le panier", ['class' => 'buyclean', 'onclick' => 'return confirm("Êtes-vous sûr de supprimer votre panier ?");']) !!}
 	{!! Form::close() !!}
 
