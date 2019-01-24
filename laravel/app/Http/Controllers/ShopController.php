@@ -20,7 +20,7 @@ class ShopController extends Controller {
 	 */
 	public function showShop() {
 		// Creation of the view with generic parameters
-		$generator = new Generator(view('shop'), 'Boutique');
+		$generator = new Generator(view('shop.shop'), 'Boutique');
 
 		$categories = Categories::select('category')->get()->all();
 		$allCategories = array();
@@ -50,7 +50,7 @@ class ShopController extends Controller {
 	 *
 	 */
 	public function showCart() {
-		$generator = new Generator(view('cart'), 'panier');
+		$generator = new Generator(view('shop.cart'), 'panier');
 
 		return $generator->getView();
 	}
