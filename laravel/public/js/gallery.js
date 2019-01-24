@@ -10,7 +10,7 @@ $(function () {
       getToken(myJSON);
     }
   };
-  xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
+  xmlhttp.open("GET", "http://10.169.128.55:3000/api/v1/users?bde=bde&cesi=lyon", true);
   xmlhttp.send();
 });
 
@@ -23,7 +23,7 @@ function getDatas (token) {
       displayOn(myJSON);
     }
   };
-  xmlhttp.open("GET", "http://localhost:3000/gallery?event="+2/* event id on where we had click*/+"&token="+token, true);
+  xmlhttp.open("GET", "http://10.169.128.55:3000/gallery?event="+1/* event id on where we had click*/+"&token="+token, true);
   xmlhttp.send();
 }
 
@@ -74,7 +74,7 @@ function getDatasComm (token, id) {
       displayOnComm(myJSON, id);
     }
   };
-  xmlhttp.open("GET", "http://localhost:3000/comment?image="+1/* event id on where we had click*/+"&token="+token, true);
+  xmlhttp.open("GET", "http://10.169.128.55:3000/comment?image="+1/* event id on where we had click*/+"&token="+token, true);
   xmlhttp.send();
 }
 
@@ -120,6 +120,6 @@ function openComp(id) {
         getTokenComm(myJSON, id);
       }
     };
-    xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
+    xmlhttp.open("GET", "http://10.169.128.55:3000/api/v1/users?bde=bde&cesi=lyon", true);
     xmlhttp.send();
 }
