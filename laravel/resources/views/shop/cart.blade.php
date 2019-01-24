@@ -9,62 +9,22 @@
 <h3 id="page"> Votre panier </h3>
 
 <div id="wrapper">
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-            <p> description </p>
-        </div>
-    </div>
- <p class="nameprice"> nom article: prix </p>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-            <p> description </p>
-        </div>
-    </div>
-    <p class="nameprice"> nom article: prix </p>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-           <p> description </p>
-        </div>
-    </div>
-    <p class="nameprice"> nom article: prix </p>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-           <p> description </p>
-        </div>
-    </div>
-    <p class="nameprice"> nom article: prix </p>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-           <p> description </p>
-        </div>
-    </div>
-    <p class="nameprice"> nom article: prix </p>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-           <p> description </p>
-        </div>
-    </div>
-    <p class="nameprice"> nom article: prix </p>
-        </div>
+	@foreach ( $keeped as $article)
+		<div class="row">
+			<div class="imgcase"></div>
+			<div class="content">
+				<p> {{ $article->description }} </p>
+			</div>
+			<p class="nameprice">{{ $article->name }} : {{ $article->price }} € </p>
+		</div>
+	@endforeach
 </div>
 
 <div id="basket">
-    
-    <a class="buyclean" href=""> Valider l'achat </a>
 
-    <a class="buyclean" href=""> Vider le panier </a>
+	<a class="buyclean" href=""> Valider l'achat </a>
+
+	<a class="buyclean" href=""> Vider le panier </a>
 
 </div>
 
