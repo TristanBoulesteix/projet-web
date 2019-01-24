@@ -55,16 +55,20 @@ class ShopController extends Controller {
 		$generator = new Generator(view('shop.cart'), 'panier');
 
 		$keeped = Keep::select('id_products')->groupBy('id_products')->where('id_user', Auth::user()->id)->get()->all();
+		$card = array();
 
 		foreach($keeped as $keep) {
 			$id = $keep->id_products;
 
 			$card[] = Products::where('id', $id)->get()[0];
 		}
+
 		return $generator->getView()->withKeeped($card);
 	}
 
 	public function buyclean() {
-		//return redirect()->back();
+		Keep::where('id_user', Auth::user()->id)->delete();
+
+		return redirect()->back();
 	}
 }
