@@ -1,9 +1,10 @@
 //the API require the Express Module
 const express = require('express');
-const hostname = 'localhost';
+const hostname = '10.169.128.55';
 const port = 3000;
 //the express application
 const app = express();
+
 
 const jwt = require('jsonwebtoken');
 

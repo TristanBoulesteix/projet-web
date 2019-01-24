@@ -53,7 +53,7 @@ function autocomplete(inp, arr) {
       x[i].classList.remove("autocomplete-active");
     }
   }
-  function closeAllListsOpen(elmnt) {
+  function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("autocomplete-items");
     for (var i = 0; i < x.length; i++) {
       if (elmnt != x[i] && elmnt != inp) {
@@ -62,6 +62,6 @@ function autocomplete(inp, arr) {
   }
 }
 document.addEventListener("click", function (e) {
-    closeAllListsOpen(e.target);
+    closeAllLists(e.target);
 });
 }
