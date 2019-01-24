@@ -1,7 +1,26 @@
 @media all and (max-width: 780px) and (orientation: portrait){
 
-	
 
+h4{
+	text-align: center;
+	font-size: 100%;
+	margin-left: unset;
+}
+
+
+#addEventCase{
+		margin: 3% 0% 4% 0%;
+		width: 100%;
+	}
+
+#addEventBut{
+		font-size: 150%;
+	}
+
+.content{
+	margin-left: 1%;
+	width: 70%;
+}
 
 
 }	
