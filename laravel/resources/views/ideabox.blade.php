@@ -9,12 +9,15 @@
 <h3 id="page"> Boite à idées </h3>
 
 <div id="Adminbtn">
+        <div id="addEventCase">
+            <a id="addEventBut" href=""> Proposer&nbsp;un&nbsp;évènement </a>
+        </div>
 <h4 id="pub"> Venez proposer vos idées dévènements! </h4>
 <a id="connexion" href="/idea/admin">Administrer</a>
 </div>
 
-<div id="wrapper">
 
+<div id="wrapper">
 </div>
 <script type="text/javascript" src="./js/ideas.js"></script>
 
