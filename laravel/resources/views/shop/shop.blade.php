@@ -24,6 +24,9 @@
 			<div class='column {{ $product->id }}'>
 				<div style='background-image: url(../img/produit/{{ $product->image }});' class="imgArticle">
 					<div class='buttonShop addToCart top3'> Ajouter au panier </div>
+					@if($role->role == 'BDE')
+					<div class='buttonShop'> Supprimer l'article </div>
+					@endif
 				</div>
 				<div class="content">
 					<h3>{{ $product->name }} : {{ $product->price }} €</h3>

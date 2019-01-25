@@ -41,8 +41,12 @@ class ShopController extends Controller {
 			$bestProducts[] = Model\Products::where('id', $id)->get()[0];
 		}
 
+
+
+		$role = Model\Role::select('role')->where('id', Auth::user()->role)->get()[0];
+
 		// Return the view
-		return $generator->getView()->withCategories($allCategories)->withBestProducts($bestProducts);
+		return $generator->getView()->withCategories($allCategories)->withBestProducts($bestProducts)->withRole($role);
 	}
 
 	public function addToCart($n) {
