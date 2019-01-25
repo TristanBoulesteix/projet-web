@@ -19,6 +19,6 @@
 
 <div id="wrapper">
 </div>
-<script type="text/javascript" src="./js/ideas.js"></script>
+<script src="./js/ideas.js"></script>
 
 @endsection

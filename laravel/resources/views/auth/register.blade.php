@@ -1,7 +1,7 @@
 @extends ("template")
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="../css/form.css">
+<link rel="stylesheet" href="../css/form.css">
 <style>
 	main {
 		height: 70.4vh;

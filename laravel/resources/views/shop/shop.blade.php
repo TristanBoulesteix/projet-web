@@ -12,7 +12,7 @@
 			<a href="cart">
 				<i class="fa fa-shopping-cart "></i>
 			</a>
-			<form autocomplete="off" action="">
+			<form autocomplete="off">
 					<div class="autocomplete" style="width:300px;">
 						<input id="myInput" type="text" name="articles" placeholder="Vous recherchez?">
 					</div>
