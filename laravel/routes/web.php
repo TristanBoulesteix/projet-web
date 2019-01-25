@@ -20,13 +20,36 @@ Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
 // Routes for the shop
 Route::get('shop', 'ShopController@showShop');
-Route::get('card', 'ShopController@showCard');
+Route::get('shop/{n}', 'ShopController@addToCart')->where('n', '^[0-9]*$');
+Route::get('cart', ['uses' => 'ShopController@showCart', 'as' => 'cart']);
+Route::delete('cart', ['uses' => 'ShopController@buyclean', 'as' => 'buyClean']);
+Route::post('cart', ['uses' => 'ShopController@buy','as' => 'buy']);
 
 // Routes for the ideas
 Route::get('idea', 'IdeaController@showIdeas');
 
+// Routes for events
+Route::get('event', 'EventController@showEvents');
+Route::get('oldevents', 'EventController@showOlds');
+Route::get('gallery/{n}', 'EventController@showGallery')->where('n', '^[0-9]*$');
 
-Route::get('cart', 'ShopController@showCart');
+// Other routes
+
+Route::get('legals', function(){
+  return view('mentionsLégales')->withTitle('mention legales')->with('logged', false);
+});
+Route::get('condition', function(){
+  return view('mentionsLégales')->withTitle('mention legales')->with('logged', false);
+});
+Route::get('portec', function(){
+  return view('phpd')->withTitle('mention legales')->with('logged', false);
+});
+
+Route::get('/idea/admin', function(){
+  return view('ideaboxAdmin')->withTitle('administration')->with('logged', false);
+});
+
+
 
 Route::get('/ML', function() {return view('mentionsLégales')->withTitle('mentionsLégales')->with('logged', false);});
 

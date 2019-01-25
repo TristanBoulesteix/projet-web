@@ -9,62 +9,31 @@
 <h3 id="page"> Votre panier </h3>
 
 <div id="wrapper">
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-            <p> description </p>
-        </div>
-    </div>
- <p class="nameprice"> nom article: prix </p>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-            <p> description </p>
-        </div>
-    </div>
-    <p class="nameprice"> nom article: prix </p>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-           <p> description </p>
-        </div>
-    </div>
-    <p class="nameprice"> nom article: prix </p>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-           <p> description </p>
-        </div>
-    </div>
-    <p class="nameprice"> nom article: prix </p>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-           <p> description </p>
-        </div>
-    </div>
-    <p class="nameprice"> nom article: prix </p>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-           <p> description </p>
-        </div>
-    </div>
-    <p class="nameprice"> nom article: prix </p>
-        </div>
+	@forelse ( $kept as $article)
+		<div class="row">
+			<div class="imgcase" style='background-image:url(../img/produit/{{ $article->image }})'></div>
+			<div class="content">
+				<p> {{ $article->description }} </p>
+			</div>
+		</div>
+		<p class="nameprice">{{ $article->name }} : {{ $article->price }} € </p>
+
+		@empty
+
+		<p>Vous n&rsquo;avez aucun article dans votre panier. </p>
+
+	@endforelse
 </div>
 
 <div id="basket">
-    
-    <a class="buyclean" href=""> Valider l'achat </a>
 
-    <a class="buyclean" href=""> Vider le panier </a>
+	{!! Form::open(['route' => 'buy']) !!}
+	{!! Form::submit("Valider l'achat", ['class' => 'buyclean', 'disabled' => (empty($kept) ? true : false), 'onclick' => 'return confirm("Êtes-vous sûr de vouloir acheter tous ces articles");']) !!}
+	{!! Form::close() !!}
+
+	{!! Form::open(['method' => 'delete','route' => 'buyClean']) !!}
+	{!! Form::submit("Vider le panier", ['class' => 'buyclean', 'onclick' => 'return confirm("Êtes-vous sûr de supprimer votre panier ?");']) !!}
+	{!! Form::close() !!}
 
 </div>
 

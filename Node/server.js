@@ -1,9 +1,10 @@
 //the API require the Express Module
 const express = require('express');
-const hostname = 'localhost'; 
-const port = 3000; 
+const hostname = '10.169.128.55';
+const port = 3000;
 //the express application
 const app = express();
+
 
 const jwt = require('jsonwebtoken');
 
@@ -49,8 +50,6 @@ const con = mysql.createConnection({
           }
         else{
           if(token != false){
-            console.log('Token: ');
-            console.log(token);
             resolve(token);
           }
             else{
@@ -116,24 +115,73 @@ router.route('/category')
 
   var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
   if (req.query.token == validateToken) {
-    var valueSQL = req.query.category_name;
-    console.log(valueSQL);
-    var sql = 'CALL categoryPerProducts("'+valueSQL+'")';
-    //Promise to give enought to the SQL requets befor sending datas
-    const promise1 = new Promise((resolve, reject) => {
-            con.query(sql, function (err, result, fields) {
-              if (err) return reject(err);
-              resolve(result);
-            });
+    if(req.query.category_name == "all"){
+      var valueSQL = req.query.category_name;
+      var sql = 'CALL productPerCategory()';
+      //Promise to give enought to the SQL requets befor sending datas
+      const promise1 = new Promise((resolve, reject) => {
+              con.query(sql, function (err, result, fields) {
+                if (err) return reject(err);
+                resolve(result);
+              });
+        });
+
+        //Send the JSON when the promise is resolved
+        promise1.then((value) =>{
+            res.json({
+            message : "Voici les produits de la boutique :",
+            response: value,
+            methode: req.method});
+
+        });
+    }
+    else{
+      var valueSQL = req.query.category_name;
+      var sql = 'CALL categoryPerProducts("'+valueSQL+'")';
+      //Promise to give enought to the SQL requets befor sending datas
+      const promise1 = new Promise((resolve, reject) => {
+              con.query(sql, function (err, result, fields) {
+                if (err) return reject(err);
+                resolve(result);
+              });
+        });
+
+        //Send the JSON when the promise is resolved
+        promise1.then((value) =>{
+            res.json({
+            message : "Voici les produits de la boutique :",
+            response: value,
+            methode: req.method});
+
+        });
+      }
+    }
+    else{
+      res.json({
+        "response": "you are not allowed to have datas.",
       });
+    }
+});
 
-      //Send the JSON when the promise is resolved
-      promise1.then((value) =>{
-          res.json({
-          message : "Voici les produits de la boutique :",
-          result: value,
-          methode: req.method});
 
+router.route('/ideas')
+.get(function(req, res) {
+  var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
+  if (req.query.token == validateToken) {
+      const sql = "CALL ideas";
+      con.query(sql, function (error, results, fields) {
+        if(error){//If there is error, we send the error in the error section with 500 status
+            res.json({"status": 500,
+            "error": error,
+            "response": null
+          });
+        } else {
+          res.json({//If there is no error, all is good and response is 200OK.
+              "status": 200,
+              "error": null,
+              "response": results
+            });
+        }
       });
     }
     else{
@@ -142,6 +190,115 @@ router.route('/category')
       });
     }
 });
+
+router.route('/events')
+.get(function(req, res) {
+  var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
+  if (req.query.token == validateToken) {
+      const sql = "CALL recentEvent";
+      con.query(sql, function (error, results, fields) {
+        if(error){//If there is error, we send the error in the error section with 500 status
+            res.json({"status": 500,
+            "error": error,
+            "response": null
+          });
+        } else {
+          res.json({//If there is no error, all is good and response is 200OK.
+              "status": 200,
+              "error": null,
+              "response": results
+            });
+        }
+      });
+    }
+    else{
+      res.json({
+        "response": "you are not allowed to have datas.",
+      });
+    }
+});
+
+router.route('/events/past')
+.get(function(req, res) {
+  var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
+  if (req.query.token == validateToken) {
+      const sql = "CALL oldEvent";
+      con.query(sql, function (error, results, fields) {
+        if(error){//If there is error, we send the error in the error section with 500 status
+            res.json({"status": 500,
+            "error": error,
+            "response": null
+          });
+        } else {
+          res.json({//If there is no error, all is good and response is 200OK.
+              "status": 200,
+              "error": null,
+              "response": results
+            });
+        }
+      });
+    }
+    else{
+      res.json({
+        "response": "you are not allowed to have datas.",
+      });
+    }
+});
+
+router.route('/gallery')
+.get(function(req, res) {
+  var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
+  if (req.query.token == validateToken) {
+      const sql = "CALL imagePerEvent("+req.query.event+")";
+      con.query(sql, function (error, results, fields) {
+        if(error){//If there is error, we send the error in the error section with 500 status
+            res.json({"status": 500,
+            "error": error,
+            "response": null
+          });
+        } else {
+          res.json({//If there is no error, all is good and response is 200OK.
+              "status": 200,
+              "error": null,
+              "response": results
+            });
+        }
+      });
+    }
+    else{
+      res.json({
+        "response": "you are not allowed to have datas.",
+      });
+    }
+});
+
+router.route('/comment')
+.get(function(req, res) {
+  var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
+  if (req.query.token == validateToken) {
+      const sql = "CALL commentPerImage("+req.query.image+")";
+      con.query(sql, function (error, results, fields) {
+        if(error){//If there is error, we send the error in the error section with 500 status
+            res.json({"status": 500,
+            "error": error,
+            "response": null
+          });
+        } else {
+          res.json({//If there is no error, all is good and response is 200OK.
+              "status": 200,
+              "error": null,
+              "response": results
+            });
+        }
+      });
+    }
+    else{
+      res.json({
+        "response": "you are not allowed to have datas.",
+      });
+    }
+});
+
 
 app.use(router);
 // Starts the server

@@ -10,79 +10,19 @@
 
 <h3 id="page"> Boite à idées </h3>
 
-<div id="addEventCase">
+<div id="Adminbtn">
+        <div id="addEventCase">
             <a id="addEventBut" href=""> Proposer&nbsp;un&nbsp;évènement </a>
         </div>
 
-<h4 id="pub"> Venez proposer vos idées d'évènements! </h4>
+<h4 id="pub"> Venez proposer vos idées dévènements! </h4>
+<a id="connexion" href="/idea/admin">Administrer</a>
+</div>
+
 
 
 <div id="wrapper">
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-            <p> description de l'idée </p>
-        </div>
-        <div class="buttonCase">
-            <a class="but" href=""> si&nbsp;bde:&nbsp;administrer </a>
-        </div>
-    </div>
-    <div class="likeButton"><i class="fa fa-thumbs-up"></i></div>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-            <p> description de l'idée </p>
-        </div>
-        <div class="buttonCase">
-            <a class="but" href=""> si&nbsp;bde:&nbsp;administrer </a>
-        </div>
-    </div>
-    <div class="likeButton"><i class="fa fa-thumbs-up"></i></div>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-            <p> description de l'idée </p>
-        </div>
-        <div class="buttonCase">
-            <a class="but" href=""> si&nbsp;bde:&nbsp;administrer </a>
-        </div>
-    </div>
-    <div class="likeButton"><i class="fa fa-thumbs-up"></i></div>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-            <p> description de l'idée </p>
-        </div>
-        <div class="buttonCase">
-            <a class="but" href=""> si&nbsp;bde:&nbsp;administrer </a>
-        </div>
-    </div>
-    <div class="likeButton"><i class="fa fa-thumbs-up"></i></div>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-            <p> description de l'idée </p>
-        </div>
-        <div class="buttonCase">
-            <a class="but" href=""> si&nbsp;bde:&nbsp;administrer </a>
-        </div>
-    </div>
-    <div class="likeButton"><i class="fa fa-thumbs-up"></i></div>
-    <div class="row">
-        <div  class='imgcase'>
-        </div>
-        <div class="content">
-            <p> description de l'idée </p>
-        </div>
-        <div class="buttonCase">
-            <a class="but" href=""> si&nbsp;bde:&nbsp;administrer </a>
-        </div>
-    </div>
-    <div class="likeButton"><i class="fa fa-thumbs-up"></i></div>
 </div>
+<script type="text/javascript" src="./js/ideas.js"></script>
+
 @endsection

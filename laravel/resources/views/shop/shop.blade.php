@@ -9,44 +9,34 @@
 <h3 id="top3"> TOP 3 DES VENTES </h3>
 
 	<div class="search-container">
-		<form id="searching" action="">
-		  <input type="text" placeholder="Rechercher.." name="search">
-		  <button type="submit"><i class="fa fa-search"></i></button>
-		</form>
-	  <a href="card">
-		<i class="fa fa-shopping-cart " href=""></i>
-	  </a>
-	</div>
-  <div class="wrapper">
-	<div class="row">
-	  <div class="column">
-		<div class="content"style="background-color: black;">
-			<!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-			<h3>Article : prix</h3>
-			<p>Description du produit!</p>
+			<a href="cart">
+				<i class="fa fa-shopping-cart "></i>
+			</a>
+			<form autocomplete="off" action="">
+					<div class="autocomplete" style="width:300px;">
+						<input id="myInput" type="text" name="articles" placeholder="Vous recherchez?">
+					</div>
+					<input type="submit">
+			</form>
 		</div>
-	  </div>
-	  <div class="column">
-		<div class="content"style="background-color: black;">
-		  <!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-		  <h3>Article : prix</h3>
-		  <p>Description du produit!</p>
-		</div>
-	  </div>
-	  <div class="column">
-		<div class="content" style="background-color: black;">
-			<!-- <img src="mountains.jpg" alt="Mountains" style="width:100%"> -->
-			<h3>Article : prix</h3>
-			<p>Description du produit!</p>
-		</div>
-	  </div>
-	</div>
-  </div>
+	<div class="wrapper">
+		@foreach ($bestProducts as $product)
+			<div class='column {{ $product->id }}'>
+				<div style='background-image: url(../img/produit/{{ $product->image }});' class="imgArticle">
+					<div class='buttonShop addToCart top3'> Ajouter au panier </div>
+				</div>
+				<div class="content">
+					<h3>{{ $product->name }} : {{ $product->price }} €</h3>
+					<p>{{ $product->description }}</p>
+				</div>
+			</div>
 
-  <h3 id="top3"> Tout les articles : </h3>
+		@endforeach
+	</div>
+	<h3 id="all"> Tout les articles : </h3>
 
-<div id="categorie">
-	{!! Form::label('categorie', 'All:') !!}
+<div id="categories">
+	{!! Form::label('categorie', 'Catégories:') !!}
 	{!! Form::select('categorie', $categories, ['required'=>'required'])!!}
 	{!! $errors->first('categorie','<small class="help-block">:message</small>') !!}
 </div>
@@ -55,4 +45,9 @@
 <div class="wrapper" id="allarticles"></div>
 
 	<script src="./js/shop.js"></script>
+	<script src="./js/autocomplet.js"></script>*
+	<script src="./js/categories.js"></script>
+	<script>
+		autocomplete(document.getElementById("myInput"), articles);
+	</script>
 @endsection

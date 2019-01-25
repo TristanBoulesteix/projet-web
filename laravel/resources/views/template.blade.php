@@ -8,15 +8,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="icon" href="https://ecole-ingenieurs.cesi.fr/wp-content/uploads/sites/5/2018/10/cropped-icone-cesi-ecole-ingenieurs-32x32.png">
+
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <link rel="stylesheet" href="../css/main/main.css">
 <link rel="stylesheet" href="../css/main/main_ipad.css">
 <link rel="stylesheet" href="../css/main/main_phone.css">
 <script src="../js/menu.js"></script>
 
+
 	@yield('css')
 </head>
 
-<body>
+<body onload="verify()">
 	<header>
 		<div id="banner">
 			<h1> Bienvenue sur le site du BDE! </h1>
@@ -50,6 +53,7 @@ $eventTemp = "Évènement";
 			<div></div>
 
 		</div>
+
 	</aside>
 
 	<section id="menuBurger" class="sidebar" >
@@ -62,6 +66,10 @@ $eventTemp = "Évènement";
 		@yield('content')
 	</main>
 	<footer>
+
+		<div id="cookie">
+
+		</div>
 		
 		<a class="footlink" href=""> Mentions&nbsp;légales </a>
 		<a class="footlink" href=""> Conditions&nbsp;générales&nbsp;de&nbsp;ventes </a>
@@ -69,7 +77,9 @@ $eventTemp = "Évènement";
 		<a class="footlink" href=""> Nous&nbsp;contacter </a>
 
 
+
 	</footer>
-	<script src="./js/boutonHello.js"></script>
+	<script src="../js/boutonHello.js"></script>
+	<script src="../js/cookies.js"></script>
 </body>
 </html>
