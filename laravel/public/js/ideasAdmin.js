@@ -38,7 +38,6 @@ function displayOnAdmin(myJSON) {
  json = myJSON.response[0];
   var wrapper = $("#tbody");
   var col = $("#tr")
-  var row = 0;
 
   var idCol = $(document.createElement("th")).text("ID");
   var nameCol = $(document.createElement("th")).text("Name");
@@ -58,29 +57,23 @@ function displayOnAdmin(myJSON) {
     var description = json[i].description;
     var currentRow = $(document.createElement("tr"))
     wrapper.append(currentRow);
-    var data1 = $(document.createElement("td")).text(id).attr("id", "id"+row);
+    var data1 = $(document.createElement("td")).text(id).attr("id", "id"+id);
     currentRow.append(data1);
-    var data2 = $(document.createElement("td")).text(name).attr("id", "name"+row);
+    var data2 = $(document.createElement("td")).text(name).attr("id", "name"+id);
     currentRow.append(data2);
-    var data3 = $(document.createElement("td")).text(description).attr("id", "description"+row);
+    var data3 = $(document.createElement("td")).text(description).attr("id", "description"+id);
     currentRow.append(data3);
-    var data4 = $(document.createElement("td")).text("Auteur").attr("id", "autheur"+row);
+    var data4 = $(document.createElement("td")).text("Auteur").attr("id", "autheur"+id);
     currentRow.append(data4);
-    var selection = $(document.createElement("td")).text("Selectionner l'idée").attr("id", "select"+row).attr("id", "select");
+    var selection = $(document.createElement("td")).text("Transformer cette idée en évènement").attr("id", id).addClass("select"+id);
     currentRow.append(selection);
-
-    selected = $('#select'+row).DataTable();
-    alert($('#select'+row));
-    row ++;
+    selected = $('.select'+id);
+    selected.click(function(){
+      document.location = "/addEvent?1";
+    });
 
 }
 $('#table_id').DataTable();
-/*for(var i = 0; i <= row; i++){
-  selected = $('#select'+i).DataTable();
-  selected.on(function(){
-    alert("hllo");
-  });
-}*/
 }
 
 
