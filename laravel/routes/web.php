@@ -32,6 +32,7 @@ Route::get('/idea/admin', 'IdeaController@showAdmin');
 
 // Routes for events
 Route::get('event', 'EventController@showEvents');
+Route::get('addevent', 'EventController@addEvent');
 Route::get('oldevents', 'EventController@showOlds');
 Route::get('gallery/{n}', 'EventController@showGallery')->where('n', '^[0-9]*$');
 
@@ -45,12 +46,6 @@ Route::get('condition', function(){
 });
 Route::get('portec', function(){
   return view('phpd')->withTitle('mention legales')->with('logged', false);
-});
-
-
-
-Route::get('/addEvent', function(){
-  return "test";
 });
 
 Route::get('/ML', function() {return view('mentionsLégales')->withTitle('mentionsLégales')->with('logged', false);});
