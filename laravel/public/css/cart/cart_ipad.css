@@ -1,5 +1,53 @@
-@media all and (max-width: 580px) and (orientation: portrait){
+@media all and (max-width: 780px) and (orientation: portrait){
 
+#wrapper{
+	width: 90%;
+	float: unset;
+	margin-left: unset;
+}
 
+#basket{
+	display: flex;
+	flex-direction: row;
+	margin: 2% 15% 2% 15%;
+	justify-content: space-between;
+	width: 70%;
+}
+
+.content{
+	width: 55%;
+}
+
+.imgcase{
+	width: 40%;
+	background-size: 77%;
+}
+
+}
+
+@media all and (max-width: 1040px) and (orientation: landscape){
+
+#wrapper{
+	width: 90%;
+	float: unset;
+	margin-left: unset;
+}
+
+#basket{
+	display: flex;
+	flex-direction: row;
+	margin: 2% 15% 2% 15%;
+	justify-content: space-between;
+	width: 70%;
+}
+
+.content{
+	width: 55%;
+}
+
+.imgcase{
+	width: 40%;
+	background-size: 77%;
+}
 
 }

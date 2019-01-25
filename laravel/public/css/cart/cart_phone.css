@@ -1,5 +1,29 @@
 @media all and (max-width: 580px) and (orientation: portrait){
 
+#basket{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 70%;
+	align-items: center;
+}
 
+.buyclean{
+	margin: 2% 0 5% 0;
+}
 
 }
+
+@media all and (max-width: 750px) and (orientation: landscape){
+
+
+.buyclean{
+	margin: 2% 0 10% 0;
+}
+
+footer{
+	width: 100%;
+	margin-left: unset;
+}
+
+}	
