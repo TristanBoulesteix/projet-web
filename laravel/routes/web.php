@@ -35,18 +35,22 @@ Route::get('gallery/{n}', 'EventController@showGallery')->where('n', '^[0-9]*$')
 
 // Other routes
 
-
-
+Route::get('legals', function(){
+  return view('mentionsLégales')->withTitle('mention legales')->with('logged', false);
+});
+Route::get('condition', function(){
+  return view('mentionsLégales')->withTitle('mention legales')->with('logged', false);
+});
+Route::get('portec', function(){
+  return view('phpd')->withTitle('mention legales')->with('logged', false);
+});
 
 Route::get('/idea/admin', function(){
   return view('ideaboxAdmin')->withTitle('administration')->with('logged', false);
 });
 
-Route::get('/cgv', function() {return view('legal.cgv')->withTitle('Conditions générales de vente')->with('logged', false);});
-
-Route::get('/contact', function() {return view('legal.contact')->withTitle('Contacter le BDE')->with('logged', false);});
 
 
-Route::get('/ML', function() {return view('legal.mentionsLegales')->withTitle('mentions Légales')->with('logged', false);});
+Route::get('/ML', function() {return view('mentionsLégales')->withTitle('mentionsLégales')->with('logged', false);});
 
-Route::get('/ppdp', function() {return view('legal.ppdp')->withTitle('Politique de protection des données')->with('logged', false);});
+Route::get('/ppdp', function() {return view('ppdp')->withTitle('Politique de protection des données')->with('logged', false);});
