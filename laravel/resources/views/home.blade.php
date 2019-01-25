@@ -20,6 +20,6 @@
 
 	</p>
 
-	<img id="bde" src="../img/lyon.png">
+	<img id="bde" src="../img/lyon.png" alt="BDELyon">
 
 @endsection

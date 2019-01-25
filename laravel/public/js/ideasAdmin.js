@@ -37,7 +37,8 @@ getDatasAdmin(json);
 function displayOnAdmin(myJSON) {
  json = myJSON.response[0];
   var wrapper = $("#tbody");
-  var col = $("#tr")
+  var col = $(document.createElement("tr")).attr("id","tr");
+  $("#thread").append(col);
 
   var idCol = $(document.createElement("th")).text("ID");
   var nameCol = $(document.createElement("th")).text("Name");
