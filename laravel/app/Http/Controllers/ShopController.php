@@ -84,6 +84,9 @@ class ShopController extends Controller {
 			$message->to($emails, 'BDE admin')->subject('market');
 		});
 
+		foreach(Model\Keep::where('id_user', Auth::user()->id)->get() as $toBuy) {
+			Model\Orders::create(array('id_products' => $toBuy->id_products, 'id_user' => $toBuy->id_user));
+		}
 		Model\Keep::where('id_user', Auth::user()->id)->delete();
 
 		return $generator->getView();
