@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="icon" href="https://ecole-ingenieurs.cesi.fr/wp-content/uploads/sites/5/2018/10/cropped-icone-cesi-ecole-ingenieurs-32x32.png">
-<link rel="stylesheet" type="text/css" href="./css/main.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 
 	@yield('css')
 </head>
@@ -45,22 +45,7 @@
 
 
 	</footer>
-	<script src="./js/boutonHello.js"></script>
-	<script src="./js/cookies.js"></script>
+	<script src="../js/boutonHello.js"></script>
+	<script src="../js/cookies.js"></script>
 </body>
 </html>
-
-<!-- 
-					<div id="cookieInjected">
-					<div id="cookieWrapper">
-						<h4 id="cookieHeader" >Ce site utilise des cookies</h4>
-						<p>Ce site utilise des cookies pour améliorer votre expérience utilisateur. En utilisant ce site internet, vous  acceptez notre politique concernant la consevation et l'utilisation des Cookies.<br>  </p>
-							<div id="cookieButtons" >
-								<div id="cookieAccept" onclick="accepter()">J'accepte  
-								</div>
-								<a id="cookieReject" href="{!! route('home') !!}">Je n'accepte pas </a>
-								<a id="cookieReadmore" href="/legals">En savoir plus </a>
-							</div>
-					</div>
-				</div>
--->

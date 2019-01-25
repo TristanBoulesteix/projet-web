@@ -6,7 +6,7 @@
 
 @section ( 'content' )
 
-<h3 id="page"> Gallerie </h3>
+<h3 id="page"> Galerie </h3>
 
 
 <div id="comSection">

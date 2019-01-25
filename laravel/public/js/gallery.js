@@ -13,12 +13,13 @@ $(function () {
 	  getToken(myJSON);
 	}
   };
-  xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
+  xmlhttp.open("GET", "http://10.169.128.55:3000/api/v1/users?bde=bde&cesi=lyon", true);
   xmlhttp.send();
 });
 
 
 function getDatas (token) {
+
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -26,7 +27,7 @@ function getDatas (token) {
 		displayOn(myJSON);
 		}
 	};
-	xmlhttp.open("GET", "http://localhost:3000/gallery?event="+eventSelected+"&token="+token, true);
+	xmlhttp.open("GET", "http://10.169.128.55:3000/gallery?event="+eventSelected+"&token="+token, true);
 	xmlhttp.send();
 }
 
@@ -77,7 +78,7 @@ function getDatasComm (token, id) {
 	  displayOnComm(myJSON, id);
 	}
   };
-  xmlhttp.open("GET", "http://localhost:3000/comment?image="+1/* event id on where we had click*/+"&token="+token, true);
+  xmlhttp.open("GET", "http://10.169.128.55:3000/comment?image="+1/* event id on where we had click*/+"&token="+token, true);
   xmlhttp.send();
 }
 
@@ -116,6 +117,7 @@ function displayOnComm(myJSON, id) {
 }
 
 function openComp(id) {
+
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 	  if (this.readyState == 4 && this.status == 200) {
@@ -123,6 +125,6 @@ function openComp(id) {
 		getTokenComm(myJSON, id);
 	  }
 	};
-	xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
+	xmlhttp.open("GET", "http://10.169.128.55:3000/api/v1/users?bde=bde&cesi=lyon", true);
 	xmlhttp.send();
 }
