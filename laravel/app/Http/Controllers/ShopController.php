@@ -55,6 +55,19 @@ class ShopController extends Controller {
 		return redirect()->route('cart');
 	}
 
+	public function deleteArticle($n) {
+		$bde = Model\Role::select('id')->where('role', 'BDE')->get()[0]->id;
+
+		if (Auth::user()->role == $bde) {
+			Model\Products::where('id', $n)->delete();
+			Model\Keep::where('id_products')->delete();
+
+			return redirect()->route('home');
+		} else {
+			abort(403, 'Unauthorized action.');
+		}
+	}
+
 	/**
 	 * Show all articles selected buy the user
 	 *
