@@ -9,7 +9,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="icon" href="https://ecole-ingenieurs.cesi.fr/wp-content/uploads/sites/5/2018/10/cropped-icone-cesi-ecole-ingenieurs-32x32.png">
 
-<link rel="stylesheet" href="../css/main.css">
 <link rel="stylesheet" href="../css/main/main.css">
 <link rel="stylesheet" href="../css/main/main_ipad.css">
 <link rel="stylesheet" href="../css/main/main_phone.css">
@@ -44,7 +43,7 @@ $eventTemp = "Évènement";
 		<a href='{!! route('home') !!}' id='logo'></a>
 		<a class="side" href="/shop">{{$shopTemp}}</a>
 		<a class="side" href="/idea">{{$ideaTemp}}</a>
-		<a class="side" href="#/event">{{$eventTemp}}</a>
+		<a class="side" href="/event">{{$eventTemp}}</a>
 		<div id="burger" onclick="showBurger();">
 				
 			<div></div>
@@ -58,7 +57,7 @@ $eventTemp = "Évènement";
 	<section id="menuBurger" class="sidebar" >
 		<a href="/shop">{{$shopTemp}}</a>
 		<a href="/idea">{{$ideaTemp}}</a>
-		<a href="#/event">{{$eventTemp}}</a>
+		<a href="/event">{{$eventTemp}}</a>
 	</section>
 
 	<main>

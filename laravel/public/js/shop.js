@@ -43,6 +43,12 @@ function displayOn(myJSON) {
 
 	for (var i = 0; i < json.length; i++) {
 		createArticle(json, wrapper, i);
+
+		$(".imgArticle").hover( function(){
+				$(this).find($(".buttonShop")).css("display", "inline-block");
+				}, function(){
+				$(this).find($(".buttonShop")).css("display", "none");
+			});
 	}
 
 	$('.addToCart').on('click', function() {
