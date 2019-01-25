@@ -1,0 +1,11 @@
+@media all and (max-width: 580px) and (orientation: portrait){
+
+.formDiv{
+	width: 80%;
+}
+
+#file{
+	font-size: 66%;
+}
+
+}
