@@ -45,6 +45,12 @@ class ShopController extends Controller {
 		return $generator->getView()->withCategories($allCategories)->withBestProducts($bestProducts);
 	}
 
+	public function addToCart($n) {
+		Model\Keep::create(array('id_products' => $n, 'id_user' => Auth::user()->id));
+
+		return redirect()->route('cart');
+	}
+
 	/**
 	 * Show all articles selected buy the user
 	 *
@@ -90,7 +96,7 @@ class ShopController extends Controller {
 	}
 
 	private function fetchCart() {
-		$cart = Model\Keep::select('id_products')->groupBy('id_products')->where('id_user', Auth::user()->id)->get()->all();
+		$cart = Model\Keep::select('id_products')->where('id_user', Auth::user()->id)->get()->all();
 		$kept = array();
 
 		foreach($cart as $keep) {

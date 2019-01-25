@@ -13,7 +13,7 @@ $(function () {
 });
 
 var buy = function buyArticle(id) {
-	alert(id);
+	document.location = './shop/' + id;
 }
 
 function createArticle(json, wrapper, i) {
@@ -55,6 +55,10 @@ function displayOn(myJSON) {
 	}
 
 	$('.addToCart').on('click', function() {
-		buy($(this).parent().parent().attr('id'));
+		if($(this).attr('class').split(' ')[2] == 'top3') {
+			buy($(this).parent().parent().attr('class').split(' ')[1]);
+		} else {
+			buy($(this).parent().parent().attr('id'));
+		}
 	});
 }

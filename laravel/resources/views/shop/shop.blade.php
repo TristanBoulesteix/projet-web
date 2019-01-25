@@ -18,23 +18,22 @@
 					</div>
 					<input type="submit">
 			</form>
-
-	</div>
-  <div class="wrapper">
-	@foreach ($bestProducts as $product)
-		<div class='column {{ $product->id }}'>
-			<div style='background-image: url(../img/produit/{{ $product->image }});' class="imgArticle">
-				<div class='buttonShop addToCart'> Ajouter au panier </div>
-			</div>
-			<div class="content">
-				<h3>{{ $product->name }} : {{ $product->price }} €</h3>
-				<p>{{ $product->description }}</p>
-			</div>
 		</div>
+	<div class="wrapper">
+		@foreach ($bestProducts as $product)
+			<div class='column {{ $product->id }}'>
+				<div style='background-image: url(../img/produit/{{ $product->image }});' class="imgArticle">
+					<div class='buttonShop addToCart top3'> Ajouter au panier </div>
+				</div>
+				<div class="content">
+					<h3>{{ $product->name }} : {{ $product->price }} €</h3>
+					<p>{{ $product->description }}</p>
+				</div>
+			</div>
 
-	@endforeach
-  </div>
-  <h3 id="all"> Tout les articles : </h3>
+		@endforeach
+	</div>
+	<h3 id="all"> Tout les articles : </h3>
 
 <div id="categories">
 	{!! Form::label('categorie', 'Catégories:') !!}
