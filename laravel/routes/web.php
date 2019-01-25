@@ -20,6 +20,7 @@ Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
 // Routes for the shop
 Route::get('shop', 'ShopController@showShop');
+Route::get('shop/{n}', 'ShopController@addToCart')->where('n', '^[0-9]*$');
 Route::get('cart', ['uses' => 'ShopController@showCart', 'as' => 'cart']);
 Route::delete('cart', ['uses' => 'ShopController@buyclean', 'as' => 'buyClean']);
 Route::post('cart', ['uses' => 'ShopController@buy','as' => 'buy']);
