@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="./css/ideabox/ideabox.css">
 <link rel="stylesheet" href="./css/ideabox/ideabox_ipad.css">
 <link rel="stylesheet" href="./css/ideabox/ideabox_phone.css">
+<link rel="stylesheet" href="./css/ideabox/ideabox_laptop.css">
 @endsection
 
 @section ( 'content' )
