@@ -22,5 +22,25 @@ h4{
 	width: 70%;
 }
 
+.imgcase{
+	width: 70%;
+}
 
 }	
+
+@media all and (max-width: 1030px) and (orientation: landscape){
+
+#addEventCase{
+		margin: 3% 0% 4% 0%;
+		width: 100%;
+	}
+
+#wrapper{
+	width: 98%;
+}
+
+.imgcase{
+	width: 75%; 
+}
+
+}

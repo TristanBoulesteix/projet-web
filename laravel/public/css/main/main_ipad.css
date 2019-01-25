@@ -15,7 +15,7 @@
 	}
 }
 
-@media all and (max-width: 1024px) and (orientation: landscape){
+@media all and (max-width: 1030px) and (orientation: landscape){
 
 	footer{
 		display: flex;

@@ -64,3 +64,17 @@ h4{
 }
 
 }	
+
+@media all and (max-width: 750px) and (orientation: landscape){
+
+.sidebar{
+	margin-bottom: 3%;
+}
+
+.imgcase{
+	width: 109%;
+	
+}
+
+
+}
