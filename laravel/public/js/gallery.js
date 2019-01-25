@@ -32,8 +32,8 @@ function getDatas (token) {
 }
 
 function getToken (myJSON){
-var json = myJSON.result;
-getDatas(json);
+token = myJSON.result;
+getDatas(token);
 }
 
 function displayOn(myJSON) {
@@ -50,8 +50,9 @@ function displayOn(myJSON) {
 	  currentDiv.append(tool);
 	  tool.append('<p class="commentary">commenter</p>');
 	  var like = $(document.createElement("div")).addClass("like");
-	  like.append('<i class="fa fa-thumbs-up"></i>');
-	  currentDiv.append(like);
+		currentDiv.append(like);
+		var bouton = $(document.createElement("i")).addClass("fa fa-thumbs-up").attr("id", json[i].id).attr("onclick", "clicked("+json[i].id+")");
+		like.append(bouton);
 	  div ++;
   }
 
@@ -83,8 +84,8 @@ function getDatasComm (token, id) {
 }
 
 function getTokenComm (myJSON, id){
-  var json = myJSON.result;
-  getDatasComm(json, id);
+  token = myJSON.result;
+  getDatasComm(token, id);
   }
 
 function displayOnComm(myJSON, id) {
@@ -127,4 +128,22 @@ function openComp(id) {
 	};
 	xmlhttp.open("GET", "http://10.169.128.55:3000/api/v1/users?bde=bde&cesi=lyon", true);
 	xmlhttp.send();
+}
+
+
+function postLike (id_image) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var myJSON = JSON.parse(this.responseText);
+    }
+  };
+  xmlhttp.open("POST", "http://10.169.128.55:3000/like/event?token="+token+"&id_image="+id_image, true);
+  xmlhttp.send();
+}
+
+function clicked(id){
+  postLike(id);
+  $("#"+id).css("color", "blue");
+  $("#"+id).prop("onclick", null).off("click");
 }

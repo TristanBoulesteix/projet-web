@@ -444,3 +444,19 @@ table.dataTable td {
   .dataTables_wrapper .dataTables_filter {
     margin-top: 0.5em; }
   }
+
+
+  .but {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border-style: groove;
+    border-radius: 10px;
+    padding: 2px;
+  }
+  
+  .but:hover{
+    background-color: black;
+    color: rgb(235, 196, 26);
+  }

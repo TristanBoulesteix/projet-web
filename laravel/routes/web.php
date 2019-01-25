@@ -49,7 +49,9 @@ Route::get('/idea/admin', function(){
   return view('ideaboxAdmin')->withTitle('administration')->with('logged', false);
 });
 
-
+Route::get('/addEvent', function(){
+  return "test";
+});
 
 Route::get('/ML', function() {return view('mentionsLégales')->withTitle('mentionsLégales')->with('logged', false);});
 

@@ -14,7 +14,18 @@ $(function () {
 });
 
 
-function getDatas (token) {
+function postLike (id_idea) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var myJSON = JSON.parse(this.responseText);
+    }
+  };
+  xmlhttp.open("POST", "http://10.169.128.55:3000/like/idea?token="+token+"&id_idea="+id_idea, true);
+  xmlhttp.send();
+}
+
+function getDatas () {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -27,10 +38,9 @@ function getDatas (token) {
 }
 
 function getToken (myJSON){
-var json = myJSON.result;
-getDatas(json);
+token = myJSON.result;
+getDatas();
 }
-
 
 
 function displayOn(myJSON) {
@@ -38,7 +48,6 @@ function displayOn(myJSON) {
   var wrapper = $("#wrapper");
   var currentRow;
   var row = 0;
-
 
   for (var i = 0; i < json.length; i++) {
 
@@ -51,10 +60,18 @@ function displayOn(myJSON) {
       content.append("<p>"+json[i].description +"</p>");
       var hidebuttons = $(document.createElement("div")).attr("id", "buttonCase");
       content.append(hidebuttons);
-      var like = $(document.createElement("div")).attr("id", "likeButton");
+      var like = $(document.createElement("div")).addClass("likeButton");
       wrapper.append(like);
-      like.append("<i class="+'"fa fa-thumbs-up"'+"></i>");
+      var bouton = $(document.createElement("i")).addClass("fa fa-thumbs-up").attr("id", json[i].id).attr("onclick", "clicked("+json[i].id+")");
+      like.append(bouton);
       column = 1;
       row ++;
+
+      
   }
+}
+function clicked(id){
+  postLike(id);
+  $("#"+id).css("color", "blue");
+  $("#"+id).prop("onclick", null).off("click");
 }
