@@ -58,6 +58,8 @@ class ShopController extends Controller {
 	}
 
 	public function buy() {
+		$generator = new Generator(view('shop.thanksOrder'), 'Merci !');
+
 		$bde = Model\User::where('role', Model\Role::select('id')->where('role', 'BDE')->get()[0]->id)->get();
 		$emails = array();
 
@@ -72,9 +74,13 @@ class ShopController extends Controller {
 			'kept' => $kept,
 		);
 
-		Mail::send('mail.cart', $datas, function ($message) use ($emails){
+		Mail::send('mail.cart', $datas, function ($message) use ($emails) {
 			$message->to($emails, 'BDE admin')->subject('market');
 		});
+
+		Model\Keep::where('id_user', Auth::user()->id)->delete();
+
+		return $generator->getView();
 	}
 
 	public function buyclean() {
