@@ -27,19 +27,13 @@ Route::post('cart', ['uses' => 'ShopController@buy','as' => 'buy']);
 // Routes for the ideas
 Route::get('idea', 'IdeaController@showIdeas');
 
+// Routes for events
+Route::get('event', 'EventController@showEvents');
+Route::get('oldevents', 'EventController@showOlds');
+Route::get('gallery/{n}', 'EventController@showGallery')->where('n', '^[0-9]*$');
 
 // Other routes
-Route::get('event', function(){
-  return view('event')->withTitle('event')->with('logged', false);
-});
 
-Route::get('oldevents', function(){
-  return view('oldevents')->withTitle('oldevent')->with('logged', false);
-});
-
-Route::get('gallery', function(){
-  return view('gallery')->withTitle('gallery')->with('logged', false);
-});
 Route::get('legals', function(){
   return view('mentionsLégales')->withTitle('mention legales')->with('logged', false);
 });
