@@ -8,7 +8,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="icon" href="https://ecole-ingenieurs.cesi.fr/wp-content/uploads/sites/5/2018/10/cropped-icone-cesi-ecole-ingenieurs-32x32.png">
+
 <link rel="stylesheet" type="text/css" href="../css/main.css">
+<link rel="stylesheet" href="../css/main/main.css">
+<link rel="stylesheet" href="../css/main/main_ipad.css">
+<link rel="stylesheet" href="../css/main/main_phone.css">
+<script src="../js/menu.js"></script>
+
 
 	@yield('css')
 </head>
@@ -25,23 +31,51 @@
 		</div>
 
 	</header>
+
+<?php  
+
+$shopTemp = "Boutique";
+$ideaTemp = "Boîte à Idées";
+$eventTemp = "Évènement";
+
+
+?>
+
 	<aside class="sidebar">
 		<a href='{!! route('home') !!}' id='logo'></a>
-		<a href="/shop">Boutique</a>
-		<a href="/idea">Boîte à Idées</a>
-		<a href="/event">Évènement</a>
+		<a class="side" href="/shop">{{$shopTemp}}</a>
+		<a class="side" href="/idea">{{$ideaTemp}}</a>
+		<a class="side" href="#/event">{{$eventTemp}}</a>
+		<div id="burger" onclick="showBurger();">
+				
+			<div></div>
+			<div></div>
+			<div></div>
+
+		</div>
+
 	</aside>
+
+	<section id="menuBurger" class="sidebar" >
+		<a href="/shop">{{$shopTemp}}</a>
+		<a href="/idea">{{$ideaTemp}}</a>
+		<a href="#/event">{{$eventTemp}}</a>
+	</section>
+
 	<main>
 		@yield('content')
 	</main>
 	<footer>
+
 		<div id="cookie">
 
 		</div>
-		<a class="footlink" href="/legals"> Mentions légales </a>
-		<a class="footlink" href="/condition"> Conditions générales de ventes </a>
-		<a class="footlink" href="/protec"> Politique de protections des données </a>
-		<a class="footlink" href=""> Nous contacter </a>
+		
+		<a class="footlink" href=""> Mentions&nbsp;légales </a>
+		<a class="footlink" href=""> Conditions&nbsp;générales&nbsp;de&nbsp;ventes </a>
+		<a class="footlink" href=""> Politique&nbsp;de&nbsp;protections&nbsp;des&nbsp;données </a>
+		<a class="footlink" href=""> Nous&nbsp;contacter </a>
+
 
 
 	</footer>

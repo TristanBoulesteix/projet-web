@@ -2,6 +2,8 @@
 
 @section('css')
 <link rel="stylesheet" type="text/css" href="../css/form.css">
+<link rel="stylesheet" type="text/css" href="../css/register/register_phone.css">
+<link rel="stylesheet" type="text/css" href="../css/register/register_ipad.css">
 <style>
 	main {
 		height: 70.4vh;

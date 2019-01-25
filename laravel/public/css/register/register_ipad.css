@@ -1,0 +1,18 @@
+@media all and (max-width: 780px) and (orientation: portrait){
+
+
+main{
+	height: 63.4vh;
+}
+
+footer{
+	display: flex;
+	flex-direction: column;
+}
+
+
+.footlink{
+	margin: 1% 2% 1% 2%;
+}
+
+}

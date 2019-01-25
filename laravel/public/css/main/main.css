@@ -113,7 +113,7 @@ font-size: 120%;
   height: 15%;
   display: block;
   /* The image used */
-  background-image: url("../img/logo.png");
+  background-image: url("../../img/logo.png");
   background-color: white;
   /* Scale and center the image nicely */
   background-size: contain;
@@ -130,7 +130,7 @@ font-size: 120%;
 	justify-content: space-between;
 	padding: 1.8% 0 1.8% 0;
 	/* The image used */
-	background-image: url("../img/bannerIT.jpg");
+	background-image: url("../../img/bannerIT.jpg");
 	/* Scale and center the image nicely */
 	background-position: center;
 	background-repeat: no-repeat;
@@ -195,7 +195,7 @@ p{
 #hello:hover {
 	background-color: #000000;
 	color: rgb(235, 196, 26);
-	border: 1px solid white;
+	border-color: white;
 }
 
 #connexion {
@@ -212,12 +212,21 @@ p{
 	padding: 0.3%;
 	cursor: pointer;
 	text-decoration: none;
+	border: 1px solid black;
 }
 
 #legal{
   color: white;
   text-align: center;
   display: inline-block;
+}
+
+#burger{
+	display: none;
+}
+
+#menuBurger{
+		display: none;
 }
 
 
