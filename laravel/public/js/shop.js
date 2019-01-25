@@ -16,18 +16,9 @@ var buy = function buyArticle(id) {
 	document.location = './shop/' + id;
 }
 
-function createArticle(json, wrapper, i) {
-	var columnElement = $(document.createElement("div")).addClass("column").attr("id", i);
-	wrapper.append(columnElement);
-	var img = $(document.createElement("div")).attr("style", "background-image : url(../img/produit/" + json[i].image + ");").addClass('imgArticle');
-	img.append("<div class='buttonShop addToCart'>Ajouter au panier</div>");
-	columnElement.append(img);
-	var content = $(document.createElement("div")).addClass("content");
-	columnElement.append(content);
-	content.append("<h3>"+json[i].name +": "+ json[i].price+"€</h3>");
-	content.append("<p>"+json[i].description+"</p>");
+var deleteArticle = function deleteArticle(id) {
+	document.location = './shop/delete/' + id;
 }
-
 
 function getDatas (token) {
 	var xmlhttp = new XMLHttpRequest();
@@ -59,6 +50,14 @@ function displayOn(myJSON) {
 			buy($(this).parent().parent().attr('class').split(' ')[1]);
 		} else {
 			buy($(this).parent().parent().attr('id'));
+		}
+	});
+
+	$('.delete').on('click', function() {
+		if($(this).attr('class').split(' ')[2] == 'top3') {
+			deleteArticle($(this).parent().parent().attr('class').split(' ')[1]);
+		} else {
+			deleteArticle($(this).parent().parent().attr('id'));
 		}
 	});
 }

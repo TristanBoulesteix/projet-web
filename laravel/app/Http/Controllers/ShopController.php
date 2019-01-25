@@ -41,14 +41,31 @@ class ShopController extends Controller {
 			$bestProducts[] = Model\Products::where('id', $id)->get()[0];
 		}
 
+
+
+		$role = Model\Role::select('role')->where('id', Auth::user()->role)->get()[0];
+
 		// Return the view
-		return $generator->getView()->withCategories($allCategories)->withBestProducts($bestProducts);
+		return $generator->getView()->withCategories($allCategories)->withBestProducts($bestProducts)->withRole($role);
 	}
 
 	public function addToCart($n) {
 		Model\Keep::create(array('id_products' => $n, 'id_user' => Auth::user()->id));
 
 		return redirect()->route('cart');
+	}
+
+	public function deleteArticle($n) {
+		$bde = Model\Role::select('id')->where('role', 'BDE')->get()[0]->id;
+
+		if (Auth::user()->role == $bde) {
+			Model\Products::where('id', $n)->delete();
+			Model\Keep::where('id_products')->delete();
+
+			return redirect()->route('home');
+		} else {
+			abort(403, 'Unauthorized action.');
+		}
 	}
 
 	/**
@@ -84,6 +101,9 @@ class ShopController extends Controller {
 			$message->to($emails, 'BDE admin')->subject('market');
 		});
 
+		foreach(Model\Keep::where('id_user', Auth::user()->id)->get() as $toBuy) {
+			Model\Orders::create(array('id_products' => $toBuy->id_products, 'id_user' => $toBuy->id_user));
+		}
 		Model\Keep::where('id_user', Auth::user()->id)->delete();
 
 		return $generator->getView();

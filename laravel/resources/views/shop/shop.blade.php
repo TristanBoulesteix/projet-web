@@ -24,6 +24,9 @@
 			<div class='column {{ $product->id }}'>
 				<div style='background-image: url(../img/produit/{{ $product->image }});' class="imgArticle">
 					<div class='buttonShop addToCart top3'> Ajouter au panier </div>
+					@if($role->role == 'BDE')
+					<div class='buttonShop delete top3'> Supprimer l'article </div>
+					@endif
 				</div>
 				<div class="content">
 					<h3>{{ $product->name }} : {{ $product->price }} €</h3>
@@ -48,6 +51,21 @@
 	<script src="./js/autocomplet.js"></script>*
 	<script src="./js/categories.js"></script>
 	<script>
+		function createArticle(json, wrapper, i) {
+			var columnElement = $(document.createElement("div")).addClass("column").attr("id", i);
+			wrapper.append(columnElement);
+			var img = $(document.createElement("div")).attr("style", "background-image : url(../img/produit/" + json[i].image + ");").addClass('imgArticle');
+			img.append("<div class='buttonShop addToCart'>Ajouter au panier</div>");
+			@if($role->role == 'BDE')
+			img.append("<div class='buttonShop delete'> Supprimer l'article </div>");
+			@endif
+			columnElement.append(img);
+			var content = $(document.createElement("div")).addClass("content");
+			columnElement.append(content);
+			content.append("<h3>"+json[i].name +": "+ json[i].price+"€</h3>");
+			content.append("<p>"+json[i].description+"</p>");
+		}
+
 		autocomplete(document.getElementById("myInput"), articles);
 	</script>
 @endsection
