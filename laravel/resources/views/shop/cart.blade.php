@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="./css/cart.css">
 <link rel="stylesheet" href="./css/cart/cart_ipad.css">
 <link rel="stylesheet" href="./css/cart/cart_phone.css">
+<link rel="stylesheet" href="./css/cart/cart_laptop.css">
 @endsection
 
 @section ( 'content' )
