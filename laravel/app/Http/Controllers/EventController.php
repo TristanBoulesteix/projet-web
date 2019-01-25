@@ -28,4 +28,10 @@ class EventController extends Controller {
 
 		return $generator->getView();
 	}
+
+	public function addEvent() {
+		$generator = new Generator(view('add.addEvent'), 'Ajouter un évènement');
+
+		return $generator->getView();
+	}
 }
