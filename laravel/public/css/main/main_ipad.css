@@ -15,3 +15,17 @@
 	}
 }
 
+@media all and (max-width: 1024px) and (orientation: landscape){
+
+	footer{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.footlink{
+		margin: unset;
+		text-align: center;
+	}
+
+
+}
