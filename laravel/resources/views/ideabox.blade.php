@@ -11,12 +11,14 @@
 <h3 id="page"> Boite à idées </h3>
 
 <div id="Adminbtn">
-        <div id="addEventCase">
-            <a id="addEventBut" href=""> Proposer&nbsp;un&nbsp;évènement </a>
-        </div>
+		<div id="addEventCase">
+			<a id="addEventBut" href=""> Proposer&nbsp;un&nbsp;évènement </a>
+		</div>
 
 <h4 id="pub"> Venez proposer vos idées dévènements! </h4>
+@if ($role->role == 'BDE')
 <a id="connexion" href="/idea/admin">Administrer</a>
+@endif
 </div>
 
 
