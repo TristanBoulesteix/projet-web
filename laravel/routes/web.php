@@ -28,6 +28,7 @@ Route::post('cart', ['uses' => 'ShopController@buy','as' => 'buy']);
 
 // Routes for the ideas
 Route::get('idea', 'IdeaController@showIdeas');
+Route::get('/idea/admin', 'IdeaController@showAdmin');
 
 // Routes for events
 Route::get('event', 'EventController@showEvents');
@@ -46,9 +47,7 @@ Route::get('portec', function(){
   return view('phpd')->withTitle('mention legales')->with('logged', false);
 });
 
-Route::get('/idea/admin', function(){
-  return view('ideaboxAdmin')->withTitle('administration')->with('logged', false);
-});
+
 
 Route::get('/addEvent', function(){
   return "test";

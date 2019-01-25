@@ -20,4 +20,16 @@ class IdeaController extends Controller {
 
 		return $generator->getView()->withRole($role);
 	}
+
+	public function showAdmin(){
+		$bde = Model\Role::select('id')->where('role', 'BDE')->get()[0]->id;
+
+		if (Auth::user()->role == $bde) {
+			$generator = new Generator(view('ideaboxAdmin'), 'Administration');
+
+			return $generator->getView();
+		} else {
+			abort(403, 'Unauthorized action.');
+		}
+	}
 }
