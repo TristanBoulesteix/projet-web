@@ -12,20 +12,18 @@
 <h4 id="pub"> Administration </h4>
 
 <div id="wrapper">
-  <table id="table_id" class="display">
+  <table id="table_id" class="display dataTable no-footer">
       <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Auteur</th>
-            <th>Selectionner</th>
+          <tr id="tr">
+
           </tr>
       </thead>
       <tbody id="tbody">
       </tbody>
   </table>
 </div>
+
+
 
 
 <script type="text/javascript" src="../js/ideasAdmin.js"></script>
