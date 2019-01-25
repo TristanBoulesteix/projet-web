@@ -13,10 +13,10 @@
 				<i class="fa fa-shopping-cart "></i>
 			</a>
 			<form autocomplete="off" action="">
-					<div class="autocomplete" style="width:300px;">
-						<input id="myInput" type="text" name="articles" placeholder="Vous recherchez?">
-					</div>
-					<input type="submit">
+				<div class="autocomplete" style="width:300px;">
+					<input id="myInput" type="text" name="articles" placeholder="Vous recherchez?">
+				</div>
+				<input type="submit">
 			</form>
 		</div>
 	<div class="wrapper">
