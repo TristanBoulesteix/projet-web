@@ -33,7 +33,7 @@ function getDatas () {
       displayOn(myJSON);
     }
   };
-  xmlhttp.open("GET", "http:/localhost:3000/ideas?token="+token, true);
+  xmlhttp.open("GET", "http://localhost:3000/ideas?token="+token, true);
   xmlhttp.send();
 }
 
@@ -53,7 +53,7 @@ function displayOn(myJSON) {
 
       currentRow = $(document.createElement("div")).addClass("row").attr("id", "row"+row);
       wrapper.append(currentRow);
-      var img = $(document.createElement("img")).attr("src", "../img/ideas/"+json[i].image).attr("alt", "image idée").attr("id", "imgcase");
+      var img = $(document.createElement("img")).attr("src", "storage/idea/"+json[i].image).attr("alt", "image idée").attr("id", "imgcase");
       currentRow.append(img);
       var content = $(document.createElement("div")).addClass("content");
       currentRow.append(content);
