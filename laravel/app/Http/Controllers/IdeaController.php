@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model;
 use Auth;
 use Image;
+use Storage;
 use App\Managers\ViewManager as Generator;
 
 class IdeaController extends Controller {
@@ -45,6 +46,9 @@ class IdeaController extends Controller {
 		$imageName = $request->name . '.' . $image->getClientOriginalExtension();
 
 		$img = Image::make($image->getRealPath());
+		$img->stream();
+
+		Storage::disk('local')->put('public'.'/'.$imageName, $img, 'public');
 
 		echo($image->getRealPath());
 	}
