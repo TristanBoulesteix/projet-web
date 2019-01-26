@@ -13,7 +13,7 @@
 <div class="formDiv">
 	{!! Form::label('email', 'email:')!!}
 	{!! Form::email('email', null, ['required'=>'required'])!!}
-	{!! $errors->first('mail','<small class="help-block">:message</small>') !!}
+	{!! $errors->first('email','<small class="help-block">:message</small>') !!}
 </div>
 
 <div class="formDiv">
@@ -23,7 +23,7 @@
 
 {!! Form::submit('connexion', ['class'=>'connexion'])!!}
 
-	
+
 	<p id="info">  Vous connecter vous permettra de visiter la boutique, de publier et liker des photos, de partager des idées d'évènements et bien évidemment de vous inscrire à ceux qui vous plaisent!  </p>
 
 
