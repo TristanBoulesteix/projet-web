@@ -35,7 +35,6 @@ form{
 }
 
 #link {
-
 	font-size: 130%;
 	text-align: center;
 	background-color: #fff8f8;
@@ -67,7 +66,7 @@ small {
 	color: red;
 }
 
-#file{
+#inputfile{
 	font-size: 90%;
 	text-align: center;
 	margin: auto;
@@ -78,7 +77,7 @@ small {
 	padding: 2px;
 }
 
-#file:hover{
+#inputfile:hover{
 	background-color: black;
 	color: rgb(235, 196, 26);
 }

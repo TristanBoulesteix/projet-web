@@ -7,7 +7,7 @@
 
 @section ( 'content' )
 
-		
+
 <h3> Ajouter une idée: </h3>
 
 {!! Form::open(['route'=>'addIdea']) !!}
@@ -25,8 +25,8 @@
 	</div>
 
 	<div class="formDiv">
-	{!! Form::label('img', "Sélectionner l'image à uploader:")!!}
-	{!! Form::file('file', ['id'=>'file',"required"=>"required"])!!}
+	{!! Form::label('file', "Sélectionner l'image à uploader", array('id' => 'inputfile', 'class' => 'connexion'))!!}
+	{!! Form::file('file', ['id'=>'file',"required"=>"required", 'style' => 'display:none'])!!}
 	</div>
 
 	{!! Form::submit('Ajouter cette idée', ['class'=>'connexion'])!!}

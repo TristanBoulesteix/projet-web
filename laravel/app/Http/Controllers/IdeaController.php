@@ -33,7 +33,9 @@ class IdeaController extends Controller {
 		}
 	}
 
-	public function addIdea() {
+	public function showIdeaForm() {
+		$generator = new Generator(view('add.addIdea'), 'Ajouter une idée');
 
+		return $generator->getView();
 	}
 }

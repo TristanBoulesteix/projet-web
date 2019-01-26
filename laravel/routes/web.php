@@ -28,7 +28,8 @@ Route::post('cart', ['uses' => 'ShopController@buy','as' => 'buy']);
 
 // Routes for the ideas
 Route::get('idea', 'IdeaController@showIdeas');
-Route::get('addidea', 'IdeaController@addIdea');
+Route::get('addidea', 'IdeaController@showIdeaForm');
+Route::post('addidea', ['as' => 'addIdea', 'uses' => 'IdeaController@addIdea']);
 Route::get('/idea/admin', 'IdeaController@showAdmin');
 
 // Routes for events
