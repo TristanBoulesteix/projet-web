@@ -32,4 +32,8 @@ class IdeaController extends Controller {
 			abort(403, 'Unauthorized action.');
 		}
 	}
+
+	public function addIdea() {
+
+	}
 }

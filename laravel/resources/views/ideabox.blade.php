@@ -12,7 +12,7 @@
 
 <div id="Adminbtn">
 		<div id="addEventCase">
-			<a id="addEventBut" href="addevent"> Proposer&nbsp;un&nbsp;évènement </a>
+			<a id="addEventBut" href="addidea"> Proposer&nbsp;un&nbsp;évènement </a>
 		</div>
 
 <h4 id="pub"> Venez proposer vos idées dévènements! </h4>
@@ -25,6 +25,6 @@
 
 <div id="wrapper">
 </div>
-<script type="text/javascript" src="./js/ideas.js"></script>
+<script type="text/javascript" src="../js/ideas.js"></script>
 
 @endsection
