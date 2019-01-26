@@ -43,13 +43,15 @@ class IdeaController extends Controller {
 
 	public function addIdea(IdeaRequest $request) {
 		$image = $request->file;
-		$imageName = $request->name . '.' . $image->getClientOriginalExtension();
+		$imageName = $request->name . '-' . time() .'.' . $image->getClientOriginalExtension();
 
 		$img = Image::make($image->getRealPath());
 		$img->stream();
 
-		Storage::disk('local')->put('public'.'/'.$imageName, $img, 'public');
+		Storage::disk('local')->put('public/idea'.'/'.$imageName, $img, 'public');
 
-		echo($image->getRealPath());
+		Model\Idea::create(array('name' => $request->name, 'description' => $request->description, 'image' => $imageName, 'id_user' => Auth::user()->id));
+
+		return redirect('idea');
 	}
 }

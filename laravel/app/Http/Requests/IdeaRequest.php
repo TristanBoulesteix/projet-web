@@ -23,7 +23,7 @@ class IdeaRequest extends FormRequest {
 		return [
 			'name' => 'required|max:255',
 			'description' => 'required|max:255',
-			'file' => 'required|file|image|mimes:jpg,png'
+			'file' => 'required|image'
 		];
 	}
 }

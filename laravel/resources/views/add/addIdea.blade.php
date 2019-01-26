@@ -10,7 +10,7 @@
 
 <h3> Ajouter une idée: </h3>
 
-{!! Form::open(['route'=>'addIdea', 'files' => 'true']) !!}
+{!! Form::open(['route'=>'addIdea', 'files' => true]) !!}
 
 	<div class="formDiv">
 		{!! Form::label('name', 'nom:')!!}
@@ -26,7 +26,7 @@
 
 	<div class="formDiv">
 	{!! Form::label('file', "Sélectionner l'image à uploader", array('id' => 'inputfile', 'class' => 'connexion'))!!}
-	{!! Form::file('file', ['id'=>'file',"required"=>"required", 'style' => 'display:none'])!!}
+	{!! Form::file('file', ['id'=>'file',"required"=>"required", 'style' => 'display:none', 'accept' => 'image/*'])!!}
 	{!! $errors->first('file','<small class="help-block">:message</small>') !!}
 	</div>
 
