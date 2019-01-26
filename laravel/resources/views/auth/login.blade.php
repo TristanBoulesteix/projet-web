@@ -12,12 +12,13 @@
 
 <div class="formDiv">
 	{!! Form::label('email', 'email:')!!}
-	{!! Form::email('email', null, ['required'=>'required'])!!}
+	{!! Form::email('email', null, ['required'=>'required', 'value' => old('email')])!!}
 	{!! $errors->first('email','<small class="help-block">:message</small>') !!}
 </div>
 
 <div class="formDiv">
-	{!! Form::label('password', 'mot de passe :')!!} {!! Form::password('password', ['required'=>'required'])!!}
+	{!! Form::label('password', 'mot de passe :')!!}
+	{!! Form::password('password', ['required'=>'required'])!!}
 	{!! $errors->first('password','<small class="help-block">:message</small>') !!}
 </div>
 

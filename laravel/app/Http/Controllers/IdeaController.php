@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\IdeaRequest;
 use App\Http\Controllers\Controller;
 use App\Model;
 use Auth;
@@ -39,7 +39,7 @@ class IdeaController extends Controller {
 		return $generator->getView();
 	}
 
-	public function addIdea() {
+	public function addIdea(IdeaRequest $request) {
 
 	}
 }

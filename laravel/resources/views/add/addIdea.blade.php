@@ -10,7 +10,7 @@
 
 <h3> Ajouter une idée: </h3>
 
-{!! Form::open(['route'=>'addIdea']) !!}
+{!! Form::open(['route'=>'addIdea', 'files' => 'true']) !!}
 
 	<div class="formDiv">
 		{!! Form::label('name', 'nom:')!!}
@@ -35,5 +35,5 @@
 {!! Form::close()!!}
 
 <img id="bde" src="../img/lyon.png">
-
+<script src="../js/file.js"></script>
 @endsection
