@@ -38,4 +38,8 @@ class IdeaController extends Controller {
 
 		return $generator->getView();
 	}
+
+	public function addIdea() {
+
+	}
 }
