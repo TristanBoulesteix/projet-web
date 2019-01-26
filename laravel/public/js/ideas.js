@@ -9,7 +9,7 @@ $(function () {
       getToken(myJSON);
     }
   };
-  xmlhttp.open("GET", "http://10.169.128.55:3000/api/v1/users?bde=bde&cesi=lyon", true);
+  xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
   xmlhttp.send();
 });
 
@@ -21,7 +21,7 @@ function postLike (id_idea) {
       var myJSON = JSON.parse(this.responseText);
     }
   };
-  xmlhttp.open("POST", "http://10.169.128.55:3000/like/idea?token="+token+"&id_idea="+id_idea, true);
+  xmlhttp.open("POST", "http://localhost:3000/like/idea?token="+token+"&id_idea="+id_idea, true);
   xmlhttp.send();
 }
 
@@ -33,7 +33,7 @@ function getDatas () {
       displayOn(myJSON);
     }
   };
-  xmlhttp.open("GET", "http://10.169.128.55:3000/ideas?token="+token, true);
+  xmlhttp.open("GET", "http:/localhost:3000/ideas?token="+token, true);
   xmlhttp.send();
 }
 
@@ -67,7 +67,7 @@ function displayOn(myJSON) {
       column = 1;
       row ++;
 
-      
+
   }
 }
 function clicked(id){
