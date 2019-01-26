@@ -6,6 +6,7 @@ use App\Http\Requests\IdeaRequest;
 use App\Http\Controllers\Controller;
 use App\Model;
 use Auth;
+use Image;
 use App\Managers\ViewManager as Generator;
 
 class IdeaController extends Controller {
@@ -40,6 +41,11 @@ class IdeaController extends Controller {
 	}
 
 	public function addIdea(IdeaRequest $request) {
+		$image = $request->file;
+		$imageName = $request->name . '.' . $image->getClientOriginalExtension();
 
+		$img = Image::make($image->getRealPath());
+
+		echo($image->getRealPath());
 	}
 }
