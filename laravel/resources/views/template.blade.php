@@ -73,8 +73,6 @@ $eventTemp = "Évènement";
 		<a class="footlink" href="{{ url('ppd') }}"> Politique&nbsp;de&nbsp;protections&nbsp;des&nbsp;données </a>
 		<a class="footlink" href="{{ url('contact') }}"> Nous&nbsp;contacter </a>
 
-
-
 	</footer>
 	<script src="../js/boutonHello.js"></script>
 	<script src="../js/cookies.js"></script>
