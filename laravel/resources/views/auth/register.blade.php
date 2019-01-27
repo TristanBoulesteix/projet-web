@@ -1,9 +1,10 @@
 @extends ("template")
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="../css/form.css">
-<link rel="stylesheet" type="text/css" href="../css/register/register_phone.css">
-<link rel="stylesheet" type="text/css" href="../css/register/register_ipad.css">
+<link rel="stylesheet" href="../css/form.css">
+<link rel="stylesheet" href="../css/register/register_phone.css">
+<link rel="stylesheet" href="../css/register/register_ipad.css">
+<link rel="stylesheet" href="../css/form.css">
 <style>
 	main {
 		height: 70.4vh;

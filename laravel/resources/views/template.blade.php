@@ -14,7 +14,6 @@
 <link rel="stylesheet" href="../css/main/main_phone.css">
 <script src="../js/menu.js"></script>
 
-
 	@yield('css')
 </head>
 
