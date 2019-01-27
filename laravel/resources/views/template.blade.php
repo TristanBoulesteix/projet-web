@@ -20,7 +20,7 @@
 <body onload="verify()">
 	<header>
 		<div id="banner">
-			<h1> Bienvenue sur le site du BDE! </h1>
+			<h1> Bienvenue sur le site du BDE ! </h1>
 			@if (!$logged)
 			<a id="connexion" href="{{route('login')}}">Connexion</a>
 			@else
