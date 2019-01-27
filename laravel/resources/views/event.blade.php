@@ -9,8 +9,8 @@
 <h3 id="page"> Evènements à venir! </h3>
 
 <div id="rowButton">
-<a href="/oldevents" class="buttons">Ancien évènements</a>
-<a href="" class="buttons">Si BDE, ajouter des évènements</a>
+<a href="{{url('oldevents')}}" class="buttons">Ancien évènements</a>
+<a href="" class="buttons">Ajouter des évènements</a>
 </div>
 
 <div id="wrapper">
