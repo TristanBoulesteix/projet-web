@@ -22,9 +22,9 @@
 		<div id="banner">
 			<h1> Bienvenue sur le site du BDE! </h1>
 			@if (!$logged)
-			<a id="connexion" href="/login">Connexion</a>
+			<a id="connexion" href="{{route('login')}}">Connexion</a>
 			@else
-			<a id="hello" href="/logout">Bonjour&nbsp;{{ $firstName }}&nbsp;{{ $lastName }}&nbsp;!</a>
+			<a id="hello" href="{{route('logout')}}">Bonjour&nbsp;{{ $firstName }}&nbsp;{{ $lastName }}&nbsp;!</a>
 			@endif
 		</div>
 
@@ -35,7 +35,6 @@
 $shopTemp = "Boutique";
 $ideaTemp = "Boîte à Idées";
 $eventTemp = "Évènement";
-
 
 ?>
 
