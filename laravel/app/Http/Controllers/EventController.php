@@ -34,34 +34,42 @@ class EventController extends Controller {
 	}
 
 	public function showAddEventForm() {
-		$generator = new Generator(view('add.addEvent'), 'Ajouter un évènement');
+		if (Auth::user()->getCurrentRole() == 'BDE') {
+			$generator = new Generator(view('add.addEvent'), 'Ajouter un évènement');
 
-		return $generator->getView();
+			return $generator->getView();
+		} else {
+			abort(403, 'Unauthorized action.');
+		}
 	}
 
 	public function addEvent(EventRequest $request) {
-		$image = $request->file;
-		$imageName = $request->name . '-' . time() .'.' . $image->getClientOriginalExtension();
+		if (Auth::user()->getCurrentRole() == 'BDE') {
+			$image = $request->file;
+			$imageName = $request->name . '-' . time() .'.' . $image->getClientOriginalExtension();
 
-		$img = Image::make($image->getRealPath());
-		$img->stream();
+			$img = Image::make($image->getRealPath());
+			$img->stream();
 
-		Storage::disk('local')->put('public/event'.'/'.$imageName, $img, 'public');
+			Storage::disk('local')->put('public/event'.'/'.$imageName, $img, 'public');
 
-		if($request->recurrency == 'Ponctuel' || !isset($request->type)) {
-			$recurrency = 'none';
+			if($request->recurrency == 'Ponctuel' || !isset($request->type)) {
+				$recurrency = 'none';
+			} else {
+				$recurrency = $request->type;
+			}
+
+			if($request->price == 'free' || !isset($request->cost)) {
+				$price = '0';
+			} else {
+				$price = $request->cost;
+			}
+
+			Model\Event::create(array('name' => $request->name, 'description' => $request->description, 'image' => $imageName, 'date' => $request->date, 'type' => $recurrency, 'cost' => $price, 'id_user' => Auth::user()->id));
+
+			return redirect('events');
 		} else {
-			$recurrency = $request->type;
+			abort(403, 'Unauthorized action.');
 		}
-
-		if($request->price == 'free' || !isset($request->cost)) {
-			$price = '0';
-		} else {
-			$price = $request->cost;
-		}
-
-		Model\Event::create(array('name' => $request->name, 'description' => $request->description, 'image' => $imageName, 'date' => $request->date, 'type' => $recurrency, 'cost' => $price, 'id_user' => Auth::user()->id));
-
-		return redirect('events');
 	}
 }
