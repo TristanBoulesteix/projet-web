@@ -20,7 +20,7 @@ class IdeaController extends Controller {
 
 		$role = Model\Role::select('role')->where('id', Auth::user()->role)->get()[0];
 
-		return $generator->getView()->withRole($role);
+		return $generator->getView()->withRole($role->role);
 	}
 
 	public function showAdmin(){

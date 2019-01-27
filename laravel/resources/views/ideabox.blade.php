@@ -16,7 +16,7 @@
 		</div>
 
 <h4 id="pub"> Venez proposer vos idées dévènements! </h4>
-@if ($role->role == 'BDE')
+@if ($role == 'BDE')
 <a id="connexion" href="/idea/admin">Administrer</a>
 @endif
 </div>
