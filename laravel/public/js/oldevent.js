@@ -43,7 +43,7 @@ function displayOn(myJSON) {
 
 		currentRow = $(document.createElement("div")).addClass("row").attr("id", "row"+row);
 		wrapper.append(currentRow);
-		var img = $(document.createElement("div")).attr("style", "background-image : url(../img/events/" + json[i].image + ");").addClass('imgArticle').attr("alt", "image idée").attr("id", "imgcase");
+		var img = $(document.createElement("div")).attr("style", "background-image : url(../storage/event/" + json[i].image + ");").addClass('imgArticle').attr("alt", "image idée").attr("id", "imgcase");
 		currentRow.append(img);
 		img.append('<a href="/gallery/' + json[i].id + '">Voir photo</a>');
 		var content = $(document.createElement("div")).addClass("content");
