@@ -37,7 +37,7 @@ function getDatas () {
   xmlhttp.send();
 }
 
-function getToken (myJSON){
+function getToken (myJSON) {
 token = myJSON.result;
 getDatas();
 }
@@ -57,6 +57,7 @@ function displayOn(myJSON) {
 		currentRow.append(img);
 		var content = $(document.createElement("div")).addClass("content");
 		currentRow.append(content);
+		content.append('<h3>'+ json[i].name + '</h3>');
 		content.append("<p>"+json[i].description +"</p>");
 		var hidebuttons = $(document.createElement("div")).attr("id", "buttonCase");
 		content.append(hidebuttons);
@@ -69,7 +70,7 @@ function displayOn(myJSON) {
 	}
 }
 
-function clicked(id){
+function clicked(id) {
 	postLike(id);
 	$("#"+id).css("color", "blue");
 	$("#"+id).prop("onclick", null).off("click");
