@@ -8,25 +8,25 @@ use App\Managers\ViewManager as Generator;
 
 class FooterController extends Controller {
 	public function showLegals() {
-		$generator = new Generator(view('legals'), 'Mentions légales');
+		$generator = new Generator(view('legal.legals'), 'Mentions légales');
 
 		return $generator->getView();
 	}
 
 	public function showContact() {
-		$generator = new Generator(view('contact'), 'Nous contacter');
+		$generator = new Generator(view('legal.contact'), 'Nous contacter');
 
 		return $generator->getView();
 	}
 
 	public function showSoldConditions() {
-		$generator = new Generator(view('cgv'), 'Conditions générales de ventes');
+		$generator = new Generator(view('legal.cgv'), 'Conditions générales de ventes');
 
 		return $generator->getView();
 	}
 
 	public function showDatasProtection() {
-		$generator = new Generator(view('ppdp'), 'Politique de protection des données');
+		$generator = new Generator(view('legal.ppdp'), 'Politique de protection des données');
 
 		return $generator->getView();
 	}
