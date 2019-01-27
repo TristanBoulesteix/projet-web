@@ -23,8 +23,26 @@
 
 
 
-<div id="wrapper">
-</div>
+<div id="wrapper"></div>
+<script>
+	function createElement(json, wrapper, currentRow, row, i) {
+		currentRow = $(document.createElement("div")).addClass("row").attr("id", "row"+row);
+		wrapper.append(currentRow);
+		var img = $(document.createElement("img")).attr("src", "storage/idea/"+json[i].image).attr("alt", "image idée").attr("id", "imgcase");
+		currentRow.append(img);
+		var content = $(document.createElement("div")).addClass("content");
+		currentRow.append(content);
+		content.append('<h3>'+ json[i].name + '</h3>');
+		content.append("<p>"+json[i].description +"</p>");
+		var hidebuttons = $(document.createElement("div")).attr("id", "buttonCase");
+		content.append(hidebuttons);
+		var like = $(document.createElement("div")).addClass("likeButton");
+		wrapper.append(like);
+		var bouton = $(document.createElement("i")).addClass("fa fa-thumbs-up").attr("id", json[i].id).attr("onclick", "clicked("+json[i].id+")");
+		like.append(bouton);
+		column = 1;
+	}
+</script>
 <script src="../js/ideas.js"></script>
 
 @endsection
