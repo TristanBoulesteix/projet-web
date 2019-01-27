@@ -6,15 +6,15 @@
 
 @section ( 'content' )
 
-<h3 id="page"> Evènements à venir! </h3>
+<h3 id="page"> {{ $h3 }} </h3>
 
 <div id="rowButton">
-<a href="{{url('oldevents')}}" class="buttons">Ancien évènements</a>
+<a href="{{url($uriSwitch)}}" class="buttons">Ancien évènements</a>
 <a href="" class="buttons">Ajouter des évènements</a>
 </div>
 
 <div id="wrapper">
 </div>
 
-<script src="../js/event.js"></script>
+<script src="{{ $uriScript }}"></script>
 @endsection

@@ -12,15 +12,15 @@ class EventController extends Controller {
 	}
 
 	public function showEvents() {
-		$generator = new Generator(view('event'), 'Tous les évènements');
+		$generator = new Generator(view('events'), 'Tous les évènements');
 
-		return $generator->getView();
+		return $generator->getView()->with('h3', 'Evènements à venir')->withUriSwitch('oldevents')->withUriScript('../js/event.js');
 	}
 
 	public function showOlds() {
-		$generator = new Generator(view('oldevents'), 'Anciens évènements');
+		$generator = new Generator(view('events'), 'Anciens évènements');
 
-		return $generator->getView();
+		return $generator->getView()->with('h3', 'Evènements Passé au BDE Lyon')->withUriSwitch('events')->withUriScript('../js/oldevent.js');
 	}
 
 	public function showGallery() {

@@ -33,7 +33,7 @@ Route::post('addidea', ['as' => 'addIdea', 'uses' => 'IdeaController@addIdea']);
 Route::get('/idea/admin', 'IdeaController@showAdmin');
 
 // Routes for events
-Route::get('event', 'EventController@showEvents');
+Route::get('events', 'EventController@showEvents');
 Route::get('addevent', 'EventController@addEvent');
 Route::get('oldevents', 'EventController@showOlds');
 Route::get('gallery/{n}', 'EventController@showGallery')->where('n', '^[0-9]*$');
