@@ -21,7 +21,7 @@ class IdeaRequest extends FormRequest {
 	 */
 	public function rules() {
 		return [
-			'name' => 'required|max:255',
+			'name' => 'required|max:255|unique:ideas',
 			'description' => 'required|max:255',
 			'file' => 'required|image'
 		];
