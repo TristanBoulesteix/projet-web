@@ -7,10 +7,10 @@
 
 @section ( 'content' )
 
-		
+
 <h3> Ajouter un article: </h3>
 
-{!! Form::open(['route'=>'addEvent']) !!}
+{!! Form::open(['url'=>'addEvent']) !!}
 
 	<div class="formDiv">
 		{!! Form::label('name', 'nom:')!!}

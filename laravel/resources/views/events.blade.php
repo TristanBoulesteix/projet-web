@@ -10,7 +10,7 @@
 
 <div id="rowButton">
 <a href="{{url($uriSwitch)}}" class="buttons">{{ $buttonText }}</a>
-<a href="" class="buttons">Ajouter des évènements</a>
+<a href="{{ url('addevent') }}" class="buttons">Ajouter des évènements</a>
 </div>
 
 <div id="wrapper">
