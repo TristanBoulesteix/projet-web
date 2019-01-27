@@ -24,7 +24,7 @@
 			<div class='column {{ $product->id }}'>
 				<div style='background-image: url(../img/produit/{{ $product->image }});' class="imgArticle">
 					<div class='buttonShop addToCart top3'> Ajouter au panier </div>
-					@if($role->role == 'BDE')
+					@if($role == 'BDE')
 					<div class='buttonShop delete top3'> Supprimer l'article </div>
 					@endif
 				</div>
@@ -56,7 +56,7 @@
 			wrapper.append(columnElement);
 			var img = $(document.createElement("div")).attr("style", "background-image : url(../img/produit/" + json[i].image + ");").addClass('imgArticle');
 			img.append("<div class='buttonShop addToCart'>Ajouter au panier</div>");
-			@if($role->role == 'BDE')
+			@if($role == 'BDE')
 			img.append("<div class='buttonShop delete'> Supprimer l'article </div>");
 			@endif
 			columnElement.append(img);
