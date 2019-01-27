@@ -68,10 +68,10 @@ $eventTemp = "Évènement";
 
 		</div>
 
-		<a class="footlink" href=""> Mentions&nbsp;légales </a>
-		<a class="footlink" href=""> Conditions&nbsp;générales&nbsp;de&nbsp;ventes </a>
-		<a class="footlink" href=""> Politique&nbsp;de&nbsp;protections&nbsp;des&nbsp;données </a>
-		<a class="footlink" href=""> Nous&nbsp;contacter </a>
+		<a class="footlink" href="{{ url('legals') }}"> Mentions&nbsp;légales </a>
+		<a class="footlink" href="{{ url('conditions') }}"> Conditions&nbsp;générales&nbsp;de&nbsp;ventes </a>
+		<a class="footlink" href="{{ url('ppd') }}"> Politique&nbsp;de&nbsp;protections&nbsp;des&nbsp;données </a>
+		<a class="footlink" href="{{ url('contact') }}"> Nous&nbsp;contacter </a>
 
 
 

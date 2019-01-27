@@ -39,18 +39,8 @@ Route::post('addevent', 'EventController@addEvent');
 Route::get('oldevents', 'EventController@showOlds');
 Route::get('gallery/{n}', 'EventController@showGallery')->where('n', '^[0-9]*$');
 
-// Other routes
-
-Route::get('legals', function(){
-  return view('mentionsLégales')->withTitle('mention legales')->with('logged', false);
-});
-Route::get('condition', function(){
-  return view('mentionsLégales')->withTitle('mention legales')->with('logged', false);
-});
-Route::get('portec', function(){
-  return view('phpd')->withTitle('mention legales')->with('logged', false);
-});
-
-Route::get('/ML', function() {return view('mentionsLégales')->withTitle('mentionsLégales')->with('logged', false);});
-
-Route::get('/ppdp', function() {return view('ppdp')->withTitle('Politique de protection des données')->with('logged', false);});
+// Footer routes
+Route::get('legals', 'FooterController@showLegals');
+Route::get('conditions', 'FooterController@showSoldConditions');
+Route::get('ppd', 'FooterController@showDatasProtection');
+Route::get('contact', 'FooterController@showContact');
