@@ -9,7 +9,7 @@
 <h3 id="page"> {{ $h3 }} </h3>
 
 <div id="rowButton">
-<a href="{{url($uriSwitch)}}" class="buttons">Ancien évènements</a>
+<a href="{{url($uriSwitch)}}" class="buttons">{{ $buttonText }}</a>
 <a href="" class="buttons">Ajouter des évènements</a>
 </div>
 

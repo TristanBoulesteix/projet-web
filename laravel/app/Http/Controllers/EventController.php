@@ -14,13 +14,13 @@ class EventController extends Controller {
 	public function showEvents() {
 		$generator = new Generator(view('events'), 'Tous les évènements');
 
-		return $generator->getView()->with('h3', 'Evènements à venir')->withUriSwitch('oldevents')->withUriScript('../js/event.js');
+		return $generator->getView()->with('h3', 'Evènements à venir')->withUriSwitch('oldevents')->withUriScript('../js/event.js')->withButtonText('Anciens évènements');
 	}
 
 	public function showOlds() {
 		$generator = new Generator(view('events'), 'Anciens évènements');
 
-		return $generator->getView()->with('h3', 'Evènements Passé au BDE Lyon')->withUriSwitch('events')->withUriScript('../js/oldevent.js');
+		return $generator->getView()->with('h3', 'Evènements Passé au BDE Lyon')->withUriSwitch('events')->withUriScript('../js/oldevent.js')->withButtonText('Évènements');
 	}
 
 	public function showGallery() {
