@@ -13,56 +13,51 @@
 {!! Form::open(['url'=>'addEvent']) !!}
 
 	<div class="formDiv">
-		{!! Form::label('name', 'nom:')!!}
+		{!! Form::label('name', "Nom de l'évènement:")!!}
 		{!! Form::text('name', null, ['required'=>'required'])!!}
 		{!! $errors->first('name','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
-		{!! Form::label('description', 'description:')!!}
+		{!! Form::label('Description', 'description:')!!}
 		{!! Form::textarea('description', null, ['required'=>'required'])!!}
 		{!! $errors->first('description','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
-	{!! Form::label('img', "Sélectionner l'image à uploader:")!!}
-	{!! Form::file('file', ['id'=>'file',"required"=>"required"])!!}
+		{!! Form::label('file', "Sélectionner l'image à uploader", array('id' => 'inputfile', 'class' => 'connexion'))!!}
+		{!! Form::file('file', ['id'=>'file',"required"=>"required", 'style' => 'display:none', 'accept' => 'image/*'])!!}
+		{!! $errors->first('file','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
-		{!! Form::label('date', 'date:')!!}
+		{!! Form::label('date', "Date de l'évènement :")!!}
 		{!! Form::date('date', date('Y-m-d'), null, ['required'=>'required'])!!}
 		{!! $errors->first('date','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
-	{!! Form::label('type', 'type:') !!}
-	{!! Form::select('type', array('Ponctuel'=>'Ponctuel', 'Récurent'=>'Récurent'), ['required'=>'required'])!!}
-	{!! $errors->first('type','<small class="help-block">:message</small>') !!}
+	{!! Form::label('recurrency', "Récurrence :") !!}
+	{!! Form::select('recurrency', array('Ponctuel'=>'Ponctuel', 'Récurent'=>'Récurent'), ['required'=>'required'])!!}
+	{!! $errors->first('recurrency','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
-		{!! Form::label('Ponctuel', 'Date:')!!}
-		{!! Form::text('Ponctuel', null, ['required'=>'required'])!!}
-		{!! $errors->first('Ponctuel','<small class="help-block">:message</small>') !!}
-	</div>
-
-	<div class="formDiv">
-	{!! Form::label('Dates', 'Dates:') !!}
+	{!! Form::label('type', 'Type de récurrence :') !!}
 	{!! Form::select('type', array('Jours'=>'Tous les Jours', 'Semaines'=>'Toutes les semaines', 'Mois'=>'Tous les Mois'), ['required'=>'required'])!!}
 	{!! $errors->first('type','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
-	{!! Form::label('Prix', 'Prix:') !!}
-	{!! Form::select('Prix', array('Payant'=>'Payant', 'Gratuit'=>'Gratuit'), ['required'=>'required'])!!}
-	{!! $errors->first('Prix','<small class="help-block">:message</small>') !!}
+	{!! Form::label('price', 'Coût :') !!}
+	{!! Form::select('price', array('Payant'=>'Payant', 'Gratuit'=>'Gratuit'), ['required'=>'required'])!!}
+	{!! $errors->first('price','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
-		{!! Form::label('Payant', 'Prix:')!!}
-		{!! Form::text('Payant', null, ['required'=>'required'])!!}
-		{!! $errors->first('Payant','<small class="help-block">:message</small>') !!}
+		{!! Form::label('cost', 'Prix :')!!}
+		{!! Form::text('cost', null, ['required'=>'required'])!!}
+		{!! $errors->first('cost','<small class="help-block">:message</small>') !!}
 	</div>
 
 	{!! Form::submit('Ajouter cet article', ['class'=>'connexion'])!!}
