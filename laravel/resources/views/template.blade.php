@@ -42,7 +42,7 @@ $eventTemp = "Évènement";
 		<a href='{!! route('home') !!}' id='logo'></a>
 		<a class="side" href="{{url('shop')}}">{{$shopTemp}}</a>
 		<a class="side" href="{{url('idea')}}">{{$ideaTemp}}</a>
-		<a class="side" href="{{url('event')}}">{{$eventTemp}}</a>
+		<a class="side" href="{{url('events')}}">{{$eventTemp}}</a>
 		<div id="burger" onclick="showBurger();">
 
 			<div></div>
@@ -56,7 +56,7 @@ $eventTemp = "Évènement";
 	<section id="menuBurger" class="sidebar" >
 		<a href="{{url('shop')}}">{{$shopTemp}}</a>
 		<a href="{{url('idea')}}">{{$ideaTemp}}</a>
-		<a href="{{url('event')}}">{{$eventTemp}}</a>
+		<a href="{{url('events')}}">{{$eventTemp}}</a>
 	</section>
 
 	<main>

@@ -38,25 +38,25 @@
 
 	<div class="formDiv">
 	{!! Form::label('recurrency', "Récurrence :") !!}
-	{!! Form::select('recurrency', array('Ponctuel'=>'Ponctuel', 'Récurent'=>'Récurent'), ['required'=>'required'])!!}
+	{!! Form::select('recurrency', array('Ponctuel'=>'Ponctuel', 'Recurent'=>'Récurent'), ['required'=>'required'])!!}
 	{!! $errors->first('recurrency','<small class="help-block">:message</small>') !!}
 	</div>
 
-	<div class="formDiv">
+	<div class="formDiv masked">
 	{!! Form::label('type', 'Type de récurrence :') !!}
-	{!! Form::select('type', array('Jours'=>'Tous les Jours', 'Semaines'=>'Toutes les semaines', 'Mois'=>'Tous les Mois'), ['required'=>'required'])!!}
+	{!! Form::select('type', array('daily'=>'Tous les Jours', 'weekly'=>'Toutes les semaines', 'monthly'=>'Tous les Mois'))!!}
 	{!! $errors->first('type','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
 	{!! Form::label('price', 'Coût :') !!}
-	{!! Form::select('price', array('Payant'=>'Payant', 'Gratuit'=>'Gratuit'), ['required'=>'required'])!!}
+	{!! Form::select('price', array('free'=>'Gratuit', 'pay'=>'Payant'), ['required'=>'required'])!!}
 	{!! $errors->first('price','<small class="help-block">:message</small>') !!}
 	</div>
 
-	<div class="formDiv">
+	<div class="formDiv masked">
 		{!! Form::label('cost', 'Prix :')!!}
-		{!! Form::text('cost', null, ['required'=>'required'])!!}
+		{!! Form::text('cost')!!}
 		{!! $errors->first('cost','<small class="help-block">:message</small>') !!}
 	</div>
 
@@ -65,5 +65,7 @@
 {!! Form::close()!!}
 
 <img id="bde" src="../img/lyon.png">
+<script src='../js/event/checkToday.js'></script>
+<script src='../js/event/autoAddField.js'></script>
 
 @endsection

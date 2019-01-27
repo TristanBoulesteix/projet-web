@@ -81,3 +81,7 @@ small {
 	background-color: black;
 	color: rgb(235, 196, 26);
 }
+
+.masked {
+	display: none;
+}
