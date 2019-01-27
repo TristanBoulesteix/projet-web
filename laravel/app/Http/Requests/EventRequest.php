@@ -28,7 +28,7 @@ class EventRequest extends FormRequest {
 			'recurrency' => 'required',
 			'type' => '',
 			'price' => 'required',
-			'cost' => 'nullable|max:255|integer'
+			'cost' => 'nullable|max:255|numeric'
 		];
 	}
 }

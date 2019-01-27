@@ -14,19 +14,19 @@
 
 	<div class="formDiv">
 		{!! Form::label('name', 'nom:')!!}
-		{!! Form::text('name', null, ['required'=>'required'])!!}
+		{!! Form::text('name', null, ['required'=>'required', 'value' => old('name')])!!}
 		{!! $errors->first('name','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
 		{!! Form::label('description', 'description:')!!}
-		{!! Form::textarea('description', null, ['required'=>'required'])!!}
+		{!! Form::textarea('description', null, ['required'=>'required', 'value' => old('description')])!!}
 		{!! $errors->first('description','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
 	{!! Form::label('file', "Sélectionner l'image à uploader", array('id' => 'inputfile', 'class' => 'connexion'))!!}
-	{!! Form::file('file', ['id'=>'file',"required"=>"required", 'style' => 'display:none', 'accept' => 'image/*'])!!}
+	{!! Form::file('file', ['id'=>'file',"required"=>"required", 'style' => 'display:none', 'accept' => 'image/*', 'value' => old('file')])!!}
 	{!! $errors->first('file','<small class="help-block">:message</small>') !!}
 	</div>
 

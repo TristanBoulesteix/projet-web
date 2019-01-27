@@ -443,6 +443,7 @@ class ComposerStaticInit2f3065bd0e2f0f2e496b1c73db101ecf
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Event' => __DIR__ . '/../..' . '/app/Model/Event.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -462,6 +463,7 @@ class ComposerStaticInit2f3065bd0e2f0f2e496b1c73db101ecf
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\EventRequest' => __DIR__ . '/../..' . '/app/Http/Requests/EventRequest.php',
         'App\\Http\\Requests\\IdeaRequest' => __DIR__ . '/../..' . '/app/Http/Requests/IdeaRequest.php',
         'App\\Managers\\ViewManager' => __DIR__ . '/../..' . '/app/Managers/ViewManager.php',
         'App\\Model\\Campus' => __DIR__ . '/../..' . '/app/Model/Campus.php',
