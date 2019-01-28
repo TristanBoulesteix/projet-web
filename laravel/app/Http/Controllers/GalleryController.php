@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use Illuminate\Http\Request;
+use App\Model;
+use Image;
+use Storage;
+use App\Http\Requests\GalleryRequest;
 use App\Http\Controllers\Controller;
 use App\Managers\ViewManager as Generator;
 
@@ -14,13 +17,34 @@ class GalleryController extends Controller {
 		return $generator->getView()->withRole(Auth::user() != null ? Auth::user()->getCurrentRole() : 'Student')->withIdEvent($n);
 	}
 
-	public function showForm() {
-		$generator = new Generator(view('add.addPhotos'), 'ajouter des images');
+	public function showForm($n) {
+		if (Auth::user()->getCurrentRole() == 'BDE') {
+			$generator = new Generator(view('add.addPhotos'), 'ajouter des images');
 
-		return $generator->getView();
+			return $generator->getView()->withIdEvent($n);
+		} else {
+			abort(403, 'Unauthorized action.');
+		}
 	}
 
-	public function addImage() {
+	public function addImage(GalleryRequest $request) {
+		if (Auth::user()->getCurrentRole() == 'BDE') {
 
+
+			$image = $request->file;
+			$imageName = $request->name . '-' . time() .'.' . $image->getClientOriginalExtension();
+
+			$img = Image::make($image->getRealPath());
+			$img->stream();
+
+			Storage::disk('local')->put('public/gallery/'.$request->idEvent.'/'.$imageName, $img, 'public');
+
+			Model\Image::create(array('image' => $imageName, 'id_event' => $request->idEvent));
+
+			return redirect('gallery/'.$request->idEvent);
+
+		} else {
+			abort(403, 'Unauthorized action.');
+		}
 	}
 }
