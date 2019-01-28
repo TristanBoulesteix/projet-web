@@ -18,7 +18,9 @@
 			<a href="cart">
 				<i class="fa fa-shopping-cart "></i>
 			</a>
-			<a id="addProduct" href=""> Ajouter&nbsp;un&nbsp;article </a>
+			@if($role == 'BDE')
+			<a id="addProduct" href="addarticle"> Ajouter&nbsp;un&nbsp;article </a>
+			@endif
 			<form autocomplete="off">
 					<div class="autocomplete" style="width:300px;">
 						<input id="myInput" type="text" name="articles" placeholder="Vous recherchez?">
