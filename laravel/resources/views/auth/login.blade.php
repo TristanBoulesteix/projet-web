@@ -27,8 +27,8 @@
 </div>
 
 <div id="check">
-	{!! Form::label('rules', 'Cochez pour acceptez notre politique de protection des données:')!!}
-	{!! Form::checkbox('reponse', 'rules')!!}
+	{{ Form::label('rules', 'Cochez pour acceptez notre  <a href="'.url('ppd').'"> politique de protection des données : </a>' )}}
+	{!! Form::checkbox('reponse', 'rules', ['required'=>'required'])!!}
 </div>
 
 {!! Form::submit('connexion', ['class'=>'connexion'])!!}
