@@ -48,8 +48,12 @@ function displayOn(myJSON) {
 		img.append('<a href="/gallery/' + json[i].id + '">Voir photo</a>');
 		var content = $(document.createElement("div")).addClass("content");
 		currentRow.append(content);
+		content.append("<h2>"+json[i].name +"</h2>");
 		content.append("<p>"+json[i].description +"</p>");
-		content.append("<p>"+json[i].date +"</p>");
+		var res = json[i].date;
+    var date = res.split("T", 1);
+    content.append("<p>"+ date +"</p>");
+
 		row ++;
 	}
 }

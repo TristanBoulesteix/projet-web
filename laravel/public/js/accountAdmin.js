@@ -1,4 +1,5 @@
 var token = "";
+var json;
 
 $(function () {
   var xmlhttp = new XMLHttpRequest();
@@ -29,9 +30,21 @@ function getTokenAccount (myJSON){
     xmlhttp.send();
   }
 
+  
+    function sendDatasAccount (selection, iduser) {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var myJSON = JSON.parse(this.responseText);
+          location.reload();
+        }
+      };
+      xmlhttp.open("POST", "http://localhost:3000/userschange?id_user="+iduser+"&selection="+selection+"&token="+token, true);
+      xmlhttp.send();
+    }
 
   function displayAccounts(myJSON) {
-    json = myJSON.response[0];
+     json = myJSON.response[0];
      var wrapper = $("#tbody");
      var col = $(document.createElement("tr")).attr("id","tr");
      $("#thread").append(col);
@@ -55,7 +68,7 @@ function getTokenAccount (myJSON){
        var first_name = json[i].first_name;
        var last_name = json[i].last_name;
        var emailstd = json[i].email;
-       var statusstd = json[i].role_name;
+       var statusstd = json[i].role;
        var campusstd = json[i].name;
        var currentRow = $(document.createElement("tr"))
        wrapper.append(currentRow);
@@ -68,19 +81,31 @@ function getTokenAccount (myJSON){
        var data4 = $(document.createElement("td")).text(emailstd).attr("id", "email"+id);
        currentRow.append(data4);
 
-       var data5 = $(document.createElement("td")).text(statusstd).attr("id", "role"+id).addClass("dropup"+id);
-       var div = $(document.createElement("div").attr("class", "dropup-content");
-       div.append("<p id='student'> Student </p>");
-       div.append("<p id='CESI'> CESI </p>");
-       div.append("<p id='BDE'> BDE </p>");
-       date5.append(div);
+       var data5 = $(document.createElement("td")).attr("id", "role"+id);
+       var div = $(document.createElement("div")).attr("class", "select");
+       var select = $(document.createElement("select")).addClass("selection").attr("id", "select"+id)
+       select.append("<option id='what' value='0'> Status actuel : "+statusstd+"</option>");
+       select.append("<option id='student' value='1'> Student </option>");
+       select.append("<option id='CESI' value='2'> CESI </option>");
+       select.append("<option id='BDE' value='3'> BDE </option>");
+       div.append(select);
+       data5.append(div);
        currentRow.append(data5);
 
        var data6 = $(document.createElement("td")).text(campusstd).attr("id", "campus"+id)
        currentRow.append(data6);
-       selected = $('.select'+id);
-       selected.click(function(){
-         //Envoyer à l'api le changement de rôle via l'id ou changer via php (puisque local)
+
+       selected = $("#select"+id);
+       selected.change(function(){
+       var thisid = $(this).attr("id").split("t", 2);
+       var selection = $("#select"+thisid[1]+" option:selected").text();
+       var actuel = "Status actuel : "+json[(thisid[1])-1].role;
+       if(selection != actuel){
+         selection = $("#select"+thisid[1]+" option:selected").attr("value");
+         alert(selection);
+        sendDatasAccount(selection, thisid[1]);
+       }
+
        });
    
    }
