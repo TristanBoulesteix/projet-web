@@ -39,10 +39,16 @@ Route::get('/idea/admin', 'IdeaController@showAdmin');
 // Routes for events
 Route::get('events', 'EventController@showEvents');
 Route::get('oldevents', 'EventController@showOlds');
-Route::get('gallery/{n}', 'EventController@showGallery')->where('n', '^[0-9]*$');
 Route::middleware('auth')->group(function() {
 	Route::get('addevent', 'EventController@showAddEventForm');
 	Route::post('addevent', 'EventController@addEvent');
+});
+
+// Routes for gallery
+Route::get('gallery/{n}', 'GalleryController@showGallery')->where('n', '^[0-9]*$');
+Route::middleware('auth')->group(function() {
+	Route::get('gallery/add/{n}', 'GalleryController@showForm')->where('n', '^[0-9]*$');
+	Route::post('gallery/add', 'GalleryController@addImage');
 });
 
 // Footer routes

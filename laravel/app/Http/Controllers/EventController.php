@@ -27,12 +27,6 @@ class EventController extends Controller {
 		return $generator->getView()->with('h3', 'Evènements Passé au BDE Lyon')->withUriSwitch('events')->withUriScript('../js/oldevent.js')->withButtonText('Évènements')->withRole(Auth::user() != null ? Auth::user()->getCurrentRole() : 'Student');
 	}
 
-	public function showGallery() {
-		$generator = new Generator(view('gallery'), 'Galerie');
-
-		return $generator->getView();
-	}
-
 	public function showAddEventForm() {
 		if (Auth::user()->getCurrentRole() == 'BDE') {
 			$generator = new Generator(view('add.addEvent'), 'Ajouter un évènement');
