@@ -18,7 +18,7 @@ class GalleryController extends Controller {
 	}
 
 	public function showForm($n) {
-		if (Auth::user()->getCurrentRole() == 'BDE') {
+		if ($this->checkParticipation()) {
 			$generator = new Generator(view('add.addPhotos'), 'ajouter des images');
 
 			return $generator->getView()->withIdEvent($n);
@@ -28,9 +28,7 @@ class GalleryController extends Controller {
 	}
 
 	public function addImage(GalleryRequest $request) {
-		if (Auth::user()->getCurrentRole() == 'BDE') {
-
-
+		if ($this->checkParticipation()) {
 			$image = $request->file;
 			$imageName = $request->name . '-' . time() .'.' . $image->getClientOriginalExtension();
 
@@ -45,6 +43,16 @@ class GalleryController extends Controller {
 
 		} else {
 			abort(403, 'Unauthorized action.');
+		}
+	}
+
+	private function checkParticipation($idEvent) {
+		if(!Auth::check()) {
+			return false;
+		}elseif(Model\Participate::where('id_user', Auth::user()->id)->exists()) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 }
