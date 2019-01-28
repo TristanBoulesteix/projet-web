@@ -4,6 +4,10 @@
 
 @endsection
 
+@section('description')
+<meta name="description" content="BDE-Lyon-CESI login" />
+@endsection
+
 @section('content')
 
 <h3> Connexion au site du BDE: </h3>
