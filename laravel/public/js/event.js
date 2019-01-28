@@ -46,9 +46,22 @@ function displayOn(myJSON) {
 		var img = $(document.createElement("div")).attr("style", "background-image : url(../storage/event/" + json[i].image + ");").addClass('imgArticle').attr("alt", "image idée").attr("id", "imgcase");
 		currentRow.append(img);
 		var content = $(document.createElement("div")).addClass("content");
-		currentRow.append(content);
-		content.append("<p>"+json[i].description +"</p>");
-		content.append("<p>"+json[i].date +"</p>");
+    currentRow.append(content);
+    content.append("<h2>"+json[i].name +"</h2>");
+    content.append("<p>"+json[i].description +"</p>");
+    var res = json[i].date;
+    var date = res.split("T", 1);
+    content.append("<p>"+ date +"</p>");
+    var price  = json[i].cost;
+    if(price != 0){
+    content.append("<p> Prix : "+ price +" €</p>");
+    }else{
+    content.append("<p> Évenement gratuit! </p>");
+    }
+    var type = json[i].type;
+    if(type != "none"){
+    content.append("<p> Évenement "+ type +"</p>");
+    }
 		row ++;
 	}
 }

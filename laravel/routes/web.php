@@ -44,3 +44,8 @@ Route::get('legals', 'FooterController@showLegals');
 Route::get('conditions', 'FooterController@showSoldConditions');
 Route::get('ppd', 'FooterController@showDatasProtection');
 Route::get('contact', 'FooterController@showContact');
+
+
+Route::get('accountAd', function(){
+  return view('accountAdmin')->withTitle("account")->with("logged", false);
+});

@@ -51,7 +51,7 @@
 <div class="wrapper" id="allarticles"></div>
 
 	<script src="./js/shop.js"></script>
-	<script src="./js/autocomplet.js"></script>*
+	<script src="./js/autocomplet.js"></script>
 	<script src="./js/categories.js"></script>
 	<script>
 		function createArticle(json, wrapper, i) {
@@ -67,9 +67,8 @@
 			columnElement.append(content);
 			content.append("<h3>"+json[i].name +": "+ json[i].price+"€</h3>");
 			content.append("<p>"+json[i].description+"</p>");
-
 		}
-
+		
 		autocomplete(document.getElementById("myInput"), articles);
 	</script>
 @endsection

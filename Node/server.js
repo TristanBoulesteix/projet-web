@@ -21,8 +21,20 @@ const con = mysql.createConnection({
       });
       con.connect(function(err) {
         if (err) throw err;
-        console.log("Connected!");
+        console.log("Connected to the first db!");
       });
+      //connexion to the database
+const con2 = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password: "",
+  database : 'projet-web-user',
+  timeout: 100000
+});
+con2.connect(function(err) {
+if (err) throw err;
+console.log("Connected to the secund db!");
+});
 
 //Avoid "No 'Access-Control-Allow-Origin' header is present on the requested resource." issues
   app.use(function(req, res, next) {
@@ -82,6 +94,33 @@ router.route('/api/v1/users')
         methode: req.method
       });
     });
+});
+
+router.route('/users')
+.get(function(req, res) {
+  var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
+  if (req.query.token == validateToken) {
+      const sql = "CALL allUsers()";
+      con2.query(sql, function (error, results, fields) {
+        if(error){//If there is error, we send the error in the error section with 500 status
+            res.json({"status": 500,
+            "error": error,
+            "response": null
+          });
+        } else {
+          res.json({//If there is no error, all is good and response is 200OK.
+              "status": 200,
+              "error": null,
+              "response": results
+            });
+        }
+      });
+    }
+    else{
+      res.json({
+        "response": "you are not allowed to have datas.",
+      });
+    }
 });
 
 router.route('/articles')

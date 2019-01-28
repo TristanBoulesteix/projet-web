@@ -38,7 +38,7 @@ main{
 }
 
 .buttonShop {
-	display: inline-block;
+	display: none;
 	background-color: white;
 	color: black;
 	border: 1px solid black;
