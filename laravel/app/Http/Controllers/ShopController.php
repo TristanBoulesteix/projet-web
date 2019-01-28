@@ -123,4 +123,12 @@ class ShopController extends Controller {
 
 		return $kept;
 	}
+
+	public function showArticleForm() {
+		if (Auth::user()->getCurrentRole() == 'BDE') {
+			$generator = new Generator(view('add.addproduct'), 'Ajouter un produit');
+
+			return $generator->getView();
+		}
+	}
 }
