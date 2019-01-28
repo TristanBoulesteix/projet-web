@@ -16,7 +16,7 @@ class CreateIdeasTable extends Migration {
 			$table->string('name');
 			$table->string('description');
 			$table->string('image');
-			$table->integer('votes');
+			$table->integer('votes')->default('0');
 			$table->integer('id_user');
 			$table->foreign('id_user')->references('id')->on('users');
 		});

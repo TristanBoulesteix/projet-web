@@ -6,16 +6,17 @@
 
 @section ( 'content' )
 
-<h3 id="page"> Evènements Passé au BDE Lyon! </h3>
+<h3 id="page"> {{ $h3 }} </h3>
 
 <div id="rowButton">
-<a href="/event" class="buttons">Evènements</a>
-<a href="" class="buttons">Si BDE, ajouter des évènements</a>
+<a href="{{url($uriSwitch)}}" class="buttons">{{ $buttonText }}</a>
+@if($role == 'BDE')
+<a href="{{ url('addevent') }}" class="buttons">Ajouter des évènements</a>
+@endif
 </div>
 
 <div id="wrapper">
-
 </div>
 
-<script src="../js/oldevent.js"></script>
+<script src="{{ $uriScript }}"></script>
 @endsection

@@ -7,26 +7,27 @@
 
 @section ( 'content' )
 
-		
+
 <h3> Ajouter une idée: </h3>
 
-{!! Form::open(['route'=>'addIdea']) !!}
+{!! Form::open(['route'=>'addIdea', 'files' => true]) !!}
 
 	<div class="formDiv">
 		{!! Form::label('name', 'nom:')!!}
-		{!! Form::text('name', null, ['required'=>'required'])!!}
+		{!! Form::text('name', null, ['required'=>'required', 'value' => old('name')])!!}
 		{!! $errors->first('name','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
 		{!! Form::label('description', 'description:')!!}
-		{!! Form::textarea('description', null, ['required'=>'required'])!!}
+		{!! Form::textarea('description', null, ['required'=>'required', 'value' => old('description')])!!}
 		{!! $errors->first('description','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
-	{!! Form::label('img', "Sélectionner l'image à uploader:")!!}
-	{!! Form::file('file', ['id'=>'file',"required"=>"required"])!!}
+	{!! Form::label('file', "Sélectionner l'image à uploader", array('id' => 'inputfile', 'class' => 'connexion'))!!}
+	{!! Form::file('file', ['id'=>'file',"required"=>"required", 'style' => 'display:none', 'accept' => 'image/*', 'value' => old('file')])!!}
+	{!! $errors->first('file','<small class="help-block">:message</small>') !!}
 	</div>
 
 	{!! Form::submit('Ajouter cette idée', ['class'=>'connexion'])!!}
@@ -34,5 +35,5 @@
 {!! Form::close()!!}
 
 <img id="bde" src="../img/lyon.png">
-
+<script src="../js/file.js"></script>
 @endsection

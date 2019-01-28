@@ -1,6 +1,6 @@
 //the API require the Express Module
 const express = require('express');
-const hostname = '10.169.128.55';
+const hostname = 'localhost';
 const port = 3000;
 //the express application
 const app = express();
@@ -16,7 +16,8 @@ const con = mysql.createConnection({
           host     : 'localhost',
           user     : 'root',
           password: "",
-          database : 'projet-web'
+          database : 'projet-web',
+          timeout: 100000
       });
       con.connect(function(err) {
         if (err) throw err;
@@ -299,6 +300,59 @@ router.route('/comment')
     }
 });
 
+router.route('/like/event')
+.post(function(req, res) {
+  var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
+  if (req.query.token == validateToken) {
+      const sql = "CALL addLike("+req.query.id_image+")";
+      con.query(sql, function (error, results, fields) {
+        if(error){//If there is error, we send the error in the error section with 500 status
+            res.json({"status": 500,
+            "error": error,
+            "response": null
+          });
+        } else {
+          res.json({//If there is no error, all is good and response is 200OK.
+              "status": 200,
+              "error": null,
+              "response": "done"
+            });
+        }
+      });
+    }
+    else{
+      res.json({
+        "response": "you are not allowed to have datas.",
+      });
+    }
+});
+
+router.route('/like/idea')
+.post(function(req, res) {
+  var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
+  if (req.query.token == validateToken) {
+      const sql = "CALL addLikeIdea("+req.query.id_idea+")";
+      con.query(sql, function (error, results, fields) {
+        if(error){//If there is error, we send the error in the error section with 500 status
+            res.json({"status": 500,
+            "error": error,
+            "response": null
+          });
+        } else {
+          res.json({//If there is no error, all is good and response is 200OK.
+              "status": 200,
+              "error": null,
+              "response": "done!"
+            });
+        }
+      });
+    }
+    else{
+      res.json({
+        "response": "you are not allowed to have datas.",
+      });
+    }
+});
 
 app.use(router);
 // Starts the server

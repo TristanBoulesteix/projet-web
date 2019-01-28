@@ -9,7 +9,7 @@ $(function () {
       getToken(myJSON);
     }
   };
-  xmlhttp.open("GET", "http://10.169.128.55:3000/api/v1/users?bde=bde&cesi=lyon", true);
+  xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
   xmlhttp.send();
 });
 
@@ -22,7 +22,7 @@ function getDatas (token) {
       displayOn(myJSON);
     }
   };
-  xmlhttp.open("GET", "http://10.169.128.55:3000/events?token="+token, true);
+  xmlhttp.open("GET", "http://localhost:3000/events?token="+token, true);
   xmlhttp.send();
 }
 
@@ -34,22 +34,21 @@ getDatas(json);
 
 
 function displayOn(myJSON) {
-  var json = myJSON.response[0];
-  var wrapper = $("#wrapper");
-  var currentRow;
-  var row = 0;
+	var json = myJSON.response[0];
+	var wrapper = $("#wrapper");
+	var currentRow;
+	var row = 0;
 
 
-  for (var i = 0; i < json.length; i++) {
-
-      currentRow = $(document.createElement("div")).addClass("row").attr("id", "row"+row);
-      wrapper.append(currentRow);
-      var img = $(document.createElement("div")).attr("style", "background-image : url(../img/events/" + json[i].image + ");").addClass('imgArticle').attr("alt", "image idée").attr("id", "imgcase");
-      currentRow.append(img);
-      var content = $(document.createElement("div")).addClass("content");
-      currentRow.append(content);
-      content.append("<p>"+json[i].description +"</p>");
-      content.append("<p>"+json[i].date +"</p>");
-      row ++;
-  }
+	for (var i = 0; i < json.length; i++) {
+		currentRow = $(document.createElement("div")).addClass("row").attr("id", "row"+row);
+		wrapper.append(currentRow);
+		var img = $(document.createElement("div")).attr("style", "background-image : url(../storage/event/" + json[i].image + ");").addClass('imgArticle').attr("alt", "image idée").attr("id", "imgcase");
+		currentRow.append(img);
+		var content = $(document.createElement("div")).addClass("content");
+		currentRow.append(content);
+		content.append("<p>"+json[i].description +"</p>");
+		content.append("<p>"+json[i].date +"</p>");
+		row ++;
+	}
 }
