@@ -2,15 +2,15 @@
 @section ( 'css' )
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./css/form.css">
-<link rel="stylesheet" type="text/css" href="../css/add/addproduct_phone.css">
+<link rel="stylesheet" href="../css/add/addproduct_phone.css">
 @endsection
 
 @section ( 'content' )
 
-		
+
 <h3> Ajouter un article: </h3>
 
-{!! Form::open(['route'=>'addproduct']) !!}
+{!! Form::open(['url'=>'addarticle']) !!}
 
 	<div class="formDiv">
 		{!! Form::label('name', 'nom:')!!}

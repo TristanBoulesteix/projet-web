@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function() {
 	Route::delete('cart', ['uses' => 'ShopController@buyclean', 'as' => 'buyClean']);
 	Route::post('cart', ['uses' => 'ShopController@buy','as' => 'buy']);
 	Route::get('addarticle', 'ShopController@showArticleForm');
+	Route::post('addarticle', 'ShopController@addArticle');
 });
 
 // Routes for the ideas
