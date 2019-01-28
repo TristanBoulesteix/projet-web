@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Mail;
-use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 use App\Http\Controllers\Controller;
 use App\Model;
 use App\Managers\ViewManager as Generator;
@@ -130,5 +130,9 @@ class ShopController extends Controller {
 
 			return $generator->getView();
 		}
+	}
+
+	public function addArticle(ProductRequest $request) {
+
 	}
 }
