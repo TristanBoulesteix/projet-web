@@ -53,8 +53,10 @@ function displayOn(myJSON) {
 
 		currentRow = $(document.createElement("div")).addClass("row").attr("id", "row"+row);
 		wrapper.append(currentRow);
-		var img = $(document.createElement("img")).attr("src", "storage/idea/"+json[i].image).attr("alt", "image idée").attr("id", "imgcase");
-		currentRow.append(img);
+		var img = $(document.createElement("div")).attr("style", "background-image: url('storage/idea/"+json[i].image+"')").attr("alt", "image idée").attr("classe", "imgcase");
+    currentRow.append(img);
+    var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "/home");
+    img.append(reportbtn);
 		var content = $(document.createElement("div")).addClass("content");
 		currentRow.append(content);
 		content.append('<h3>'+ json[i].name + '</h3>');
@@ -67,7 +69,12 @@ function displayOn(myJSON) {
 		like.append(bouton);
 		column = 1;
 		row ++;
-	}
+  }
+  $(".imgcase").hover( function(){
+    $(this).find($(".buttonReport")).css("display", "inline-block");
+    }, function(){
+    $(this).find($(".buttonReport")).css("display", "none");
+  });
 }
 
 function clicked(id) {

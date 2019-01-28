@@ -66,4 +66,10 @@ function displayOn(myJSON) {
 			deleteArticle($(this).parent().parent().attr('id'));
 		}
 	});
+
+	$(".imgArticle").hover( function(){
+    $(this).find($(".buttonReport")).css("display", "inline-block");
+    }, function(){
+    $(this).find($(".buttonReport")).css("display", "none");
+  });
 }

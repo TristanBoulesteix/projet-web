@@ -10,7 +10,7 @@ $(function () {
       getTokenAdmin(myJSON);
     }
   };
-  xmlhttp.open("GET", "http://10.169.128.55:3000/api/v1/users?bde=bde&cesi=lyon", true);
+  xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
   xmlhttp.send();
 });
 
@@ -23,7 +23,7 @@ function getDatasAdmin (token) {
       displayOnAdmin(myJSON);
     }
   };
-  xmlhttp.open("GET", "http://10.169.128.55:3000/ideas?token="+token, true);
+  xmlhttp.open("GET", "http://localhost:3000/ideas?token="+token, true);
   xmlhttp.send();
 }
 
@@ -70,7 +70,7 @@ function displayOnAdmin(myJSON) {
     currentRow.append(selection);
     selected = $('.select'+id);
     selected.click(function(){
-      document.location = "/addEvent?"+$(this).attr("id");
+      document.location = "/addevent?id="+$(this).attr("id");
     });
 
 }
