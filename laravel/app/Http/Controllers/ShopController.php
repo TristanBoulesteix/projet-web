@@ -130,7 +130,7 @@ class ShopController extends Controller {
 
 			$categories = Model\Categories::get()->all();
 
-			$categoryList['All'] = 'Ajouter une catégorie';
+			$categoryList['Add'] = 'Ajouter une catégorie';
 
 			foreach($categories as $category) {
 				$categoryList[$category->id] = $category->category;
@@ -151,6 +151,12 @@ class ShopController extends Controller {
 			$img->stream();
 
 			Storage::disk('local')->put('public/article'.'/'.$imageName, $img, 'public');
+
+			if($request->category == 'Add') {
+
+			}
+
+			Model\Products::create(array('name' => $request->name, 'description' => $request->description, 'price' => $request->price, 'image' => $imageName));
 		} else {
 			abort(403, 'Unauthorized action.');
 		}
