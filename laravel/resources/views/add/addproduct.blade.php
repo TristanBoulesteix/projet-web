@@ -45,7 +45,7 @@
 
 	<div class="formDiv masked">
 		{!! Form::label('added', 'nom:')!!}
-		{!! Form::text('added', null, ['required'=>'required', 'value' => old('name')])!!}
+		{!! Form::text('added', null, ['value' => old('name')])!!}
 	</div>
 
 	{!! Form::submit('Ajouter cet article', ['class'=>'connexion'])!!}

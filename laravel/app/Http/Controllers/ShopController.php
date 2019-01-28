@@ -36,7 +36,7 @@ class ShopController extends Controller {
 
 		// Get the three best products
 		$top = Model\Orders::select('id_products')->groupBy('id_products')->orderByRaw('COUNT(*) DESC')->limit(3)->get()->all();
-
+		$bestProducts = array();
 
 		foreach($top as $productId) {
 			$id = $productId->id_products;

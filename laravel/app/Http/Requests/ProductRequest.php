@@ -24,7 +24,7 @@ class ProductRequest extends FormRequest {
 			'name' => 'required|max:255|unique:products',
 			'description' => 'required|max:255',
 			'file' => 'required|image',
-			'price' => 'max:255|numeric',
+			'price' => 'numeric',
 			'category' => 'max:255|required',
 			'added' => 'nullable|max:255'
 		];
