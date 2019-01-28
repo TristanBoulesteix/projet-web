@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/events/event.css">
 <link rel="stylesheet" href="../css/events/event_phone.css">
+<link rel="stylesheet" href="../css/events/event_laptop.css">
 @endsection
 
 @section ( 'content' )
