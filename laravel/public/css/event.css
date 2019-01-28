@@ -85,3 +85,15 @@ h3{
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+.buttonReport{
+  display: none;
+  text-decoration: none;
+  color: white;
+}
+
+.buttonParticipate{
+  display: none;
+  text-decoration: none;
+  color: white;
+}

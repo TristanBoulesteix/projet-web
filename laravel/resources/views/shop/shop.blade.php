@@ -59,6 +59,8 @@
 			wrapper.append(columnElement);
 			var img = $(document.createElement("div")).attr("style", "background-image : url(../img/produit/" + json[i].image + ");").addClass('imgArticle');
 			img.append("<div class='buttonShop addToCart'>Ajouter au panier</div>");
+			var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "/home");
+			img.append(reportbtn);
 			@if($role == 'BDE')
 			img.append("<div class='buttonShop delete'> Supprimer l'article </div>");
 			@endif

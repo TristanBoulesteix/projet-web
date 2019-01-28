@@ -46,6 +46,8 @@ function displayOn(myJSON) {
 		var img = $(document.createElement("div")).attr("style", "background-image : url(../storage/event/" + json[i].image + ");").addClass('imgArticle').attr("alt", "image idée").attr("id", "imgcase");
 		currentRow.append(img);
 		img.append('<a href="/gallery/' + json[i].id + '">Voir photo</a>');
+		var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "/home");
+		img.append(reportbtn);
 		var content = $(document.createElement("div")).addClass("content");
 		currentRow.append(content);
 		content.append("<h2>"+json[i].name +"</h2>");
@@ -56,4 +58,9 @@ function displayOn(myJSON) {
 
 		row ++;
 	}
+	$(".imgArticle").hover( function(){
+    $(this).find($(".buttonReport")).css("display", "inline-block");
+    }, function(){
+    $(this).find($(".buttonReport")).css("display", "none");
+  });
 }

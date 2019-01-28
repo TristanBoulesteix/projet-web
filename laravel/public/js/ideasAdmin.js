@@ -70,7 +70,7 @@ function displayOnAdmin(myJSON) {
     currentRow.append(selection);
     selected = $('.select'+id);
     selected.click(function(){
-      document.location = "/addEvent?"+$(this).attr("id");
+      document.location = "/addevent?id="+$(this).attr("id");
     });
 
 }
