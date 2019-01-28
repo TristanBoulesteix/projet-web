@@ -102,7 +102,6 @@ function getTokenAccount (myJSON){
        var actuel = "Status actuel : "+json[(thisid[1])-1].role;
        if(selection != actuel){
          selection = $("#select"+thisid[1]+" option:selected").attr("value");
-         alert(selection);
         sendDatasAccount(selection, thisid[1]);
        }
 
