@@ -50,17 +50,17 @@
 
 	<div class="formDiv">
 	{!! Form::label('price', 'Coût :') !!}
-	{!! Form::select('price', array('free'=>'Gratuit', 'pay'=>'Payant'), ['required'=>'required', 'value' => old('price')])!!}
+	{!! Form::select('price', array('free'=>'Gratuit', 'pay' => 'Payant'), ['required'=>'required', 'value' => old('price')])!!}
 	{!! $errors->first('price','<small class="help-block">:message</small>') !!}
 	{!! $errors->first('cost','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv masked">
-		{!! Form::label('cost', 'Prix :')!!}
-		{!! Form::text('cost', null, ['value' => old('cost')])!!}
+		{!! Form::label('cost', 'Prix :') !!}
+		{!! Form::text('cost', null, ['value' => old('cost')]) !!}
 	</div>
 
-	{!! Form::submit('Ajouter cet article', ['class'=>'connexion'])!!}
+	{!! Form::submit('Ajouter cet article', ['class'=>'connexion']) !!}
 
 {!! Form::close()!!}
 

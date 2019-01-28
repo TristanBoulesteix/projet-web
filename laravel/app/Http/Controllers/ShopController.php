@@ -128,7 +128,15 @@ class ShopController extends Controller {
 		if (Auth::user()->getCurrentRole() == 'BDE') {
 			$generator = new Generator(view('add.addproduct'), 'Ajouter un produit');
 
-			return $generator->getView();
+			$categories = Model\Categories::get()->all();
+
+			$categoryList['All'] = 'Ajouter une catégorie';
+
+			foreach($categories as $category) {
+				$categoryList[$category->id] = $category->category;
+			}
+
+			return $generator->getView()->withCategories($categoryList);
 		}
 	}
 
