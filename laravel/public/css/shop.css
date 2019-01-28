@@ -239,6 +239,27 @@ input[type=submit] {
   color: #fff;
   width: 10%;
 }
+
+#addProduct{
+   background-color: white;
+  color: black;
+  width: 10%;
+  float: left;
+  margin-left: 14%;
+  margin-top: 4%;
+  text-decoration: none;
+  padding: 0.5%;
+  border-radius: 10px;
+  border-color: black;
+  border-style: solid;
+  text-align: center;
+}
+
+#addProduct:hover{
+  background-color: black;
+  color: rgb(235, 196, 26);
+}
+
 .autocomplete-items {
   
   position: absolute;

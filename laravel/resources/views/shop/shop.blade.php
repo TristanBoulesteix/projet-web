@@ -1,4 +1,7 @@
 @extends ('template')
+@section('description')
+<meta name="description" content="Magasin en ligne du BDE, Achat de goodies et de places d'évènements" />
+@endsection
 @section ('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./css/shop.css">
@@ -15,6 +18,7 @@
 			<a href="cart">
 				<i class="fa fa-shopping-cart "></i>
 			</a>
+			<a id="addProduct" href=""> Ajouter&nbsp;un&nbsp;article </a>
 			<form autocomplete="off">
 					<div class="autocomplete" style="width:300px;">
 						<input id="myInput" type="text" name="articles" placeholder="Vous recherchez?">
