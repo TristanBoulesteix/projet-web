@@ -19,7 +19,7 @@ function gotoAPI() {
 			getTokenCat(myJSON, selection);
 		}
 	};
-	xmlhttp.open("GET", "http://10.169.128.55:3000/api/v1/users?bde=bde&cesi=lyon", true);
+	xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
 	xmlhttp.send();
 };
 
@@ -31,7 +31,7 @@ function getDatasCat (token) {
 			displayOnCategory(myJSON);
 		}
 	};
-	xmlhttp.open("GET", "http://10.169.128.55:3000/category?category_name="+selection+"&token="+token, true);
+	xmlhttp.open("GET", "http://localhost:3000/category?category_name="+selection+"&token="+token, true);
 	xmlhttp.send();
 }
 
@@ -46,18 +46,27 @@ function displayOnCategory(myJSON) {
   wrapper.empty();
 
 	for (var i = 0; i < json.length; i++) {
-		createArticleCat(json, wrapper, i);
+		createArticle(json, wrapper, i);
   }
-}
+		$(".imgArticle").hover( function(){
+			$(this).find($(".buttonShop")).css("display", "inline-block");
+			}, function(){
+			$(this).find($(".buttonShop")).css("display", "none");
+		});
 
-function createArticleCat(json, wrapper, i) {
-    var columnElement = $(document.createElement("div")).addClass("column").attr("id", i);
-    wrapper.append(columnElement);
-    var img = $(document.createElement("div")).attr("style", "background-image : url(../img/produit/" + json[i].image + ");").addClass('imgArticle');
-    img.append("<div class='buttonShop addToCart'>Ajouter au panier</div>");
-    columnElement.append(img);
-    var content = $(document.createElement("div")).addClass("content");
-    columnElement.append(content);
-    content.append("<h3>"+json[i].name +": "+ json[i].price+"€</h3>");
-    content.append("<p>"+json[i].description+"</p>");
+		$('.addToCart').on('click', function() {
+			if($(this).attr('class').split(' ')[2] == 'top3') {
+				buy($(this).parent().parent().attr('class').split(' ')[1]);
+			} else {
+				buy($(this).parent().parent().attr('id'));
+			}
+		});
+	
+		$('.delete').on('click', function() {
+			if($(this).attr('class').split(' ')[2] == 'top3') {
+				deleteArticle($(this).parent().parent().attr('class').split(' ')[1]);
+			} else {
+				deleteArticle($(this).parent().parent().attr('id'));
+			}
+		});
   }

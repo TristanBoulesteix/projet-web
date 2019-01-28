@@ -87,8 +87,7 @@ h3{
 
 .buyclean:enabled:hover{
 	background-color: black;
-	color: rgb(235, 196, 26);
-	border-color: black;
+	color: white;
 }
 
 .buyclean:disabled {

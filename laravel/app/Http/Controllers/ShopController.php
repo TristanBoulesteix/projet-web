@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Image;
 use Mail;
-use Illuminate\Http\Request;
+use Storage;
+use App\Http\Requests\ProductRequest;
 use App\Http\Controllers\Controller;
 use App\Model;
 use App\Managers\ViewManager as Generator;
 
 class ShopController extends Controller {
 	public function __construct() {
-		$this->middleware('auth');
+		//$this->middleware('auth');
 	}
 
 	/**
@@ -34,7 +36,7 @@ class ShopController extends Controller {
 
 		// Get the three best products
 		$top = Model\Orders::select('id_products')->groupBy('id_products')->orderByRaw('COUNT(*) DESC')->limit(3)->get()->all();
-
+		$bestProducts = array();
 
 		foreach($top as $productId) {
 			$id = $productId->id_products;
@@ -42,7 +44,7 @@ class ShopController extends Controller {
 		}
 
 		// Return the view
-		return $generator->getView()->withCategories($allCategories)->withBestProducts($bestProducts)->withRole(Auth::user()->getCurrentRole());
+		return $generator->getView()->withCategories($allCategories)->withBestProducts($bestProducts)->withRole(Auth::user() != null ? Auth::user()->getCurrentRole() : 'Student');
 	}
 
 	public function addToCart($n) {
@@ -122,5 +124,49 @@ class ShopController extends Controller {
 		}
 
 		return $kept;
+	}
+
+	public function showArticleForm() {
+		if (Auth::user()->getCurrentRole() == 'BDE') {
+			$generator = new Generator(view('add.addproduct'), 'Ajouter un produit');
+
+			$categories = Model\Categories::get()->all();
+
+			$categoryList['Add'] = 'Ajouter une catégorie';
+
+			foreach($categories as $category) {
+				$categoryList[$category->id] = $category->category;
+			}
+
+			return $generator->getView()->withCategories($categoryList);
+		} else {
+			abort(403, 'Unauthorized action.');
+		}
+	}
+
+	public function addArticle(ProductRequest $request) {
+		if (Auth::user()->getCurrentRole() == 'BDE') {
+			$image = $request->file;
+			$imageName = $request->name . '-' . time() .'.' . $image->getClientOriginalExtension();
+
+			$img = Image::make($image->getRealPath());
+			$img->stream();
+
+			Storage::disk('local')->put('public/article'.'/'.$imageName, $img, 'public');
+
+			if($request->category == 'Add' && $request->added != null) {
+				Model\Categories::create(array('category' => $request->added));
+
+				$categorie = Model\Categories::select('id')->where('category', $request->added)->get()[0]->id;
+			} else {
+				$categorie = $request->category;
+			}
+
+			Model\Products::create(array('name' => $request->name, 'description' => $request->description, 'price' => $request->price, 'image' => $imageName, 'id_category' => $categorie));
+
+			return redirect('shop');
+		} else {
+			abort(403, 'Unauthorized action.');
+		}
 	}
 }

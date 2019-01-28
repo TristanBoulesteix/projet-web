@@ -18,7 +18,9 @@
 			<a href="cart">
 				<i class="fa fa-shopping-cart "></i>
 			</a>
-			<a id="addProduct" href=""> Ajouter&nbsp;un&nbsp;article </a>
+			@if($role == 'BDE')
+			<a id="addProduct" href="addarticle"> Ajouter&nbsp;un&nbsp;article </a>
+			@endif
 			<form autocomplete="off">
 					<div class="autocomplete" style="width:300px;">
 						<input id="myInput" type="text" name="articles" placeholder="Vous recherchez?">
@@ -55,14 +57,16 @@
 <div class="wrapper" id="allarticles"></div>
 
 	<script src="./js/shop.js"></script>
-	<script src="./js/autocomplet.js"></script>*
+	<script src="./js/autocomplet.js"></script>
 	<script src="./js/categories.js"></script>
 	<script>
 		function createArticle(json, wrapper, i) {
 			var columnElement = $(document.createElement("div")).addClass("column").attr("id", i);
 			wrapper.append(columnElement);
-			var img = $(document.createElement("div")).attr("style", "background-image : url(../img/produit/" + json[i].image + ");").addClass('imgArticle');
+			var img = $(document.createElement("div")).attr("style", "background-image : url('../storage/article/" + json[i].image + "');").addClass('imgArticle');
 			img.append("<div class='buttonShop addToCart'>Ajouter au panier</div>");
+			var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "/home");
+			img.append(reportbtn);
 			@if($role == 'BDE')
 			img.append("<div class='buttonShop delete'> Supprimer l'article </div>");
 			@endif
@@ -72,7 +76,7 @@
 			content.append("<h3>"+json[i].name +": "+ json[i].price+"€</h3>");
 			content.append("<p>"+json[i].description+"</p>");
 		}
-
+		
 		autocomplete(document.getElementById("myInput"), articles);
 	</script>
 @endsection

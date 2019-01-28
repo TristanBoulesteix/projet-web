@@ -79,7 +79,7 @@ function getDatasComm (token, id) {
 	  displayOnComm(myJSON, id);
 	}
   };
-  xmlhttp.open("GET", "http://10.169.128.55:3000/comment?image="+1/* event id on where we had click*/+"&token="+token, true);
+  xmlhttp.open("GET", "http://localhost:3000/comment?image="+1/* event id on where we had click*/+"&token="+token, true);
   xmlhttp.send();
 }
 
@@ -126,7 +126,7 @@ function openComp(id) {
 		getTokenComm(myJSON, id);
 	  }
 	};
-	xmlhttp.open("GET", "http://10.169.128.55:3000/api/v1/users?bde=bde&cesi=lyon", true);
+	xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
 	xmlhttp.send();
 }
 
@@ -138,7 +138,7 @@ function postLike (id_image) {
       var myJSON = JSON.parse(this.responseText);
     }
   };
-  xmlhttp.open("POST", "http://10.169.128.55:3000/like/event?token="+token+"&id_image="+id_image, true);
+  xmlhttp.open("POST", "http://localhost:3000/like/event?token="+token+"&id_image="+id_image, true);
   xmlhttp.send();
 }
 

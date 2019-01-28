@@ -20,8 +20,6 @@ class CreateEventsTable extends Migration
 			$table->date('date');
 			$table->string('type');
 			$table->decimal('cost', 5, 2);
-			$table->integer('id_user');
-			$table->foreign('id_user')->references('id')->on('users');
 		});
 	}
 
