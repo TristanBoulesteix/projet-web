@@ -137,10 +137,22 @@ class ShopController extends Controller {
 			}
 
 			return $generator->getView()->withCategories($categoryList);
+		} else {
+			abort(403, 'Unauthorized action.');
 		}
 	}
 
 	public function addArticle(ProductRequest $request) {
+		if (Auth::user()->getCurrentRole() == 'BDE') {
+			$image = $request->file;
+			$imageName = $request->name . '-' . time() .'.' . $image->getClientOriginalExtension();
 
+			$img = Image::make($image->getRealPath());
+			$img->stream();
+
+			Storage::disk('local')->put('public/article'.'/'.$imageName, $img, 'public');
+		} else {
+			abort(403, 'Unauthorized action.');
+		}
 	}
 }
