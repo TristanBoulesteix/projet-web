@@ -69,3 +69,23 @@ h1 {
   padding: 1% 5%;
   border: grey solid 1px;
 }
+
+.button {
+	display: inline-block;
+	background-color: white;
+	color: black;
+	border: 1px solid black;
+	margin: auto;
+	padding: 1%;
+	border-radius: 10px;
+	width: auto;
+	cursor: pointer;
+	text-decoration: none;
+	margin-left: 87%;
+}
+
+.button:hover {
+	background-color: black;
+	color: rgb(235, 196, 26);
+	border-color: white;
+}

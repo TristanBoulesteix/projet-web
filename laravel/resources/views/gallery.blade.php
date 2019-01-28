@@ -7,7 +7,9 @@
 @section ( 'content' )
 
 <h3 id="page"> Galerie </h3>
-
+@if($role == 'BDE')
+<a href="" class="button">Ajouter des images</a>
+@endif
 
 <div id="comSection">
 

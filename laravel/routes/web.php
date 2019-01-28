@@ -45,6 +45,9 @@ Route::middleware('auth')->group(function() {
 	Route::post('addevent', 'EventController@addEvent');
 });
 
+// Routes for gallery
+Route::get('gallery/{n}', 'GalleryController@showGallery')->where('n', '^[0-9]*$');
+
 // Footer routes
 Route::get('legals', 'FooterController@showLegals');
 Route::get('conditions', 'FooterController@showSoldConditions');
