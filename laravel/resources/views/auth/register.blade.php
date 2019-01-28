@@ -25,13 +25,13 @@
 
 	<div class="formDiv">
 		{!! Form::label('first_name', 'nom:')!!}
-		{!! Form::text('first_name', null, ['required'=>'required'])!!}
+		{!! Form::text('first_name', null, ['required'=>'required', 'value' => old('first_name')])!!}
 		{!! $errors->first('first_name','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
 		{!! Form::label('last_name', 'prénom:')!!}
-		{!! Form::text('last_name', null, ['required'=>'required'])!!}
+		{!! Form::text('last_name', null, ['required'=>'required', 'value' => old('last_name')])!!}
 		{!! $errors->first('last_name','<small class="help-block">:message</small>') !!}
 	</div>
 

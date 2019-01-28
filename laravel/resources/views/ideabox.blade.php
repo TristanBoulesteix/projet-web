@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="./css/ideabox/ideabox.css">
 <link rel="stylesheet" href="./css/ideabox/ideabox_ipad.css">
 <link rel="stylesheet" href="./css/ideabox/ideabox_phone.css">
+<link rel="stylesheet" href="./css/ideabox/ideabox_laptop.css">
 @endsection
 
 @section ( 'content' )
@@ -11,18 +12,20 @@
 <h3 id="page"> Boite à idées </h3>
 
 <div id="Adminbtn">
-        <div id="addEventCase">
-            <a id="addEventBut" href=""> Proposer&nbsp;un&nbsp;évènement </a>
-        </div>
+		<div id="addEventCase">
+			<a id="addEventBut" href="addidea"> Proposer&nbsp;un&nbsp;évènement </a>
+		</div>
 
 <h4 id="pub"> Venez proposer vos idées dévènements! </h4>
+@if ($role == 'BDE')
 <a id="connexion" href="/idea/admin">Administrer</a>
+@endif
 </div>
 
 
 
 <div id="wrapper">
 </div>
-<script src="./js/ideas.js"></script>
+<script src="../js/ideas.js"></script>
 
 @endsection

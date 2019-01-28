@@ -67,6 +67,8 @@ h4{
 	background-image: url("../../img/logo.png");
 	background-repeat: no-repeat;
 	background-position: center center;
+	max-width: 460px;
+	max-height: 370px;
 
 }
 

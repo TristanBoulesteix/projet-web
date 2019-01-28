@@ -2,6 +2,9 @@
 @section ( 'css' )
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./css/cart.css">
+<link rel="stylesheet" href="./css/cart/cart_ipad.css">
+<link rel="stylesheet" href="./css/cart/cart_phone.css">
+<link rel="stylesheet" href="./css/cart/cart_laptop.css">
 @endsection
 
 @section ( 'content' )
