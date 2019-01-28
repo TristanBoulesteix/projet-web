@@ -8,8 +8,8 @@ function hideField(field) {
 
 $('#category').on('change', function() {
 	if($(this).val() == 'Add') {
-		showField($('#add').parent());
+		showField($('#added').parent());
 	} else {
-		hideField($('#add').parent());
+		hideField($('#added').parent());
 	}
 });

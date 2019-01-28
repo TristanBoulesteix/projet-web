@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Image;
 use Mail;
+use Storage;
 use App\Http\Requests\ProductRequest;
 use App\Http\Controllers\Controller;
 use App\Model;
@@ -152,11 +154,17 @@ class ShopController extends Controller {
 
 			Storage::disk('local')->put('public/article'.'/'.$imageName, $img, 'public');
 
-			if($request->category == 'Add') {
+			if($request->category == 'Add' && $request->added != null) {
+				Model\Categories::create(array('category' => $request->added));
 
+				$categorie = Model\Categories::select('id')->where('category', $request->added)->get()[0]->id;
+			} else {
+				$categorie = $request->category;
 			}
 
-			Model\Products::create(array('name' => $request->name, 'description' => $request->description, 'price' => $request->price, 'image' => $imageName));
+			Model\Products::create(array('name' => $request->name, 'description' => $request->description, 'price' => $request->price, 'image' => $imageName, 'id_category' => $categorie));
+
+			return redirect('shop');
 		} else {
 			abort(403, 'Unauthorized action.');
 		}

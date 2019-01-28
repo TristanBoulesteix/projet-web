@@ -54,6 +54,6 @@
 
 <img id="bde" src="../img/lyon.png">
 <script src="../js/file.js"></script>
-<script src='../js/event/autoCategory.js'></script>
+<script src='../js/product/autoCategory.js'></script>
 
 @endsection
