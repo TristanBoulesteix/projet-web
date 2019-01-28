@@ -22,6 +22,11 @@
 	{!! $errors->first('password','<small class="help-block">:message</small>') !!}
 </div>
 
+<div id="check">
+	{!! Form::label('rules', 'Cochez pour acceptez notre politique de protection des données:')!!}
+	{!! Form::checkbox('reponse', 'rules')!!}
+</div>
+
 {!! Form::submit('connexion', ['class'=>'connexion'])!!}
 
 
