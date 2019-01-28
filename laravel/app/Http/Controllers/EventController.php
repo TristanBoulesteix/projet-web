@@ -12,19 +12,19 @@ use App\Managers\ViewManager as Generator;
 
 class EventController extends Controller {
 	public function __construct() {
-		$this->middleware('auth');
+		//$this->middleware('auth');
 	}
 
 	public function showEvents() {
 		$generator = new Generator(view('events'), 'Tous les évènements');
 
-		return $generator->getView()->with('h3', 'Evènements à venir')->withUriSwitch('oldevents')->withUriScript('../js/event.js')->withButtonText('Anciens évènements')->withRole(Auth::user()->getCurrentRole());
+		return $generator->getView()->with('h3', 'Evènements à venir')->withUriSwitch('oldevents')->withUriScript('../js/event.js')->withButtonText('Anciens évènements')->withRole(Auth::user() != null ? Auth::user()->getCurrentRole() : 'Student');
 	}
 
 	public function showOlds() {
 		$generator = new Generator(view('events'), 'Anciens évènements');
 
-		return $generator->getView()->with('h3', 'Evènements Passé au BDE Lyon')->withUriSwitch('events')->withUriScript('../js/oldevent.js')->withButtonText('Évènements')->withRole(Auth::user()->getCurrentRole());
+		return $generator->getView()->with('h3', 'Evènements Passé au BDE Lyon')->withUriSwitch('events')->withUriScript('../js/oldevent.js')->withButtonText('Évènements')->withRole(Auth::user() != null ? Auth::user()->getCurrentRole() : 'Student');
 	}
 
 	public function showGallery() {
@@ -65,7 +65,7 @@ class EventController extends Controller {
 				$price = $request->cost;
 			}
 
-			Model\Event::create(array('name' => $request->name, 'description' => $request->description, 'image' => $imageName, 'date' => $request->date, 'type' => $recurrency, 'cost' => $price, 'id_user' => Auth::user()->id));
+			Model\Event::create(array('name' => $request->name, 'description' => $request->description, 'image' => $imageName, 'date' => $request->date, 'type' => $recurrency, 'cost' => $price));
 
 			return redirect('events');
 		} else {

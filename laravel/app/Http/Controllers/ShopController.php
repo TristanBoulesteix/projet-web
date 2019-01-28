@@ -11,7 +11,7 @@ use App\Managers\ViewManager as Generator;
 
 class ShopController extends Controller {
 	public function __construct() {
-		$this->middleware('auth');
+		//$this->middleware('auth');
 	}
 
 	/**
@@ -42,7 +42,7 @@ class ShopController extends Controller {
 		}
 
 		// Return the view
-		return $generator->getView()->withCategories($allCategories)->withBestProducts($bestProducts)->withRole(Auth::user()->getCurrentRole());
+		return $generator->getView()->withCategories($allCategories)->withBestProducts($bestProducts)->withRole(Auth::user() != null ? Auth::user()->getCurrentRole() : 'Student');
 	}
 
 	public function addToCart($n) {
