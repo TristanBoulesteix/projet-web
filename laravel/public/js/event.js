@@ -1,6 +1,8 @@
-
+//Returned API token
 var token = "";
-
+/**
+ * On load get APi's token
+ */
 $(function () {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -13,7 +15,11 @@ $(function () {
   xmlhttp.send();
 });
 
-
+/**
+ * 
+ * @param {*} token the API's token
+ * get the API's Datas
+ */
 function getDatas (token) {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -25,21 +31,24 @@ function getDatas (token) {
   xmlhttp.open("GET", "http://localhost:3000/events?token="+token, true);
   xmlhttp.send();
 }
-
+/**
+ * @param {*} myJSON the API's returned token as a json
+ * assign myJSON value to var token
+ */
 function getToken (myJSON){
 var json = myJSON.result;
 getDatas(json);
 }
-
-
-
+/**
+ * @param {*} myJSON the API's returned Datas as a json
+ * display HTML elements
+ */
 function displayOn(myJSON) {
 	var json = myJSON.response[0];
 	var wrapper = $("#wrapper");
 	var currentRow;
 	var row = 0;
-
-
+//for each part or the json, display HTML element
 	for (var i = 0; i < json.length; i++) {
 		currentRow = $(document.createElement("div")).addClass("row").attr("id", "row"+row);
     wrapper.append(currentRow);
@@ -56,23 +65,27 @@ function displayOn(myJSON) {
     var date = res.split("T", 1);
     content.append("<p>"+ date +"</p>");
     var price  = json[i].cost;
+    // check if teh price is 0 to change display to "free"
     if(price != 0){
     content.append("<p> Prix : "+ price +" €</p>");
     }else{
     content.append("<p> Évenement gratuit! </p>");
     }
     var type = json[i].type;
+    //check the type of event and dispay if it's not "none"
     if(type != "none"){
     content.append("<p> Évenement "+ type +"</p>");
     }
 		row ++;
   }
-
+//check emptyness do wrapper and display "no data allowed"
   if( !$.trim( $('#wrapper').html() ).length ){
     var hello = $(document.createElement("p")).text("Données non disponibles.");
     wrapper.append(hello);
   }
-
+/**
+ * event listener on hover to display the buttons report and participate
+ */
   $(".imgArticle").hover( function(){
     $(this).find($(".buttonReport")).css("display", "inline-block");
     }, function(){
