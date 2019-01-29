@@ -30,6 +30,8 @@ class ReportController extends Controller {
 			Mail::send('mail.report', $datas, function ($message) use ($emails) {
 				$message->to($emails, 'BDE admin')->subject('report');
 			});
+
+			return redirect()->route('home');
 		}
 	}
 }
