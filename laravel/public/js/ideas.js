@@ -53,7 +53,7 @@ function displayOn(myJSON) {
 
 	  currentRow = $(document.createElement("div")).addClass("row").attr("id", "row"+row);
 		wrapper.append(currentRow);
-		var img = $(document.createElement("div")).attr("style", "background-image: url('storage/idea/"+json[i].image+"')").attr("alt", "image idée").attr("classe", "imgcase");
+		var img = $(document.createElement("div")).attr("style", "background-image: url('storage/idea/"+json[i].image+"')").attr("alt", "image idée").attr("class", "imgcase");
     currentRow.append(img);
     var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "/home");
     img.append(reportbtn);
