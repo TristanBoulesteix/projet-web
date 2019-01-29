@@ -35,7 +35,7 @@
 		wrapper.append(currentRow);
 		var img = $(document.createElement("div")).attr("style", "background-image: url('storage/idea/"+json[i].image+"')").attr("alt", "image idée").attr("class", "imgcase");
 		currentRow.append(img);
-		var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "/home");
+		var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "report?type=idea&id="+json[i].id);
 		img.append(reportbtn);
 		var content = $(document.createElement("div")).addClass("content");
 		currentRow.append(content);

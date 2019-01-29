@@ -56,9 +56,14 @@ Route::get('conditions', 'FooterController@showSoldConditions');
 Route::get('ppd', 'FooterController@showDatasProtection');
 Route::get('contact', 'FooterController@showContact');
 
-// Report routes
+// Report route
 Route::middleware('auth')->group(function() {
 	Route::get('report', 'ReportController@report');
+});
+
+// Download route
+Route::middleware('auth')->group(function() {
+	Route::get('download', 'DownloadController@download');
 });
 
 Route::get('accountAd', function(){

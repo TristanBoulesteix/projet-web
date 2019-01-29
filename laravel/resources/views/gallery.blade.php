@@ -12,7 +12,7 @@
 @endif
 
 @if($role == 'CESI')
-<a href="{{ url('gallery/download?type=gallery&id='.$idEvent}}" class="button">Télécharger les images</a>
+<a href="{{ url('download?type=gallery&id='.$idEvent)}}" class="button">Télécharger les images</a>
 @endif
 
 <div id="comSection">
@@ -25,7 +25,7 @@
 <script src="../js/gallery.js"></script>
 <script >
 function createGallery(currentDiv, json, wrapper, i){
-currentDiv = $(document.createElement("div")).addClass("content").attr("id", json[i].id).attr("style", "background-image : url(../img/gallery/"+json[i].image+")");
+currentDiv = $(document.createElement("div")).addClass("content").attr("id", json[i].id).attr("style", "background-image : url(../storage/gallery/{{ $idEvent }}/"+json[i].image+")");
 	  wrapper.append(currentDiv);
 	  var tool = $(document.createElement("div")).addClass("tools");
     currentDiv.append(tool);
