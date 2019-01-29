@@ -76,4 +76,10 @@ class EventController extends Controller {
 			abort(403, 'Unauthorized action.');
 		}
 	}
+
+	public function participate(Request $request) {
+		Model\Participate::create(array('id_user' => Auth::user()->id, 'id_event' => $request->id));
+
+		return redirect('events');
+	}
 }

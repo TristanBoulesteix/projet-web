@@ -34,7 +34,7 @@ function createElement(currentRow, json, wrapper, row, i) {
 	var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "report?type=event&id=" + json[i].id);
 	img.append(reportbtn);
 	@endif
-	var participatebtn = $(document.createElement("a")).addClass('buttonParticipate').text("S'inscrire à l'évènement!").attr("href", "/home");
+	var participatebtn = $(document.createElement("a")).addClass('buttonParticipate').text("S'inscrire à l'évènement!").attr("href", "event/participate?id="+json[i].id);
 	img.append(participatebtn);
 	var content = $(document.createElement("div")).addClass("content");
 	currentRow.append(content);

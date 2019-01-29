@@ -31,9 +31,11 @@ Route::middleware('auth')->group(function() {
 
 // Routes for the ideas
 Route::get('idea', 'IdeaController@showIdeas');
-Route::get('addidea', 'IdeaController@showIdeaForm');
-Route::post('addidea', ['as' => 'addIdea', 'uses' => 'IdeaController@addIdea']);
-Route::get('/idea/admin', 'IdeaController@showAdmin');
+Route::middleware('auth')->group(function() {
+	Route::get('addidea', 'IdeaController@showIdeaForm');
+	Route::post('addidea', ['as' => 'addIdea', 'uses' => 'IdeaController@addIdea']);
+	Route::get('/idea/admin', 'IdeaController@showAdmin');
+});
 
 // Routes for events
 Route::get('events', 'EventController@showEvents');
@@ -41,6 +43,7 @@ Route::get('oldevents', 'EventController@showOlds');
 Route::middleware('auth')->group(function() {
 	Route::get('addevent', 'EventController@showAddEventForm');
 	Route::post('addevent', 'EventController@addEvent');
+	Route::get('event/participate', 'EventController@participate');
 });
 
 // Routes for gallery
