@@ -4,6 +4,10 @@
 
 @endsection
 
+@section('description')
+<meta name="description" content="BDE-Lyon-CESI login" />
+@endsection
+
 @section('content')
 
 <h3> Connexion au site du BDE: </h3>
@@ -20,6 +24,11 @@
 	{!! Form::label('password', 'mot de passe :')!!}
 	{!! Form::password('password', ['required'=>'required'])!!}
 	{!! $errors->first('password','<small class="help-block">:message</small>') !!}
+</div>
+
+<div id="check">
+	{{ Form::label('rules', 'Cochez pour acceptez notre  <a href="'.url('ppd').'"> politique de protection des données : </a>' )}}
+	{!! Form::checkbox('reponse', 'rules', ['required'=>'required'])!!}
 </div>
 
 {!! Form::submit('connexion', ['class'=>'connexion'])!!}

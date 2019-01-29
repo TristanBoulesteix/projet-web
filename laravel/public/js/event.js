@@ -50,33 +50,7 @@ function displayOn(myJSON) {
 	var row = 0;
 //for each part or the json, display HTML element
 	for (var i = 0; i < json.length; i++) {
-		currentRow = $(document.createElement("div")).addClass("row").attr("id", "row"+row);
-    wrapper.append(currentRow);
-		var img = $(document.createElement("div")).attr("style", "background-image : url(../storage/event/" + json[i].image + ");").addClass('imgArticle').attr("alt", "image idée").attr("id", "imgcase");
-    currentRow.append(img);
-    var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "/home");
-    var participatebtn = $(document.createElement("a")).addClass('buttonParticipate').text("S'inscrire à l'évènement!").attr("href", "/home");
-    img.append(reportbtn, participatebtn);
-		var content = $(document.createElement("div")).addClass("content");
-    currentRow.append(content);
-    content.append("<h2>"+json[i].name +"</h2>");
-    content.append("<p>"+json[i].description +"</p>");
-    var res = json[i].date;
-    var date = res.split("T", 1);
-    content.append("<p>"+ date +"</p>");
-    var price  = json[i].cost;
-    // check if teh price is 0 to change display to "free"
-    if(price != 0){
-    content.append("<p> Prix : "+ price +" €</p>");
-    }else{
-    content.append("<p> Évenement gratuit! </p>");
-    }
-    var type = json[i].type;
-    //check the type of event and dispay if it's not "none"
-    if(type != "none"){
-    content.append("<p> Évenement "+ type +"</p>");
-    }
-		row ++;
+		createElement(currentRow, json, wrapper, row, i);
   }
 //check emptyness do wrapper and display "no data allowed"
   if( !$.trim( $('#wrapper').html() ).length ){
