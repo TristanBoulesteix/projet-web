@@ -103,7 +103,7 @@ Conformément à la réglementation en vigueur les Utilisateurs de notre Site di
 <p>Si vous souhaitez savoir comment CESI utilise ces données personnelles, demander à les rectifier ou s’opposer à un traitement vous pouvez envoyer un email à l’adresse <a href="mailto:bde-lyon@viacesi.fr">bde-lyon@viacesi.fr</a> ou adresser un courrier à l’adresse suivante : CESI – Data Protection Officer – 30 rue Cambronne 75015 Paris France. Enfin les Utilisateurs de CESI peuvent déposer une réclamation auprès des autorités de contrôle, et notamment de la <a href="https://www.cnil.fr/" target="_blank" rel="noopener">CNIL</a>. Vos requêtes seront traitées sous 30 jours. En complément de votre demande, nous vous demanderons de joindre une photocopie d’un justificatif d’identité afin que CESI puisse vérifier votre identité.</p>
 <h2>Nous contacter</h2>
 <p>Si vous avez des questions ou des réclamations ou si vous souhaitez faire part à CESI de recommandations ou des commentaires visant à améliorer notre Politique de protection des données personnelles vous pouvez envoyer un email à l’adresse <a href="mailto:bde-lyon@viacesi.fr">bde-lyon@viacesi.fr</a> ou adresser un courrier à l’adresse suivante : CESI – Data Protection Officer – 30 rue Cambronne 75015 Paris France</p>
-	</section><!-- .entry-content -->
+	</section>
 
 
 @endsection

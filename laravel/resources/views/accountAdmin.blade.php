@@ -5,7 +5,7 @@
 
 @section ( 'content' )
 
-<h3 id="page"> Roles Utilisateurs </h3>
+<h3 id="page"> Rôles des Utilisateurs </h3>
 
 <h4 id="pub"> Administration </h4>
 
@@ -18,9 +18,6 @@
       </tbody>
   </table>
 </div>
-
-
-
 
 <script src="../js/accountAdmin.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>

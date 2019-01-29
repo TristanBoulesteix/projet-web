@@ -12,7 +12,7 @@
 <h2>CESI</h2>
 <p>Société CESI au capital de 1.1M euros </p>
 <p>Siège social 30 rue Cambronne
-75015 Paris ;  
+75015 Paris ;
 
 <p>N° de téléphone 01 44 19 23 45 ; Adresse du courrier électronique bde-lyon@viacesi.fr</p>
 

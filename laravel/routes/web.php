@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 // Routes to authentificate
 Route::auth();
 Route::get('logout', 'auth\LoginController@logout');
@@ -56,11 +57,12 @@ Route::get('conditions', 'FooterController@showSoldConditions');
 Route::get('ppd', 'FooterController@showDatasProtection');
 Route::get('contact', 'FooterController@showContact');
 
-// Report routes
+// Report route
 Route::middleware('auth')->group(function() {
 	Route::get('report', 'ReportController@report');
 });
 
+// Administration route
 Route::get('accountAd', function(){
   return view('accountAdmin')->withTitle("account")->with("logged", false);
 });
