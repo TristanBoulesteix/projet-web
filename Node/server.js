@@ -60,7 +60,7 @@ const con2 = mysql.createConnection({
    * @param {*} bde the data recieved in the get query
    * @param {*} cesi the data recieved in the get query
    * @param {*} res the response to the get query
-   * @param {*} resolve the resolv of the promise
+   * @param {*} resolve the resolve of the promise
    * create a crypted token
    */
   function makeTheToken(bde, cesi, res, resolve) {

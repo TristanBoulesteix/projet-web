@@ -34,8 +34,14 @@ function createElement(currentRow, json, wrapper, row, i) {
 	var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "report?type=event&id=" + json[i].id);
 	img.append(reportbtn);
 	@endif
-	var participatebtn = $(document.createElement("a")).addClass('buttonParticipate').text("S'inscrire à l'évènement!").attr("href", "event/participate?id="+json[i].id);
-	img.append(participatebtn);
+	var cookie = checkCookieEvent(json[i].name)
+	if (cookie == "") {
+		var participatebtn = $(document.createElement("a")).addClass('buttonParticipate').text("S'inscrire à l'évènement!").attr("href", "event/participate?id="+json[i].id);
+		img.append(participatebtn);
+	}
+	else{
+		img.append("<p class='buttonParticipate'> Inscrit! </p>");
+	}
 	var content = $(document.createElement("div")).addClass("content");
 	currentRow.append(content);
 	content.append("<h2>"+json[i].name +"</h2>");
@@ -64,7 +70,7 @@ function createElement(currentRow, json, wrapper, row, i) {
 		wrapper.append(currentRow);
 		var img = $(document.createElement("div")).attr("style", "background-image : url(../storage/event/" + json[i].image + ");").addClass('imgArticle').attr("alt", "image idée").attr("id", "imgcase");
 		currentRow.append(img);
-		img.append('<a href="/gallery/' + json[i].id + '">Voir photo</a>');
+		img.append('<a href="/gallery/' + json[i].id + '" class="buttonSee">Voir photo</a>');
 		@if($role == 'CESI')
 		var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "report?type=event&id=" + json[i].id);
 		img.append(reportbtn);
@@ -78,6 +84,27 @@ function createElement(currentRow, json, wrapper, row, i) {
 		content.append("<p>"+ date +"</p>");
 		row ++;
 	}
+
+	function checkCookieEvent(name){
+  var cookie = getCookieEvent(name)
+  return cookie; 
+}
+
+function getCookieEvent(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
 </script>
 
 @endsection

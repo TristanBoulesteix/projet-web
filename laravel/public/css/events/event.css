@@ -107,7 +107,20 @@ h3{
 }
 
 .buttonSee{
-  display: none;text-align: center;
+	display: none;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	background-color: white;
+	border-style: groove;
+	border-radius: 10px;
+	padding: 1% 1% 1% 1%;
+	font-size: 120%;
+}
+
+.buttonParticipate{
+	display: none;
+	text-align: center;
 	text-decoration: none;
 	color: black;
 	background-color: white;
