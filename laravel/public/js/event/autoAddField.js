@@ -6,6 +6,18 @@ function hideField(field) {
 	field.css('display', 'none');
 }
 
+if($('#recurrency').val() == 'Recurent') {
+	showField($('#type').parent());
+} else {
+	hideField($('#type').parent());
+}
+
+if($('#price').val() == 'pay') {
+	showField($('#cost').parent());
+} else {
+	hideField($('#cost').parent());
+}
+
 $('#recurrency').on('change', function() {
 	if($(this).val() == 'Recurent') {
 		showField($('#type').parent());

@@ -25,9 +25,9 @@
 	</div>
 
 	<div class="formDiv">
-	{!! Form::label('file', "Sélectionner l'image à uploader", array('id' => 'inputfile', 'class' => 'connexion'))!!}
-	{!! Form::file('file', ['id'=>'file',"required"=>"required", 'style' => 'display:none', 'accept' => 'image/*', 'value' => old('file')])!!}
-	{!! $errors->first('file','<small class="help-block">:message</small>') !!}
+		{!! Form::label('file', "Sélectionner l'image à uploader", array('id' => 'inputfile', 'class' => 'connexion'))!!}
+		{!! Form::file('file', ['id'=>'file',"required"=>"required", 'style' => 'display:none', 'accept' => 'image/*', 'value' => old('file')])!!}
+		{!! $errors->first('file','<small class="help-block">:message</small>') !!}
 	</div>
 
 	{!! Form::submit('Ajouter cette idée', ['class'=>'connexion'])!!}

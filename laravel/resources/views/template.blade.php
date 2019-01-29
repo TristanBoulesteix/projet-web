@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-
+@yield('description')
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>{{$title}}</title>
@@ -9,10 +9,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="icon" href="https://ecole-ingenieurs.cesi.fr/wp-content/uploads/sites/5/2018/10/cropped-icone-cesi-ecole-ingenieurs-32x32.png">
 
-<link rel="stylesheet" href="../css/main/main.css">
-<link rel="stylesheet" href="../css/main/main_ipad.css">
-<link rel="stylesheet" href="../css/main/main_phone.css">
-<script src="../js/menu.js"></script>
+<link rel="stylesheet" href="{{ URL::asset('css/main/main.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/main/main_ipad.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/main/main_phone.css') }}">
+<script src="{{ URL::asset('js/menu.js') }}"></script>
 
 	@yield('css')
 </head>
@@ -74,7 +74,7 @@ $eventTemp = "Évènement";
 		<a class="footlink" href="{{ url('contact') }}"> Nous&nbsp;contacter </a>
 
 	</footer>
-	<script src="../js/boutonHello.js"></script>
-	<script src="../js/cookies.js"></script>
+	<script src="{{ URL::asset('js/boutonHello.js') }}"></script>
+	<script src="{{ URL::asset('js/cookies.js') }}"></script>
 </body>
 </html>
