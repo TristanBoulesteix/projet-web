@@ -1,3 +1,9 @@
+/* Media queries for Phone */
+
+
+/* Media queries for Phone with orientation portrait*/
+
+
 @media all and (max-width: 580px) and (orientation: portrait){
 
 .formDiv{
