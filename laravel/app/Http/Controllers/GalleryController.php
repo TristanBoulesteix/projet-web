@@ -18,7 +18,7 @@ class GalleryController extends Controller {
 	}
 
 	public function showForm($n) {
-		if ($this->checkParticipation()) {
+		if ($this->checkParticipation($n)) {
 			$generator = new Generator(view('add.addPhotos'), 'ajouter des images');
 
 			return $generator->getView()->withIdEvent($n);
@@ -28,7 +28,7 @@ class GalleryController extends Controller {
 	}
 
 	public function addImage(GalleryRequest $request) {
-		if ($this->checkParticipation()) {
+		if ($this->checkParticipation($request->idEvent)) {
 			$image = $request->file;
 			$imageName = $request->name . '-' . time() .'.' . $image->getClientOriginalExtension();
 

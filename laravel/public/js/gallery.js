@@ -57,6 +57,7 @@ function displayOn(myJSON) {
 //for each part of teh json, create HTML elements
   for (var i = 0; i < json.length; i++) {
 
+
 		currentDiv = $(document.createElement("div")).addClass("content").attr("id", json[i].id).attr("style", "background-image : url(../img/gallery/"+json[i].image+")");
 	  wrapper.append(currentDiv);
 	  var tool = $(document.createElement("div")).addClass("tools");
@@ -67,6 +68,7 @@ function displayOn(myJSON) {
 		var bouton = $(document.createElement("i")).addClass("fa fa-thumbs-up").attr("id", json[i].id).attr("onclick", "clicked("+json[i].id+")");
 		like.append(bouton);
 	}
+
 	// when json is empty, display "no data allowed"
 	if( !$.trim( $('#wrapper').html() ).length ){
     var hello = $(document.createElement("p")).text("Données non disponibles.");
