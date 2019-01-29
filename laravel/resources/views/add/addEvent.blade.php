@@ -12,15 +12,17 @@
 
 {!! Form::open(['url'=>'addevent', 'files' => true]) !!}
 
+	{{ Form::hidden('id_idea', isset($idea) ? $idea->id : 0) }}
+
 	<div class="formDiv">
 		{!! Form::label('name', "Nom de l'évènement:")!!}
-		{!! Form::text('name', null, ['required'=>'required', 'value' => old('name')])!!}
+		{!! Form::text('name', isset($idea) ? $idea->name : old('name'), ['required'=>'required', 'value' => isset($idea) ? $idea->name : old('name')])!!}
 		{!! $errors->first('name','<small class="help-block">:message</small>') !!}
 	</div>
 
 	<div class="formDiv">
 		{!! Form::label('description', 'description:')!!}
-		{!! Form::textarea('description', null, ['required'=>'required', 'value' => old('description')])!!}
+		{!! Form::textarea('description', isset($idea) ? $idea->description : old('name'), ['required'=>'required', 'value' => old('description')])!!}
 		{!! $errors->first('description','<small class="help-block">:message</small>') !!}
 	</div>
 
