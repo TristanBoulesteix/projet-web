@@ -1,23 +1,38 @@
+/* API token and returned datas as json*/
 var token = "";
 var json;
 
-$(function () {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var myJSON = JSON.parse(this.responseText);
-      getTokenAccount(myJSON);
+  /** Anonymous function
+   * get nothin, return nothing
+   * call getTokenAccount()
+   * On load: get the token*/
+  $(function () {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var myJSON = JSON.parse(this.responseText);
+        getTokenAccount(myJSON);
+      }
+    };
+    xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
+    xmlhttp.send();
+  });
+
+
+  /**
+   * getTokenAccount()
+   * @param {*} myJSON contain the token in json format and assign it to var token.
+   * Give variable token the value of the returned token
+   */
+  function getTokenAccount (myJSON){
+    token = myJSON.result;
+    getDatasAccount();
     }
-  };
-  xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
-  xmlhttp.send();
-});
 
-function getTokenAccount (myJSON){
-  token = myJSON.result;
-  getDatasAccount();
-  }
-
+  /** getDatasAccount()
+   * get nothing, return nothing
+   * call displayAccount()
+   * get the datas thanks to the authentification token */
   function getDatasAccount () {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -30,12 +45,16 @@ function getTokenAccount (myJSON){
     xmlhttp.send();
   }
 
-  
+    /**
+     * sendDatasAccount()
+     * @param {*} selection the option selected in the HTML select
+     * @param {*} iduser the user corresponding to the changes
+     * send the change to the API using the var token and refresh the page to display the change of information
+     */
     function sendDatasAccount (selection, iduser) {
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          var myJSON = JSON.parse(this.responseText);
           location.reload();
         }
       };
@@ -43,12 +62,20 @@ function getTokenAccount (myJSON){
       xmlhttp.send();
     }
 
+  /**
+   * displayAccounts()
+   * @param {*} myJSON is the json containning information returned by the API
+   * create HTML element to display the datas in the DataTables
+   */
   function displayAccounts(myJSON) {
      json = myJSON.response[0];
      var wrapper = $("#tbody");
      var col = $(document.createElement("tr")).attr("id","tr");
      $("#thread").append(col);
    
+     /**
+      * creates HTML elements th for the head of the DataTables 
+      */
      var idcol = $(document.createElement("th")).text("ID");
      var name = $(document.createElement("th")).text("Nom");
      var secname = $(document.createElement("th")).text("Prénom");
@@ -62,7 +89,9 @@ function getTokenAccount (myJSON){
      col.append(status);
      col.append(campus);
    
-   
+   /**
+    * displays datas for each recivied field of the database in the DataTable HTML elements tr
+    */
      for (var i = 0; i < json.length; i++) {
        var id = json[i].id;
        var first_name = json[i].first_name;
@@ -94,7 +123,10 @@ function getTokenAccount (myJSON){
 
        var data6 = $(document.createElement("td")).text(campusstd).attr("id", "campus"+id)
        currentRow.append(data6);
-
+      /**
+       * add an event listner for each row of data.
+       * Allow changes of status.
+       */
        selected = $("#select"+id);
        selected.change(function(){
        var thisid = $(this).attr("id").split("t", 2);
@@ -108,5 +140,8 @@ function getTokenAccount (myJSON){
        });
    
    }
+   /**
+    * call the DataTable.js lib
+    */
    $('#table_id').DataTable();
    }

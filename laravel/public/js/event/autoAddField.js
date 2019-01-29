@@ -1,3 +1,5 @@
+/* Forms event autofilling and show field*/
+
 function showField(field) {
 	field.css('display', 'block');
 }

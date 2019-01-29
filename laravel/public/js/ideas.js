@@ -1,6 +1,9 @@
-
+// The API returned token
 var token = "";
 
+/**
+ * On load, get the API token
+ */
 $(function () {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -13,7 +16,10 @@ $(function () {
   xmlhttp.send();
 });
 
-
+/**
+ * @param {*} id_idea id of the clicked id
+ * post a +1 like on the idea
+ */
 function postLike (id_idea) {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -25,6 +31,9 @@ function postLike (id_idea) {
   xmlhttp.send();
 }
 
+/**
+ * Get the datas
+ */
 function getDatas () {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -37,20 +46,27 @@ function getDatas () {
   xmlhttp.send();
 }
 
+/**
+ * 
+ * @param {*} myJSON the retruned API's json containning the token
+ * assign the token's vlaue to var token.
+ */
 function getToken (myJSON) {
 token = myJSON.result;
 getDatas();
 }
 
-
+/**
+ * 
+ * @param {*} myJSON the datas returned by the API in a json format.
+ */
 function displayOn(myJSON) {
 	var json = myJSON.response[0];
 	var wrapper = $("#wrapper");
 	var currentRow;
 	var row = 0;
-
+//for each part of teh json, create HTML elements
 	for (var i = 0; i < json.length; i++) {
-
 	  currentRow = $(document.createElement("div")).addClass("row").attr("id", "row"+row);
 		wrapper.append(currentRow);
 		var img = $(document.createElement("div")).attr("style", "background-image: url('storage/idea/"+json[i].image+"')").attr("alt", "image idée").attr("class", "imgcase");
@@ -70,18 +86,19 @@ function displayOn(myJSON) {
 		column = 1;
 		row ++;
   }
+  // add an events listeners hover to display or not the buttons
   $(".imgcase").hover( function(){
     $(this).find($(".buttonReport")).css("display", "inline-block");
     }, function(){
     $(this).find($(".buttonReport")).css("display", "none");
   });
-
+// if the wrapper is empty display "no datas allowed"
   if( !$.trim( $('#wrapper').html() ).length ){
     var hello = $(document.createElement("p")).text("Données non disponibles.");
     wrapper.append(hello);
   }
 }
-
+// when clicked on like, the button turn blue.
 function clicked(id) {
 	postLike(id);
 	$("#"+id).css("color", "blue");
