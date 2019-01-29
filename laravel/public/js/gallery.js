@@ -44,7 +44,7 @@ function displayOn(myJSON) {
 
   for (var i = 0; i < json.length; i++) {
 
-	  currentDiv = $(document.createElement("div")).addClass("content").addClass('"'+div+'"').attr("style", "background-image : url(../img/gallery/"+json[i].image+")");
+	  currentDiv = $(document.createElement("div")).addClass("content").addClass('"'+div+'"').attr("style", "background-image : url(../storage/gallery/"+ json[i].id +'/'+json[i].image+")");
 	  wrapper.append(currentDiv);
 	  var tool = $(document.createElement("div")).addClass("tools");
 	  currentDiv.append(tool);
@@ -55,7 +55,7 @@ function displayOn(myJSON) {
 		like.append(bouton);
 	  div ++;
 	}
-	
+
 	if( !$.trim( $('#wrapper').html() ).length ){
     var hello = $(document.createElement("p")).text("Données non disponibles.");
     wrapper.append(hello);
