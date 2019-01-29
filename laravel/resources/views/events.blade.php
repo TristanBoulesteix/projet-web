@@ -34,7 +34,7 @@ function createElement(currentRow, json, wrapper, row, i) {
 	var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "report?type=event&id=" + json[i].id);
 	img.append(reportbtn);
 	@endif
-	var cookie = checkCookieEvent(json[i].name)
+	var cookie = checkCookieEvent(json[i].id)
 	if (cookie == "") {
 		var participatebtn = $(document.createElement("a")).addClass('buttonParticipate').text("S'inscrire à l'évènement!").attr("href", "event/participate?id="+json[i].id);
 		img.append(participatebtn);
@@ -85,13 +85,13 @@ function createElement(currentRow, json, wrapper, row, i) {
 		row ++;
 	}
 
-	function checkCookieEvent(name){
-  var cookie = getCookieEvent(name)
+	function checkCookieEvent(id){
+  var cookie = getCookieEvent(id)
   return cookie; 
 }
 
-function getCookieEvent(cname) {
-  var name = cname + "=";
+function getCookieEvent(id) {
+  var name = id + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
   var ca = decodedCookie.split(';');
   for(var i = 0; i <ca.length; i++) {
