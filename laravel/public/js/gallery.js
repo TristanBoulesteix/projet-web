@@ -13,7 +13,7 @@ $(function () {
 	  getToken(myJSON);
 	}
   };
-  xmlhttp.open("GET", "http://10.169.128.55:3000/api/v1/users?bde=bde&cesi=lyon", true);
+  xmlhttp.open("GET", "http://localhost:3000/api/v1/users?bde=bde&cesi=lyon", true);
   xmlhttp.send();
 });
 
@@ -27,7 +27,7 @@ function getDatas (token) {
 		displayOn(myJSON);
 		}
 	};
-	xmlhttp.open("GET", "http://10.169.128.55:3000/gallery?event="+eventSelected+"&token="+token, true);
+	xmlhttp.open("GET", "http://localhost:3000/gallery?event="+eventSelected+"&token="+token, true);
 	xmlhttp.send();
 }
 
@@ -44,11 +44,11 @@ function displayOn(myJSON) {
 
   for (var i = 0; i < json.length; i++) {
 
-	  currentDiv = $(document.createElement("div")).addClass("content").addClass('"'+div+'"').attr("style", "background-image : url(../img/gallery/"+json[i].image+")");
+		currentDiv = $(document.createElement("div")).addClass("content").attr("id", json[i].id).attr("style", "background-image : url(../img/gallery/"+json[i].image+")");
 	  wrapper.append(currentDiv);
 	  var tool = $(document.createElement("div")).addClass("tools");
 	  currentDiv.append(tool);
-	  tool.append('<p class="commentary">commenter</p>');
+	  tool.append('<p class="commentary" id="'+json[i].id+'">commenter</p>');
 	  var like = $(document.createElement("div")).addClass("like");
 		currentDiv.append(like);
 		var bouton = $(document.createElement("i")).addClass("fa fa-thumbs-up").attr("id", json[i].id).attr("onclick", "clicked("+json[i].id+")");
@@ -68,8 +68,8 @@ function displayOn(myJSON) {
   });
 
   $(".commentary").click(function(){
-	const classthing = $(this).parent().parent().attr("class").split(" ")
-	openComp(classthing[1]);
+	const classthing = $(this).attr("id")
+	openComp(classthing);
   });
 
 }
@@ -109,7 +109,7 @@ function displayOnComm(myJSON, id) {
   }
   if(lastId != id){
 	if(section.css("display") == "block"){
-	section.css("display", "block");
+	section.css("display", "none");
   }else{
 	section.css("display", "block");
   }
@@ -123,7 +123,6 @@ function displayOnComm(myJSON, id) {
 }
 
 function openComp(id) {
-
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 	  if (this.readyState == 4 && this.status == 200) {
@@ -140,7 +139,6 @@ function postLike (id_image) {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      var myJSON = JSON.parse(this.responseText);
     }
   };
   xmlhttp.open("POST", "http://localhost:3000/like/event?token="+token+"&id_image="+id_image, true);

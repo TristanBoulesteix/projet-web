@@ -31,8 +31,6 @@ var json = myJSON.result;
 getDatas(json);
 }
 
-
-
 function displayOn(myJSON) {
 	var json = myJSON.response[0];
 	var wrapper = $("#wrapper");
