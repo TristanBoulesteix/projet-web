@@ -6,6 +6,7 @@ use App\Http\Requests\EventRequest;
 use App\Http\Controllers\Controller;
 use Auth;
 use Image;
+use Cookie;
 use Storage;
 use App\Model;
 use Illuminate\Http\Request;
@@ -79,6 +80,8 @@ class EventController extends Controller {
 
 	public function participate(Request $request) {
 		Model\Participate::create(array('id_user' => Auth::user()->id, 'id_event' => $request->id));
+
+		Cookie::queue($request->id, $request->id, 200000);
 
 		return redirect('events');
 	}

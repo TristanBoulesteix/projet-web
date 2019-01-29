@@ -23,7 +23,7 @@
 			<h1> Bienvenue sur le site du BDE ! </h1>
 
 			@if (!$logged)
-			@if($role == 'BDE')
+			@if(Auth::check() ? App\Model\Role::select('role')->where('id', \Auth::user()->role)->get()[0]->role : '' == 'BDE')
 			<a id="admin" class="adminButton" href="">Administrer</a>
 			@endif
 			<a id="connexion" href="{{route('login')}}">Connexion</a>
