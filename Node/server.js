@@ -23,18 +23,19 @@ const con = mysql.createConnection({
         if (err) throw err;
         console.log("Connected to the first db!");
       });
-      //connexion to the database
+
+//2nd connexion to the database
 const con2 = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password: "",
-  database : 'projet-web-user',
-  timeout: 100000
-});
-con2.connect(function(err) {
-if (err) throw err;
-console.log("Connected to the secund db!");
-});
+          host     : 'localhost',
+          user     : 'root',
+          password: "",
+          database : 'projet-web-user',
+          timeout: 100000
+        });
+        con2.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected to the secund db!");
+        });
 
 //Avoid "No 'Access-Control-Allow-Origin' header is present on the requested resource." issues
   app.use(function(req, res, next) {
@@ -43,14 +44,25 @@ console.log("Connected to the secund db!");
      next();
   });
 
+  // the payload for the token
   const payload ={
     "sub": "CesiBdeLyon",
     "name": "BDECesi",
     "iat": 5516239022// expire on 20 oct 2144.
   };
+  // token's secret
   const secret = "S3cr3t@1sK33p_doesitneedtobelong?";
+  // full token
   var token = "";
 
+  /**
+   * 
+   * @param {*} bde the data recieved in the get query
+   * @param {*} cesi the data recieved in the get query
+   * @param {*} res the response to the get query
+   * @param {*} resolve the resolv of the promise
+   * create a crypted token
+   */
   function makeTheToken(bde, cesi, res, resolve) {
     // signature algorithm
     if(bde == "bde" && cesi == "lyon"){
@@ -76,11 +88,11 @@ console.log("Connected to the secund db!");
       res.send("not a user");
     }
   };
-   //token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4
 
 //Routing
 const router = express.Router();
 
+// route /api/v1/users
 router.route('/api/v1/users')
 .get(function(req, res){
     const promise = new Promise((resolve, reject) => {
@@ -96,6 +108,7 @@ router.route('/api/v1/users')
     });
 });
 
+//route /users
 router.route('/users')
 .get(function(req, res) {
   var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
@@ -117,12 +130,14 @@ router.route('/users')
       });
     }
     else{
+      //Send the JSON when user not allowed to have datas
       res.json({
         "response": "you are not allowed to have datas.",
       });
     }
 });
 
+//route userschange
 router.route('/userschange')
 .post(function(req, res) {
   var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
@@ -144,12 +159,14 @@ router.route('/userschange')
       });
     }
     else{
+      //Send the JSON when user not allowed to have datas
       res.json({
         "response": "you are not allowed to have datas.",
       });
     }
 });
 
+// route articles
 router.route('/articles')
 .get(function(req, res) {
   var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
@@ -171,12 +188,14 @@ router.route('/articles')
       });
     }
     else{
+      //Send the JSON when user not allowed to have datas
       res.json({
         "response": "you are not allowed to have datas.",
       });
     }
 });
 
+// route category
 router.route('/category')
 .get(function(req,res){
 
@@ -224,13 +243,14 @@ router.route('/category')
       }
     }
     else{
+      //Send the JSON when user not allowed to have datas
       res.json({
         "response": "you are not allowed to have datas.",
       });
     }
 });
 
-
+// route ideas
 router.route('/ideas')
 .get(function(req, res) {
   var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
@@ -252,12 +272,14 @@ router.route('/ideas')
       });
     }
     else{
+      //Send the JSON when user not allowed to have datas
       res.json({
         "response": "you are not allowed to have datas.",
       });
     }
 });
 
+// route events
 router.route('/events')
 .get(function(req, res) {
   var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
@@ -279,12 +301,14 @@ router.route('/events')
       });
     }
     else{
+      //Send the JSON when user not allowed to have datas
       res.json({
         "response": "you are not allowed to have datas.",
       });
     }
 });
 
+// route events/past
 router.route('/events/past')
 .get(function(req, res) {
   var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
@@ -306,12 +330,14 @@ router.route('/events/past')
       });
     }
     else{
+      //Send the JSON when user not allowed to have datas
       res.json({
         "response": "you are not allowed to have datas.",
       });
     }
 });
 
+// route gallery
 router.route('/gallery')
 .get(function(req, res) {
   var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
@@ -333,12 +359,14 @@ router.route('/gallery')
       });
     }
     else{
+      //Send the JSON when user not allowed to have datas
       res.json({
         "response": "you are not allowed to have datas.",
       });
     }
 });
 
+// routes comment
 router.route('/comment')
 .get(function(req, res) {
   var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
@@ -360,12 +388,14 @@ router.route('/comment')
       });
     }
     else{
+      //Send the JSON when user not allowed to have datas
       res.json({
         "response": "you are not allowed to have datas.",
       });
     }
 });
 
+// route like/event
 router.route('/like/event')
 .post(function(req, res) {
   var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
@@ -387,12 +417,14 @@ router.route('/like/event')
       });
     }
     else{
+      //Send the JSON when user not allowed to have datas
       res.json({
         "response": "you are not allowed to have datas.",
       });
     }
 });
 
+// route like/idea
 router.route('/like/idea')
 .post(function(req, res) {
   var validateToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDZXNpQmRlTHlvbiIsIm5hbWUiOiJCREVDZXNpIiwiaWF0Ijo1NTE2MjM5MDIyfQ.4IcckP3DD8atyhP3ClieEVbzRDk0YqGVqsj3dFNuYq4";
@@ -414,12 +446,14 @@ router.route('/like/idea')
       });
     }
     else{
+      //Send the JSON when user not allowed to have datas
       res.json({
         "response": "you are not allowed to have datas.",
       });
     }
 });
 
+// make the server use teh router
 app.use(router);
 // Starts the server
 app.listen(port, hostname, function(){
