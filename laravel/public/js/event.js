@@ -68,6 +68,11 @@ function displayOn(myJSON) {
 		row ++;
   }
 
+  if( !$.trim( $('#wrapper').html() ).length ){
+    var hello = $(document.createElement("p")).text("Données non disponibles.");
+    wrapper.append(hello);
+  }
+
   $(".imgArticle").hover( function(){
     $(this).find($(".buttonReport")).css("display", "inline-block");
     }, function(){

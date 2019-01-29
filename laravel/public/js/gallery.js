@@ -54,6 +54,11 @@ function displayOn(myJSON) {
 		var bouton = $(document.createElement("i")).addClass("fa fa-thumbs-up").attr("id", json[i].id).attr("onclick", "clicked("+json[i].id+")");
 		like.append(bouton);
 	  div ++;
+	}
+	
+	if( !$.trim( $('#wrapper').html() ).length ){
+    var hello = $(document.createElement("p")).text("Données non disponibles.");
+    wrapper.append(hello);
   }
 
   $(".content").hover( function(){

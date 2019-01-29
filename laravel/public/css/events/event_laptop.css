@@ -1,0 +1,12 @@
+@media all and (min-width: 1280px) {
+
+footer{
+	display: flex;
+	flex-direction: column;
+}
+
+.footlink{
+	margin: 1% 4% 1% 4%;
+}
+
+}

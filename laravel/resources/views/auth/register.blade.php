@@ -17,6 +17,11 @@
 	}
 </style>
 @endsection
+
+@section('description')
+<meta name="description" content="BDE-Lyon-CESI register" />
+@endsection
+
 @section('content')
 
 <h3> Inscrivez vous! </h3>
