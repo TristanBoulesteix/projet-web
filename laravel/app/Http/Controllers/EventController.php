@@ -81,7 +81,9 @@ class EventController extends Controller {
 	public function participate(Request $request) {
 		Model\Participate::create(array('id_user' => Auth::user()->id, 'id_event' => $request->id));
 
-		Cookie::queue($request->id, $request->id, 200000);
+		if(Cookie::get('Accepted') !== null) {
+			Cookie::queue($request->id, $request->id, 200000);
+		}
 
 		return redirect('events');
 	}
