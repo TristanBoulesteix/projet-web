@@ -23,7 +23,7 @@ function accept(){
   var d = new Date();
   d.setTime(d.getTime() +1000*60*60*24*365);//1 year
   var expires = "expires="+ d.toUTCString();
-  value = myCipher('true');// --> "7c7a7d6d"
+  value = myCipher('true');
   document.cookie = "Accepted = " + value + ";" + expires + ";path=/";
   $("#cookie").empty();
 }
