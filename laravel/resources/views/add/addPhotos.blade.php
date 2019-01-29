@@ -9,7 +9,10 @@
 @section ( 'content' )
 
 	<h2> Uploader des photos: </h2>
-		{!! Form::open(['url'=>'upload', 'files' => true]) !!}
+		{!! Form::open(['url'=>'gallery/add', 'files' => true]) !!}
+
+		{!! Form::select('idEvent', array($idEvent => $idEvent), null, ['required' => 'required', 'class' => 'masked', 'value' => $idEvent]) !!}
+
 		<div class="formDiv">
 			{!! Form::label('file', "Sélectionner l'image à uploader", array('id' => 'inputfile', 'class' => 'connexion'))!!}
 			{!! Form::file('file', ['id'=>'file',"required"=>"required", 'style' => 'display:none', 'accept' => 'image/*', 'value' => old('file')])!!}

@@ -21,6 +21,7 @@ class GalleryRequest extends FormRequest {
 	 */
 	public function rules() {
 		return [
+			'idEvent' => 'integer|required',
 			'file' => 'required|image',
 		];
 	}
