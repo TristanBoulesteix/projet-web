@@ -58,13 +58,7 @@ Route::get('contact', 'FooterController@showContact');
 
 // Report routes
 Route::middleware('auth')->group(function() {
-	if(Auth::check()) {
-		if(Auth::user()->getCurrentRole() == 'CESI') {
-			Route::get('report', function() {
-				return view('');
-			});
-		}
-	}
+	Route::get('report', 'ReportController@report');
 });
 
 Route::get('accountAd', function(){
