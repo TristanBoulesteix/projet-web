@@ -91,19 +91,22 @@ function createElement(currentRow, json, wrapper, row, i) {
 }
 
 function getCookieEvent(id) {
-  var name = id + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
+		var dc = document.cookie;
+    var prefix = "XSRF-TOKEN" + "=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return "";
     }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
+    else
+    {
+        begin += 2;
+        var end = document.cookie.indexOf(";", begin);
+        if (end == -1) {
+        end = dc.length;
+        }
     }
-  }
-  return "";
+    return decodeURI(dc.substring(begin + prefix.length, end));
 }
 </script>
 
