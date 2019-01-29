@@ -19,4 +19,22 @@
 </div>
 
 <script src="../js/gallery.js"></script>
+<script >
+function createGallery(currentDiv, json, wrapper, i){
+currentDiv = $(document.createElement("div")).addClass("content").attr("id", json[i].id).attr("style", "background-image : url(../img/gallery/"+json[i].image+")");
+	  wrapper.append(currentDiv);
+	  var tool = $(document.createElement("div")).addClass("tools");
+    currentDiv.append(tool);
+    @if($role == 'CESI')
+		var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "report?type=image&id=" + json[i].id);
+    currentDiv.append(reportbtn);
+    @endif
+	  tool.append('<p class="commentary" id="'+json[i].id+'">commenter</p>');
+	  var like = $(document.createElement("div")).addClass("like");
+		currentDiv.append(like);
+		var bouton = $(document.createElement("i")).addClass("fa fa-thumbs-up").attr("id", json[i].id).attr("onclick", "clicked("+json[i].id+")");
+    like.append(bouton);
+}
+
+</script>
 @endsection
