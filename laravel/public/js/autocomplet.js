@@ -1,5 +1,14 @@
+/**
+ * All the words known by the autocomplete part.
+ */
 var articles = ["chips","bonbon","boisson","coca","coca-cola","chocolat","noodles"];
 
+/**
+ * 
+ * @param {*} inp  the HTML input in the research bar
+ * @param {*} arr  the array input by the user in the HTML input.
+ * search the corresponding word of var article and display it under the research bar with user's inputs in srtong.
+ */
 function autocomplete(inp, arr) {
   var currentFocus;
   inp.addEventListener("input", function(e) {
@@ -41,6 +50,11 @@ function autocomplete(inp, arr) {
         }
       }
   });
+
+  /**
+   * @param {*} x the reasearch bar  HTML div
+   * Active the autocomplete functionnality if the user click on the research bar.
+   */
   function addActive(x) {
     if (!x) return false;
     removeActive(x);
@@ -48,11 +62,20 @@ function autocomplete(inp, arr) {
     if (currentFocus < 0) currentFocus = (x.length - 1);
     x[currentFocus].classList.add("autocomplete-active");
   }
+  /**
+   * @param {*} x the reasearch bar  HTML div
+   * Remove the autocomplete functionnality if the user click anywhere else than the research bar.
+   */
   function removeActive(x) {
     for (var i = 0; i < x.length; i++) {
       x[i].classList.remove("autocomplete-active");
     }
   }
+  /**
+   * 
+   * @param {*} elmnt all the differents words.
+   * close the drodown when a word is find.
+   */
   function closeAllLists(elmnt) {
     var x = document.getElementsByClassName("autocomplete-items");
     for (var i = 0; i < x.length; i++) {
