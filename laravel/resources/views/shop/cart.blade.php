@@ -20,11 +20,8 @@
 			</div>
 		</div>
 		<p class="nameprice">{{ $article->name }} : {{ $article->price }} € </p>
-
 		@empty
-
 		<p>Vous n&rsquo;avez aucun article dans votre panier. </p>
-
 	@endforelse
 </div>
 
@@ -39,5 +36,4 @@
 	{!! Form::close() !!}
 
 </div>
-
 @endsection

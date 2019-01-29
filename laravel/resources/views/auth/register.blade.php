@@ -65,7 +65,7 @@
 
 	<div id="check">
 	<label for="rules">Cochez pour acceptez notre  <a href="http://projet/ppd"> politique de protection des données : </a> </label>
-	<input checked="checked" name="reponse" type="checkbox" value="rules">
+	<input checked="checked" name="reponse" type="checkbox" value="rules" required>
 	</div>
 
 	{!! Form::submit('créer votre compte', ['class'=>'connexion'])!!}

@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 // Routes to authentificate
 Route::auth();
 Route::get('logout', 'auth\LoginController@logout');
@@ -69,6 +70,7 @@ Route::middleware('auth')->group(function() {
 	Route::get('download', 'DownloadController@download');
 });
 
+// Administration route
 Route::get('accountAd', function(){
   return view('accountAdmin')->withTitle("account")->with("logged", false);
 });

@@ -21,8 +21,13 @@
 	<header>
 		<div id="banner">
 			<h1> Bienvenue sur le site du BDE ! </h1>
+
 			@if (!$logged)
+			@if($role == 'BDE')
+			<a id="admin" class="adminButton" href="">Administrer</a>
+			@endif
 			<a id="connexion" href="{{route('login')}}">Connexion</a>
+
 			@else
 			<a id="hello" href="{{route('logout')}}">Bonjour&nbsp;{{ $firstName }}&nbsp;{{ $lastName }}&nbsp;!</a>
 			@endif

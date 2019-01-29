@@ -21,7 +21,6 @@ var myCipher = cipher('mySecretSalt')
  */
 function accept(){
   var d = new Date();
-  var exdays = d.getDate();
   d.setTime(d.getTime() +1000*60*60*24*365);//1 year
   var expires = "expires="+ d.toUTCString();
   value = myCipher('true');// --> "7c7a7d6d"

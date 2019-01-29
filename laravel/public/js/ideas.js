@@ -68,6 +68,9 @@ function displayOn(myJSON) {
 //for each part of teh json, create HTML elements
 	for (var i = 0; i < json.length; i++) {
 
+      displayideas(wrapper, json, i, row, currentRow)
+		row ++;
+
   }
   // add an events listeners hover to display or not the buttons
   $(".imgcase").hover( function(){
