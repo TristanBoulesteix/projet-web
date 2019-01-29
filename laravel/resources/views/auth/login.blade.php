@@ -27,8 +27,8 @@
 </div>
 
 <div id="check">
-	{{ Form::label('rules', 'Cochez pour acceptez notre  <a href="'.url('ppd').'"> politique de protection des données : </a>' )}}
-	{!! Form::checkbox('reponse', 'rules', ['required'=>'required'])!!}
+<label for="rules">Cochez pour acceptez notre  <a href="http://projet/ppd"> politique de protection des données : </a> </label>
+<input checked="checked" name="reponse" type="checkbox" value="rules">
 </div>
 
 {!! Form::submit('connexion', ['class'=>'connexion'])!!}
@@ -39,3 +39,4 @@
 
 <a id="link" href="register"> Créer votre compte </a> {!! Form::close()!!}
 @endsection
+
