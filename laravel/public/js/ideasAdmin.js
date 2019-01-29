@@ -1,7 +1,11 @@
+//token of teh API, json returned by the api, selection of teh HTML select element
 var token = "";
 var json;
 var selected;
 
+/**
+ *On load get the API token
+ */
 $(function () {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -14,7 +18,10 @@ $(function () {
   xmlhttp.send();
 });
 
-
+/**
+ * @param {*} token the returned token of the API
+ * get the API Datas 
+ */
 function getDatasAdmin (token) {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -26,20 +33,26 @@ function getDatasAdmin (token) {
   xmlhttp.open("GET", "http://localhost:3000/ideas?token="+token, true);
   xmlhttp.send();
 }
-
+/**
+ * @param {*} myJSON the returned token  in a json format
+ * assign the myJSON's value to var token
+ */
 function getTokenAdmin (myJSON){
 var json = myJSON.result;
 getDatasAdmin(json);
 }
 
-
-
+/**
+ * 
+ * @param {*} myJSON the API returned data in a json format
+ * display the elements.
+ */
 function displayOnAdmin(myJSON) {
  json = myJSON.response[0];
   var wrapper = $("#tbody");
   var col = $(document.createElement("tr")).attr("id","tr");
   $("#thread").append(col);
-
+  // create head collumns for DataTable.js lib with tr HTML elements.
   var idCol = $(document.createElement("th")).text("ID");
   var nameCol = $(document.createElement("th")).text("Name");
   var descriptionCol = $(document.createElement("th")).text("Description");
@@ -51,7 +64,7 @@ function displayOnAdmin(myJSON) {
   col.append(autheur);
   col.append(select);
 
-
+// for each section fo the json, display the datas in rows susing tr HTML elements 
   for (var i = 0; i < json.length; i++) {
     var id = json[i].id;
     var name = json[i].name
@@ -74,6 +87,7 @@ function displayOnAdmin(myJSON) {
     });
 
 }
+// initiate datatable.js lib
 $('#table_id').DataTable();
 }
 

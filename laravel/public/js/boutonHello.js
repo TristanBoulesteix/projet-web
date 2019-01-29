@@ -9,6 +9,9 @@ var savedText = $('#hello').html();
 // Save the previous size
 var savedSize = $('#hello').css('width');
 
+/**
+ * add event listener on hover to change the text of the button
+ */
 $('#hello').hover(function() {
 	$(this).css('width', savedSize);
 	$(this).html("Deconnexion");

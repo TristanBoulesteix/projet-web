@@ -1,4 +1,6 @@
-
+/**
+ * @param {*} salt the salt sentence to crypt the cookie.
+ */
 const cipher = salt => {
   var textToChars = text => text.split('').map(c => c.charCodeAt(0))
   var byteHex = n => ("0" + Number(n).toString(16)).substr(-2)
@@ -10,11 +12,14 @@ const cipher = salt => {
       .map(byteHex)
       .join('')
 }
-// To create a cipher
+// create a cipher
 var myCipher = cipher('mySecretSalt')
 
-
-function accepter(){
+/**
+ * called when you accept the cookie's creation
+ * create a cookie and crypts it.
+ */
+function accept(){
   var d = new Date();
   var exdays = d.getDate();
   d.setTime(d.getTime() +1000*60*60*24*365);//1 year
@@ -24,19 +29,23 @@ function accepter(){
   $("#cookie").empty();
 }
 
-
+/**
+ * verify the vailidity of the cookie
+ */
 function verify(){
   var cookie = getCookie("Accepted");
   if (cookie == "7c7a7d6d") {
   cookie = "Accepted=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-  //accepter();
   }
   else{
     createCoooieSec();
   }
 }
 
-
+/**
+ * display the cookie wrapper in the template
+ * create HTML elements
+ */
 function createCoooieSec() {
   var cookieWrap = $("#cookie");
 	var div1 = $(document.createElement("div")).attr("id", "cookieInjected");
@@ -48,13 +57,16 @@ function createCoooieSec() {
   div2.append("<p>Ce site utilise des cookies pour améliorer votre expérience utilisateur. En utilisant ce site internet, vous  acceptez notre politique concernant la consevation et l'utilisation des Cookies.<br>  </p>");
   var div4 = $(document.createElement("div")).attr("id", "cookieButtons");
   div2.append(div4);
-  var div5 = $(document.createElement("div")).attr("id", "cookieAccept").attr("onclick", "accepter()").text("J'accepte");
+  var div5 = $(document.createElement("div")).attr("id", "cookieAccept").attr("onclick", "accept()").text("J'accepte");
   div4.append(div5);
   div4.append('<a id="cookieReject" href="{!! route('+'home'+') !!}">Je n'+'accepte pas </a>');
   div4.append('<a id="cookieReadmore" href="/legals">En savoir plus</a>');
 }
 
-
+/**
+ * @param {*} cname name of the cookie, "Accepted"
+ * @return the cookie find or empty string.
+ */
 function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
