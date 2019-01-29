@@ -47,7 +47,7 @@ function getDatas () {
 }
 
 /**
- * 
+ *
  * @param {*} myJSON the retruned API's json containning the token
  * assign the token's vlaue to var token.
  */
@@ -57,7 +57,7 @@ getDatas();
 }
 
 /**
- * 
+ *
  * @param {*} myJSON the datas returned by the API in a json format.
  */
 function displayOn(myJSON) {
@@ -67,24 +67,7 @@ function displayOn(myJSON) {
 	var row = 0;
 //for each part of teh json, create HTML elements
 	for (var i = 0; i < json.length; i++) {
-	  currentRow = $(document.createElement("div")).addClass("row").attr("id", "row"+row);
-		wrapper.append(currentRow);
-		var img = $(document.createElement("div")).attr("style", "background-image: url('storage/idea/"+json[i].image+"')").attr("alt", "image idée").attr("class", "imgcase");
-    currentRow.append(img);
-    var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "/home");
-    img.append(reportbtn);
-		var content = $(document.createElement("div")).addClass("content");
-		currentRow.append(content);
-		content.append('<h3>'+ json[i].name + '</h3>');
-		content.append("<p>"+json[i].description +"</p>");
-		var hidebuttons = $(document.createElement("div")).attr("id", "buttonCase");
-		content.append(hidebuttons);
-		var like = $(document.createElement("div")).addClass("likeButton");
-		wrapper.append(like);
-		var bouton = $(document.createElement("i")).addClass("fa fa-thumbs-up").attr("id", json[i].id).attr("onclick", "clicked("+json[i].id+")");
-		like.append(bouton);
-		column = 1;
-		row ++;
+
   }
   // add an events listeners hover to display or not the buttons
   $(".imgcase").hover( function(){
