@@ -11,6 +11,10 @@
 <a href="{{ url('gallery/add/'.$idEvent)}}" class="button">Ajouter des images</a>
 @endif
 
+@if($role == 'CESI')
+<a href="{{ url('gallery/download?type=gallery&id='.$idEvent}}" class="button">Télécharger les images</a>
+@endif
+
 <div id="comSection">
 
 </div>

@@ -15,3 +15,5 @@ We are three in the team. Each one has its own speciality.
 - <b> Charlotte Madroux :</b> She is specialized in javascript back-end and front-end. She manages to create the API and helped to create the database.
 - <b> Maxime Maître :</b> He works in all the part in front-end. He build all the pages of the website using HTML5 and CSS3.
 - <b> Tristan Boulesteix :</b> He is the team leader. He built the back-end of the website using the PHP language and the Laravel framework. He also built the database.
+
+## ! The projet is still in development !
