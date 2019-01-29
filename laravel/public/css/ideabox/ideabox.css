@@ -1,0 +1,178 @@
+/* CSS OF IDEABOX */
+
+.row {
+  margin: auto;
+  height: 15%;
+}
+
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  display: flex;
+  justify-content: center;
+}
+
+#wrapper{
+  width: 95%;
+  margin: auto;
+  height: 50%;
+}
+.column {
+  width: 30%;
+}
+
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  text-align : center;
+  color: black;
+  padding: 1% 1% 1% 1%;
+  width: 100%;
+  border-style: groove;
+  margin-left: 3%;
+  background-color: white
+}
+
+.likeButton{
+	margin-bottom: 2%;
+}
+
+.fa-thumbs-up{
+	margin-top: 2%;
+font-size: 175%;
+  margin-right:3%;
+  margin-left: 40%;
+  padding: 0.5%;
+  border: 2px solid black;
+}
+
+h3{
+	text-align: left;
+	margin-left: 5%;
+}
+h4{
+	text-align: left;
+	margin-left: 5%;
+	font-size: 130%;
+}
+
+.imgcase{
+
+	height: 300px;
+	width: 50%;
+	margin: auto;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.buttonCase{
+	width: 20%;
+	margin-left: 2%;
+	text-align: center;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.buttonReport:hover{
+	background-color: black;
+	color: rgb(235, 196, 26);
+}
+
+
+.buttonReport{
+	text-align: center;
+
+	background-color: #fff8f8;
+
+	color: rgb(0, 0, 0);
+
+	z-index: 9999;
+
+	width: auto;
+
+	height: auto;
+
+	margin-top: auto;
+
+	margin-bottom: auto;
+
+	margin-right: 1%;
+
+	border-radius: 10px;
+
+	padding: 1%;
+
+	cursor: pointer;
+
+	text-decoration: none;
+
+	border: 1px solid black;
+
+	float: right;
+}
+
+.but {
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	background-color: white;
+	border-style: groove;
+	border-radius: 10px;
+	padding: 2px;
+}
+
+.but:hover{
+	background-color: black;
+	color: rgb(235, 196, 26);
+}
+
+#Adminbtn{
+	margin: auto;
+	margin-bottom: 5%;
+}
+
+#connexion{
+	float: right;
+}
+
+#addEventCase{
+	width: 20%;
+	text-align: center;
+	margin: 3% 0% 4% 48%;
+}
+
+#addEventBut{
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	background-color: white;
+	border-style: groove;
+	border-radius: 10px;
+	padding: 2px;
+	font-size: 150%;
+}
+
+#addEventBut:hover{
+	background-color: black;
+	color: rgb(235, 196, 26);
+}
+
+.buttonReport{
+	display: none;
+	text-align: center;
+	text-decoration: none;
+	color: rgb(253, 253, 253);
+	background-color: rgb(252, 6, 6);
+	border-style: groove;
+	border-radius: 10px;
+	padding: 1% 1% 1% 1%;
+	font-size: 120%;
+}

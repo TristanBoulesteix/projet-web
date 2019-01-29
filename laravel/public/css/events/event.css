@@ -1,0 +1,118 @@
+.row {
+  margin: auto;
+  height: 15%;
+  margin-bottom: 2%;
+}
+
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  display: flex;
+  justify-content: center;
+}
+
+#wrapper{
+ 	width: 95%;
+	margin: auto;
+	float: left;
+	margin-left: 3%;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  text-align : center;
+  color: black;
+  padding: 1% 1% 1% 1%;
+  width: 100%;
+  border-style: groove;
+  margin-left: 3%;
+  background-color: white
+}
+
+h3{
+	text-align: left;
+	margin-left: 5%;
+	margin-top: 4%;
+}
+
+.imgcase{
+  width: 30%;
+  background-image: url("../img/ideas/horde.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+#rowButton{
+  margin: auto;
+  text-align: right;
+  padding: 1% 1% 1% 1%;
+}
+
+.buttons{
+  margin: auto;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	background-color: white;
+	border-style: groove;
+	border-radius: 10px;
+	margin: 50% 0 50% 0;
+	padding: 1% 1% 1% 1%;
+	font-size: 120%;
+}
+
+.buttons:hover{
+	background-color: black;
+  color: rgb(235, 196, 26);
+}
+
+.imgArticle {
+	height: 200px;
+	width: 100%;
+	margin: auto;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.buttonReport{
+  display: none;
+  text-decoration: none;
+  float: right;
+	text-align: center;
+	text-decoration: none;
+	color: rgb(253, 253, 253);
+	background-color: rgb(252, 6, 6);
+	border-style: groove;
+	border-radius: 10px;
+	padding: 1% 1% 1% 1%;
+	font-size: 120%;
+}
+
+.buttonParticipate{
+  display: none;
+  text-decoration: none;
+  color: white;
+}
+
+.buttonSee{
+  display: none;text-align: center;
+	text-decoration: none;
+	color: black;
+	background-color: white;
+	border-style: groove;
+	border-radius: 10px;
+	padding: 1% 1% 1% 1%;
+	font-size: 120%;
+}

@@ -1,0 +1,152 @@
+/* Media queries for Phone */
+
+
+/* Media queries for Phone with orientation portrait*/
+@media all and (max-width: 580px) and (orientation: portrait){
+
+	#banner{
+		flex-direction: column;
+
+	}
+	#hello{
+		padding: 1%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#connexion{
+		margin-left: auto;
+		margin-right: auto;
+		padding: 1%;
+	}
+
+	.side{
+		display: none !important;
+	}
+
+	.sidebar{
+		height: 75px;
+	}
+
+	#logo{
+		height: 100%;
+		width: 70%;
+	}
+
+	 #burger{
+	 	display: block;
+	 	height: 100%;
+	 	width: 30%;
+	 	display: flex;
+	 	flex-direction: column;
+	 	justify-content: space-around;
+	 }
+
+
+	 #burger div{
+	 	height: 10%;
+	 	background-color: white;
+	 	margin-left: 15%;
+		margin-right: 15%;
+	 }
+
+	 #menuBurger{
+		display: none;
+		height: 25%;
+
+	}
+
+	.footlink{
+		margin: 2% 0% 2% 0%;
+		font-size: 130%;
+	}
+}
+
+/* Media queries for Photos with orientation landscape*/
+
+@media all and (max-width: 750px) and (orientation: landscape){
+
+	header{
+		margin-left: unset;
+		width: unset;
+	}
+
+	main{
+		width: unset;
+		float: unset;
+		margin-left: unset;
+	}
+
+	footer{
+		width: unset;
+		margin-left: unset;
+	}
+
+	#banner{
+		flex-direction: column;
+
+	}
+	#hello{
+		padding: 1%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#connexion{
+		margin-left: auto;
+		margin-right: auto;
+		padding: 1%;
+	}
+
+	.side{
+		display: none !important;
+	}
+
+	.sidebar{
+		height: 75px;
+	}
+
+	.sidebar a{
+		padding-left: 14%;
+		display: unset;
+
+	}
+
+	#logo{
+		height: unset;
+		width: 80%;
+		background-size: unset;
+		background-position: left center; 
+		height: 75px;
+	}
+
+	#burger{
+	 	display: block;
+	 	height: 100%;
+	 	width: 20%;
+	 	display: flex;
+	 	flex-direction: column;
+	 	justify-content: space-around;
+	 }
+
+
+
+	 #burger div{
+	 	height: 10%;
+	 	background-color: white;
+	 	margin-left: 15%;
+		margin-right: 15%;
+	 }
+
+	 #menuBurger{
+		display: none;
+		height: 25%;
+
+	}
+
+	.footlink{
+		margin: 1% 0% 1% 0%;
+		font-size: 130%;
+	}
+}
+

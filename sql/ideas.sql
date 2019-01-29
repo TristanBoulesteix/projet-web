@@ -1,0 +1,7 @@
+DELIMITER |
+CREATE PROCEDURE ideas()
+
+BEGIN
+	SELECT *
+	FROM `ideas`;
+END|

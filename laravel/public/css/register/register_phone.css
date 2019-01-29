@@ -1,0 +1,14 @@
+/* Media queries for Phone */
+
+
+/* Media queries for Phone with orientation landscape*/
+
+@media all and (max-width: 750px) and (orientation: landscape){
+
+main{
+	height: 100% !important;
+}
+
+
+
+}

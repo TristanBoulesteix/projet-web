@@ -1,0 +1,50 @@
+$(document).ready( function () {
+  $('#table_id').DataTable();
+} );
+
+
+var token = "";
+
+$(function () {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var myJSON = JSON.parse(this.responseText);
+      getTokenAdmin(myJSON);
+    }
+  };
+  xmlhttp.open("GET", "http://10.169.128.55:3000/api/v1/users?bde=bde&cesi=lyon", true);
+  xmlhttp.send();
+});
+
+
+function getDatasAdmin (token) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var myJSON = JSON.parse(this.responseText);
+      displayOnAdmin(myJSON);
+    }
+  };
+  xmlhttp.open("GET", "http://10.169.128.55:3000/ideas?token="+token, true);
+  xmlhttp.send();
+}
+
+function getTokenAdmin (myJSON){
+var json = myJSON.result;
+getDatasAdmin(json);
+}
+
+
+
+function displayOnAdmin(myJSON) {
+  var json = myJSON.response[0];
+  var wrapper = $("#wrapper");
+  var currentRow;
+  var row = 0;
+
+
+  for (var i = 0; i < json.length; i++) {
+
+  }
+}

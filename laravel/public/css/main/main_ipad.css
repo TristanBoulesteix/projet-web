@@ -1,0 +1,38 @@
+/* Media queries for IPAD */
+
+
+/* Media queries for IPAD with orientation portrait*/
+
+@media all and (max-width: 780px) and (orientation: portrait){
+	#logo{
+		height: unset;
+		width: 35%;
+	}
+
+	.sidebar{
+		display: flex;
+		justify-content: space-between;
+	}
+
+	header, main, footer{
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
+/* Media queries for IPAD with orientation landscape*/
+
+@media all and (max-width: 1030px) and (orientation: landscape){
+
+	footer{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.footlink{
+		margin: unset;
+		text-align: center;
+	}
+
+
+}

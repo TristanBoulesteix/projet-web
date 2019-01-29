@@ -1,0 +1,22 @@
+@media all and (min-width: 1280px) {
+
+
+.imgArticle{
+	margin: unset;
+}
+
+
+footer{
+	display: flex;
+    flex-direction: column;
+}
+
+.footlink{
+	margin: 1% 4% 1% 4%;
+}
+
+h3{
+	font-size: 170%;
+}
+
+}
