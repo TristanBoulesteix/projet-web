@@ -30,9 +30,12 @@ function createElement(currentRow, json, wrapper, row, i) {
 	wrapper.append(currentRow);
 	var img = $(document.createElement("div")).attr("style", "background-image : url(../storage/event/" + json[i].image + ");").addClass('imgArticle').attr("alt", "image idée").attr("id", "imgcase");
 	currentRow.append(img);
-	var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "/home");
+	@if($role == 'CESI')
+	var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "report?type=event&id=" + json[i].id);
+	img.append(reportbtn);
+	@endif
 	var participatebtn = $(document.createElement("a")).addClass('buttonParticipate').text("S'inscrire à l'évènement!").attr("href", "/home");
-	img.append(reportbtn, participatebtn);
+	img.append(participatebtn);
 	var content = $(document.createElement("div")).addClass("content");
 	currentRow.append(content);
 	content.append("<h2>"+json[i].name +"</h2>");
@@ -59,8 +62,10 @@ function createOldEvent(currentRow, json, wrapper, row, i) {
 	var img = $(document.createElement("div")).attr("style", "background-image : url(../storage/event/" + json[i].image + ");").addClass('imgArticle').attr("alt", "image idée").attr("id", "imgcase");
 	currentRow.append(img);
 	img.append('<a href="/gallery/' + json[i].id + '">Voir photo</a>');
-	var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "/home");
+	@if($role == 'CESI')
+	var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "report?type=event&id=" + json[i].id);
 	img.append(reportbtn);
+	@endif
 	var content = $(document.createElement("div")).addClass("content");
 	currentRow.append(content);
 	content.append("<h2>"+json[i].name +"</h2>");
