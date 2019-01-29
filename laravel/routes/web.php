@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 // Routes to authentificate
 Route::auth();
 Route::get('logout', 'auth\LoginController@logout');
@@ -57,6 +56,16 @@ Route::get('conditions', 'FooterController@showSoldConditions');
 Route::get('ppd', 'FooterController@showDatasProtection');
 Route::get('contact', 'FooterController@showContact');
 
+// Report routes
+Route::middleware('auth')->group(function() {
+	if(Auth::check()) {
+		if(Auth::user()->getCurrentRole() == 'CESI') {
+			Route::get('report', function() {
+				return view('');
+			});
+		}
+	}
+});
 
 Route::get('accountAd', function(){
   return view('accountAdmin')->withTitle("account")->with("logged", false);

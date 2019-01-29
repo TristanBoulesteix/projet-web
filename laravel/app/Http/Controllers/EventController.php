@@ -8,6 +8,7 @@ use Auth;
 use Image;
 use Storage;
 use App\Model;
+use Illuminate\Http\Request;
 use App\Managers\ViewManager as Generator;
 
 class EventController extends Controller {
@@ -27,9 +28,14 @@ class EventController extends Controller {
 		return $generator->getView()->with('h3', 'Evènements Passé au BDE Lyon')->withUriSwitch('events')->withUriScript('../js/oldevent.js')->withButtonText('Évènements')->withRole(Auth::user() != null ? Auth::user()->getCurrentRole() : 'Student');
 	}
 
-	public function showAddEventForm() {
+	public function showAddEventForm(Request $request) {
 		if (Auth::user()->getCurrentRole() == 'BDE') {
 			$generator = new Generator(view('add.addEvent'), 'Ajouter un évènement');
+
+			if($request->id != null) {
+				$idea = Model\Idea::where('id', $request->id)->get()[0];
+				return $generator->getView()->withIdea($idea);
+			}
 
 			return $generator->getView();
 		} else {
@@ -38,6 +44,10 @@ class EventController extends Controller {
 	}
 
 	public function addEvent(EventRequest $request) {
+		if($request->id_idea != 0) {
+			Model\Idea::where('id', $request->id_idea)->delete();
+		}
+
 		if (Auth::user()->getCurrentRole() == 'BDE') {
 			$image = $request->file;
 			$imageName = $request->name . '-' . time() .'.' . $image->getClientOriginalExtension();

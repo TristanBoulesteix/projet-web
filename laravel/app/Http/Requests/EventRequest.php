@@ -21,6 +21,7 @@ class EventRequest extends FormRequest {
 	 */
 	public function rules() {
 		return [
+			'id_idea' => 'required',
 			'name' => 'required|max:255|unique:events',
 			'description' => 'required|max:255',
 			'file' => 'required|image',

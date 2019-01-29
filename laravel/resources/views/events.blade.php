@@ -24,4 +24,56 @@
 </div>
 
 <script src="{{ $uriScript }}"></script>
+<script>
+function createElement(currentRow, json, wrapper, row, i) {
+	currentRow = $(document.createElement("div")).addClass("row").attr("id", "row"+row);
+	wrapper.append(currentRow);
+	var img = $(document.createElement("div")).attr("style", "background-image : url(../storage/event/" + json[i].image + ");").addClass('imgArticle').attr("alt", "image idée").attr("id", "imgcase");
+	currentRow.append(img);
+	@if($role == 'CESI')
+	var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "report?type=event&id=" + json[i].id);
+	img.append(reportbtn);
+	@endif
+	var participatebtn = $(document.createElement("a")).addClass('buttonParticipate').text("S'inscrire à l'évènement!").attr("href", "/home");
+	img.append(participatebtn);
+	var content = $(document.createElement("div")).addClass("content");
+	currentRow.append(content);
+	content.append("<h2>"+json[i].name +"</h2>");
+	content.append("<p>"+json[i].description +"</p>");
+	var res = json[i].date;
+	var date = res.split("T", 1);
+	content.append("<p>"+ date +"</p>");
+	var price  = json[i].cost;
+	if(price != 0){
+		content.append("<p> Prix : "+ price +" €</p>");
+	}else{
+		content.append("<p> Évenement gratuit! </p>");
+	}
+	var type = json[i].type;
+	if(type != "none"){
+		content.append("<p> Évenement "+ type +"</p>");
+	}
+	row ++;
+}
+
+function createOldEvent(currentRow, json, wrapper, row, i) {
+	currentRow = $(document.createElement("div")).addClass("row").attr("id", "row"+row);
+	wrapper.append(currentRow);
+	var img = $(document.createElement("div")).attr("style", "background-image : url(../storage/event/" + json[i].image + ");").addClass('imgArticle').attr("alt", "image idée").attr("id", "imgcase");
+	currentRow.append(img);
+	img.append('<a href="/gallery/' + json[i].id + '">Voir photo</a>');
+	@if($role == 'CESI')
+	var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "report?type=event&id=" + json[i].id);
+	img.append(reportbtn);
+	@endif
+	var content = $(document.createElement("div")).addClass("content");
+	currentRow.append(content);
+	content.append("<h2>"+json[i].name +"</h2>");
+	content.append("<p>"+json[i].description +"</p>");
+	var res = json[i].date;
+	var date = res.split("T", 1);
+	content.append("<p>"+ date +"</p>");
+	row ++;
+}
+</script>
 @endsection
