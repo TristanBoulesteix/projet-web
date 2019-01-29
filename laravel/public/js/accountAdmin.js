@@ -78,17 +78,16 @@ var json;
       */
      var idcol = $(document.createElement("th")).text("ID");
      var name = $(document.createElement("th")).text("Nom");
-     var secname = $(document.createElement("th")).text("Prénom");
+     var secName = $(document.createElement("th")).text("Prénom");
      var email = $(document.createElement("th")).text("email");
      var status = $(document.createElement("th")).text("Status");
      var campus = $(document.createElement("th")).text("Campus");
      col.append(idcol);
      col.append(name);
-     col.append(secname);
+     col.append(secName);
      col.append(email);
      col.append(status);
      col.append(campus);
-   
    /**
     * displays datas for each recivied field of the database in the DataTable HTML elements tr
     */

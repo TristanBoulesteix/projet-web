@@ -50,7 +50,7 @@
 	</div>
 	<h3 id="all"> Tout les articles : </h3>
 
-<div id="categories">
+<div id="category">
 	{!! Form::label('categorie', 'Catégories:') !!}
 	{!! Form::select('categorie', $categories, ['required'=>'required'])!!}
 	{!! $errors->first('categorie','<small class="help-block">:message</small>') !!}
