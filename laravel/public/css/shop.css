@@ -284,3 +284,17 @@ input[type=submit] {
   background-color: rgb(0, 0, 0) !important;
   color: #ffffff;
 }
+
+
+.buttonReport{
+  display: none;
+  text-align: center;
+  text-decoration: none;
+  margin: auto;
+	color: rgb(253, 253, 253);
+	background-color: rgb(252, 6, 6);
+	border-style: groove;
+	border-radius: 10px;
+	padding: 1% 1% 1% 1%;
+	font-size: 120%;
+}
