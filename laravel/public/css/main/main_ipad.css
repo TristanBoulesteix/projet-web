@@ -1,3 +1,8 @@
+/* Media queries for IPAD */
+
+
+/* Media queries for IPAD with orientation portrait*/
+
 @media all and (max-width: 780px) and (orientation: portrait){
 	#logo{
 		height: unset;
@@ -14,6 +19,8 @@
 		margin-left: 0;
 	}
 }
+
+/* Media queries for IPAD with orientation landscape*/
 
 @media all and (max-width: 1030px) and (orientation: landscape){
 
