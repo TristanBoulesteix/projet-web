@@ -53,6 +53,9 @@ function createElement(currentRow, json, wrapper, row, i) {
 	if(type != "none"){
 		content.append("<p> Évenement "+ type +"</p>");
 	}
+	@if($role == 'BDE')
+	content.append("<a href='"+{{url('event/download/?type=event&id='.$idEvent+}}+'\'class="button">Télécharger les inscrits</a>');
+	@endif
 	row ++;
 }
 
