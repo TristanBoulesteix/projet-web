@@ -1,4 +1,7 @@
 @extends ('template')
+@section('description')
+<meta name="description" content="Magasin en ligne du BDE, Achat de goodies et de places d'évènements" />
+@endsection
 @section ('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./css/shop.css">
@@ -15,6 +18,9 @@
 			<a href="cart">
 				<i class="fa fa-shopping-cart "></i>
 			</a>
+			@if($role == 'BDE')
+			<a id="addProduct" href="addarticle"> Ajouter&nbsp;un&nbsp;article </a>
+			@endif
 			<form autocomplete="off">
 					<div class="autocomplete" style="width:300px;">
 						<input id="myInput" type="text" name="articles" placeholder="Vous recherchez?">
@@ -57,7 +63,7 @@
 		function createArticle(json, wrapper, i) {
 			var columnElement = $(document.createElement("div")).addClass("column").attr("id", i);
 			wrapper.append(columnElement);
-			var img = $(document.createElement("div")).attr("style", "background-image : url(../img/produit/" + json[i].image + ");").addClass('imgArticle');
+			var img = $(document.createElement("div")).attr("style", "background-image : url('../storage/article/" + json[i].image + "');").addClass('imgArticle');
 			img.append("<div class='buttonShop addToCart'>Ajouter au panier</div>");
 			var reportbtn = $(document.createElement("a")).addClass('buttonReport').text("report").attr("href", "/home");
 			img.append(reportbtn);

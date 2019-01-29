@@ -1,7 +1,10 @@
 @extends ("template")
 
-
+@section('description')
+<meta name="description" content="BDE-Lyon-CESI" />
+@endsection
 @section('content')
+
 
 	<h3> Qu'est ce qu'un BDE </h3>
 

@@ -20,11 +20,15 @@ Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
 // Routes for the shop
 Route::get('shop', 'ShopController@showShop');
-Route::get('shop/{n}', 'ShopController@addToCart')->where('n', '^[0-9]*$');
-Route::get('shop/delete/{n}', 'ShopController@deleteArticle')->where('n', '^[0-9]*$');
-Route::get('cart', ['uses' => 'ShopController@showCart', 'as' => 'cart']);
-Route::delete('cart', ['uses' => 'ShopController@buyclean', 'as' => 'buyClean']);
-Route::post('cart', ['uses' => 'ShopController@buy','as' => 'buy']);
+Route::middleware('auth')->group(function() {
+	Route::get('shop/{n}', 'ShopController@addToCart')->where('n', '^[0-9]*$');
+	Route::get('shop/delete/{n}', 'ShopController@deleteArticle')->where('n', '^[0-9]*$');
+	Route::get('cart', ['uses' => 'ShopController@showCart', 'as' => 'cart']);
+	Route::delete('cart', ['uses' => 'ShopController@buyclean', 'as' => 'buyClean']);
+	Route::post('cart', ['uses' => 'ShopController@buy','as' => 'buy']);
+	Route::get('addarticle', 'ShopController@showArticleForm');
+	Route::post('addarticle', 'ShopController@addArticle');
+});
 
 // Routes for the ideas
 Route::get('idea', 'IdeaController@showIdeas');
@@ -34,10 +38,18 @@ Route::get('/idea/admin', 'IdeaController@showAdmin');
 
 // Routes for events
 Route::get('events', 'EventController@showEvents');
-Route::get('addevent', 'EventController@showAddEventForm');
-Route::post('addevent', 'EventController@addEvent');
 Route::get('oldevents', 'EventController@showOlds');
-Route::get('gallery/{n}', 'EventController@showGallery')->where('n', '^[0-9]*$');
+Route::middleware('auth')->group(function() {
+	Route::get('addevent', 'EventController@showAddEventForm');
+	Route::post('addevent', 'EventController@addEvent');
+});
+
+// Routes for gallery
+Route::get('gallery/{n}', 'GalleryController@showGallery')->where('n', '^[0-9]*$');
+Route::middleware('auth')->group(function() {
+	Route::get('gallery/add/{n}', 'GalleryController@showForm')->where('n', '^[0-9]*$');
+	Route::post('gallery/add', 'GalleryController@addImage');
+});
 
 // Footer routes
 Route::get('legals', 'FooterController@showLegals');
