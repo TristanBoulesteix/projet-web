@@ -26,11 +26,6 @@
 	{!! $errors->first('password','<small class="help-block">:message</small>') !!}
 </div>
 
-<div id="check">
-<label for="rules">Cochez pour acceptez notre  <a href="http://projet/ppd"> politique de protection des données : </a> </label>
-<input checked="checked" name="reponse" type="checkbox" value="rules">
-</div>
-
 {!! Form::submit('connexion', ['class'=>'connexion'])!!}
 
 
