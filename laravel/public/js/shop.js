@@ -44,6 +44,11 @@ function displayOn(myJSON) {
 	for (var i = 0; i < json.length; i++) {
 		createArticle(json, wrapper, i);
 
+		if( !$.trim( $('#allarticles').html() ).length ){
+			var hello = $(document.createElement("p")).text("Données non disponibles.");
+			wrapper.append(hello);
+		}
+
 		$(".imgArticle").hover( function(){
 				$(this).find($(".buttonShop")).css("display", "inline-block");
 				}, function(){
