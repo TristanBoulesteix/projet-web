@@ -14,7 +14,7 @@
 <div id="wrapper">
 	@forelse ( $kept as $article)
 		<div class="row">
-			<div class="imgcase" style='background-image:url(../img/produit/{{ $article->image }})'></div>
+			<div class="imgcase" style='background-image:url(../storage/article/{{ $article->image }})'></div>
 			<div class="content">
 				<p> {{ $article->description }} </p>
 			</div>

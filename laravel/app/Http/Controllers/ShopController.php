@@ -67,7 +67,7 @@ class ShopController extends Controller {
 	}
 
 	/**
-	 * Show all articles selected buy the user
+	 * Show all articles selected by the user
 	 *
 	 */
 	public function showCart() {
@@ -114,7 +114,7 @@ class ShopController extends Controller {
 	}
 
 	private function fetchCart() {
-		$cart = Model\Keep::select('id_products')->where('id_user', Auth::user()->id)->get()->all();
+		$cart = Model\Keep::select('id_products')->where('id_user', Auth::user()->id)->get();
 		$kept = array();
 
 		foreach($cart as $keep) {

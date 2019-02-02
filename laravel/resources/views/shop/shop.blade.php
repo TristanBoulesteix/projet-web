@@ -31,7 +31,7 @@
 	<div class="wrapper">
 		@foreach ($bestProducts as $product)
 			<div class='column {{ $product->id }}'>
-				<div style='background-image: url(../img/produit/{{ $product->image }});' class="imgArticle">
+				<div style='background-image: url(../storage/article/{{ $product->image }});' class="imgArticle">
 					<div class='buttonShop addToCart top3'> Ajouter au panier </div>
 					@if($role == 'CESI')
 					<a class='buttonReport' href='report?type=article&id='.{{ $product->id }}> Report </a>
@@ -64,7 +64,7 @@
 	<script src="./js/categories.js"></script>
 	<script>
 		function createArticle(json, wrapper, i) {
-			var columnElement = $(document.createElement("div")).addClass("column").attr("id", i);
+			var columnElement = $(document.createElement("div")).addClass("column").attr("id", json[i].id);
 			wrapper.append(columnElement);
 			var img = $(document.createElement("div")).attr("style", "background-image : url('../storage/article/" + json[i].image + "');").addClass('imgArticle');
 			img.append("<div class='buttonShop addToCart'>Ajouter au panier</div>");
